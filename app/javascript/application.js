@@ -1,9 +1,9 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import './add_jquery'
 //= require jquery
-//= require bootstrap-sprockets
-import "bootstrap"
-import jquery from 'jquery'
-window.$ = jquery
+//= require jquery_ujs
+// require turbolinks
+//= require_tree .
 
 import * as bootstrap from 'bootstrap'
 window.bootstrap = bootstrap
+
