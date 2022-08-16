@@ -19,15 +19,19 @@ jobs:
           command: bundle exec rubocop
 
   test:
+    parallelism: 4
     docker:
       - image: cimg/ruby:3.1.2-node
       - image: cimg/postgres:14.4
+        environment: # add POSTGRES environment variables.
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: "postgres"
+          POSTGRES_DB: bookstore_test
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       BOOKSTORE_DATABASE_PASSWORD: "postgres"
-      RAILS_ENV: test
     steps:
       - checkout
       - ruby/install-deps
@@ -48,7 +52,6 @@ jobs:
       - run:
           name: run specs
           command: bundle exec rspec
-    parallelism: 4
 
 workflows:
   version: 2
