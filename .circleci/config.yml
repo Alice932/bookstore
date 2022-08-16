@@ -32,7 +32,7 @@ jobs:
       BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       BOOKSTORE_DATABASE_PASSWORD: "postgres"
-      RAILS_ENV: production
+      RAILS_ENV: test
     steps:
       - checkout
       - ruby/install-deps
