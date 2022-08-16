@@ -21,10 +21,10 @@ jobs:
   test:
     docker:
       - image: cimg/ruby:3.1.2-node
-      - image: circleci/postgres:12-alpine
+      - image: cimg/postgres:14.4.0
         environment:
           POSTGRES_USER: denver932
-          POSTGRES_DB: bookstore_test
+          POSTGRES_DB: Bookstore_test
           POSTGRES_PASSWORD: "postgres"
     environment:
       BUNDLE_JOBS: "3"
