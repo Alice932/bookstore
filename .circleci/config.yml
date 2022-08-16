@@ -40,7 +40,7 @@ jobs:
       - browser-tools/install-chromedriver
       - run:
           name: Assets precomplile
-          command: rails assets:precompile
+          command: bin/rails assets:precompile
       - run:
           name: Install ImageMagick
           command: sudo apt-get install imagemagick
