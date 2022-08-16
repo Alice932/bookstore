@@ -21,11 +21,7 @@ jobs:
   test:
     docker:
       - image: cimg/ruby:3.1.2-node
-      - image: cimg/postgres:14.4-alpine
-        environment:
-          POSTGRES_USER: denver932
-          POSTGRES_DB: Bookstore_test
-          POSTGRES_PASSWORD: "postgres"
+      - image: cimg/postgres:14.4
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -48,7 +44,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: bundle exec rails db:schema:load --trace
+          command: bundle exec rails db:setup
       - run:
           name: run specs
           command: bundle exec rspec
