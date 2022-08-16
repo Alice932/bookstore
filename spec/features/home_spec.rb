@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Home Page', type: :system do
+RSpec.describe 'Home Page' do
   let(:first_book) { create :book }
   context 'right text on page' do
     # it 'have start button' do
