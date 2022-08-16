@@ -7,7 +7,7 @@ orbs:
 jobs:
   lintering:
     docker:
-      - image: cimg/ruby:3.1.2
+      - image: cimg/ruby:3.1.2-node
     steps:
       - checkout
       - ruby/install-deps
@@ -20,7 +20,7 @@ jobs:
 
   test:
     docker:
-      - image: cimg/ruby:3.1.2
+      - image: cimg/ruby:3.1.2-node
       - image: circleci/postgres:12-alpine
         environment:
           POSTGRES_USER: denver932
