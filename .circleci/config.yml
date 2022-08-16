@@ -21,8 +21,7 @@ jobs:
   test:
     docker:
       - image: cimg/ruby:3.1.2-node
-      - image: cimg/go:1.17
-      - image: cimg/postgres:14.4.0
+      - image: cimg/postgres:14.4
         environment:
           POSTGRES_USER: denver932
           POSTGRES_DB: Bookstore_test
