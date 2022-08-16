@@ -17,9 +17,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: denver932
+  password: <%= ENV["BOOKSTORE_DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
@@ -58,8 +58,6 @@ development:
 test:
   <<: *default
   database: Bookstore_test
-  username: Bookstore
-  password: "postgres"
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,5 +82,4 @@ test:
 production:
   <<: *default
   database: Bookstore_production
-  username: Bookstore
-  password: <%= ENV["BOOKSTORE_DATABASE_PASSWORD"] %>
+
