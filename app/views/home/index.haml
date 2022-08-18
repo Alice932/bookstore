@@ -1,55 +1,16 @@
 %body
   %main.container
-    #slider.carousel.slide{'data-ride': "carousel"}
-      %ol.carousel-indicators
-        %li.active{'data-target': "#slider", 'data-slide-to': "0"}
-        %li{'data-target': "#slider", 'data-slide-to': "1"}
-        %li{'data-target': "#slider", 'data-slide-to': "2"}
-      .carousel-inner{role: "listbox"}
-        - @last_three_books.each do |book|
-          - if @last_three_books.first == book
-            .item.active
-              .row
-                .col-sm-5
-                  .general-img-wrap
-                    %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
-                .col-sm-7
-                  .mb-60
-                    %h1= book.title
-                    %p.lead= book.description
-                    %p.lead.small= book.author
-                    .general-align
-                      %button.disabled.btn Buy Now
-          - else
-            .item
-              .row
-                .col-sm-5
-                  .general-img-wrap
-                    %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
-                .col-sm-7
-                  .mb-60
-                    %h1= book.title
-                    %p.lead= book.description
-                    %p.lead.small= book.author
-                    .general-align
-                      %button.disabled.btn Buy Now
-      %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
-        %span.icon-prev{'aria-hidden': "true"}
-        %span.sr-only Previous
-      %a.right.carousel-control{href: "#slider", role: "button", 'data-slide': "next"}
-        %span.icon-next{'aria-hidden': "true"}
-        %span.sr-only Next
-  .container
+    = render 'partials/carousel'
     .jumbotron.text-center.mb-0
-      %h2.h1 Welcome to our amazing Bookstore!
+      %h2.h1= I18n.t('home_page.welcome_msg')
       .mb-res-50
-        %p We pore through hundreds of new books each month and select the five best we can find to share with our members.
-      %button.btn.btn-default Get Started
+        %p= I18n.t('home_page.description')
+      %button.btn.btn-default= I18n.t('home_page.get_started')
   .container
     .mb-35
-      %h3 Best Sellers
+      %h3= I18n.t('home_page.best_sellers')
       .row
-        - @sorted_books.each do |book|
+        - @books.each do |book|
           .col-sm-6.col-md-3
             .general-thumb-wrap
               .thumbnail.general-thumbnail
@@ -65,4 +26,4 @@
                 %p.pull-right.font-16.in-gold-500= '€' + book.price.to_s
                 %p.title.mr-55= book.title
               %span.divider-sm
-              %p.lead.small= book.author
+              %p.lead.small= book.author.name

@@ -2,8 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    @books = Book.all
-    @last_three_books = @books.reverse[0..2]
-    @sorted_books = @books.sort_by(&:sales_count).reverse[0..3]
+    @books = Book.all.includes([:author]).limit(Book::LATEST_BOOK_COUNT)
+    @new_books = Book.all.includes([:author]).limit(Book::NEW_BOOKS_COUNT).order(created_at: :desc)
   end
 end
