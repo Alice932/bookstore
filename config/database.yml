@@ -1,7 +1,9 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: denver932
+  password: <%= ENV['BOOKSTORE_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
