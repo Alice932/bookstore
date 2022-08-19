@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Home Page' do
-  let!(:author) { create :author }
-  let!(:first_book) { create :book }
-  let!(:second_book) { create :book }
-  let!(:third_book) { create :book }
-  let!(:fourth_book) { create :book }
-  let!(:author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
-
   context 'right text on page' do
+    let!(:author) { create :author }
+    let!(:first_book) { create :book }
+    let!(:second_book) { create :book }
+    let!(:third_book) { create :book }
+    let!(:fourth_book) { create :book }
+    let!(:author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
+
     before do
       visit root_path
     end
