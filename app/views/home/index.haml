@@ -26,4 +26,5 @@
                 %p.pull-right.font-16.in-gold-500= '€' + book.price.to_s
                 %p.title.mr-55= book.title
               %span.divider-sm
-              %p.lead.small= book.author.name
+              - book.authors.each do |author|
+                %p.lead.small= author.name

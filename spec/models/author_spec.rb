@@ -1,0 +1,18 @@
+# frozen_string_literal: true
+
+RSpec.describe Author, type: :model do
+  subject { build(:author) }
+
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+  end
+
+  describe 'column exist' do
+    it { should have_db_column(:name).of_type(:string) }
+  end
+
+  describe 'have many' do
+    it { should have_many(:author_books) }
+    it { should have_many(:books) }
+  end
+end
