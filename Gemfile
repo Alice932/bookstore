@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bundle-audit', '~> 0.1.0'
 gem 'cssbundling-rails', '~> 1.1.1'
 gem 'fasterer', '~> 0.10.0', require: false
+gem 'ffaker', '~> 2.21.0'
 gem 'haml', '~> 5.2'
 gem 'haml-rails', '~> 2.0.1'
 gem 'jbuilder', '~> 2.11.5'
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'capybara', '~> 3.37.1'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
-  gem 'ffaker', '~> 2.21.0'
 
   gem 'rubocop', require: false
   gem 'rubocop-performance', '~> 1.14.3', require: false
