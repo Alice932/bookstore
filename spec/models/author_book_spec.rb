@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe AuthorBook, type: :model do
-  let!(:author) { create(:author) }
-  let!(:book) { create(:book) }
-  subject { build(:author_book, author_id: author.id, book_id: book.id) }
-
   describe 'fields exist' do
     it { should have_db_column(:author_id).of_type(:integer) }
     it { should have_db_column(:book_id).of_type(:integer) }

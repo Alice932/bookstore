@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe Author, type: :model do
-  subject { build(:author) }
-
   describe 'validations' do
     it { should validate_presence_of(:name) }
   end
