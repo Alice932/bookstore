@@ -10,13 +10,13 @@ RSpec.describe Book, type: :model do
     it { should validate_presence_of(:price) }
   end
 
-  describe 'column exist' do
+  describe 'fields exist' do
     it { should have_db_column(:title).of_type(:string) }
     it { should have_db_column(:description).of_type(:string) }
     it { should have_db_column(:price).of_type(:integer) }
   end
 
-  describe 'have many' do
+  describe 'relations' do
     it { should have_many(:author_books) }
     it { should have_many(:authors) }
   end

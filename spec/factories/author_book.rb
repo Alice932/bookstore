@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory(:author_book) do
-    author_id { author_id }
-    book_id { book_id }
+    author
+    book
   end
 end

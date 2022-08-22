@@ -7,11 +7,11 @@ RSpec.describe Author, type: :model do
     it { should validate_presence_of(:name) }
   end
 
-  describe 'column exist' do
+  describe 'fields exist' do
     it { should have_db_column(:name).of_type(:string) }
   end
 
-  describe 'have many' do
+  describe 'relations' do
     it { should have_many(:author_books) }
     it { should have_many(:books) }
   end

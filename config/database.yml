@@ -1,7 +1,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: denver932
+  username: <%= Rails.application.credentials.username %>
+  password: <%= Rails.application.credentials.password %>
 
 development:
   <<: *default

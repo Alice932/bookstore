@@ -3,11 +3,16 @@
 RSpec.describe 'Home Page' do
   context 'right text on page' do
     let!(:author) { create :author }
+
     let!(:first_book) { create :book }
     let!(:second_book) { create :book }
     let!(:third_book) { create :book }
     let!(:fourth_book) { create :book }
-    let!(:author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
+
+    let!(:first_author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
+    let!(:second_author_books) { create :author_book, book_id: second_book.id, author_id: author.id }
+    let!(:third_author_books) { create :author_book, book_id: third_book.id, author_id: author.id }
+    let!(:fourth_author_books) { create :author_book, book_id: fourth_book.id, author_id: author.id }
 
     before do
       visit root_path
