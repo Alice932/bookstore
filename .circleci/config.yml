@@ -1,61 +1,71 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
- # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
+orbs:
+  ruby: circleci/ruby@1.0
+  node: circleci/node@2
+  browser-tools: circleci/browser-tools@1.0.1
 
-executors:
-  default:
-    working_directory: ~/repo
+jobs:
+  lintering:
     docker:
-      - image: cimg/ruby:3.1.2
-
-caches:
-  - &bundle_cache_full v2-repo-{{ checksum "Gemfile.lock" }}
-  - &bundle_cache v2-repo-
-
-commands:
-  defaults:
+      - image: cimg/ruby:3.1.2-node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - *bundle_cache_full
-            - *bundle_cache
-      - run: bundle install --path vendor/bundle
-      - save_cache:
-          key: *bundle_cache_full
-          paths:
-            - vendor/bundle
-  run_linters:
-    description: command to start linters
-    steps:
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
       - run:
           name: rubocop
           command: bundle exec rubocop
       - run:
           name: fasterer
           command: bundle exec fasterer
+      - run:
+          name: bundle audit
+          command: bundle exec bundle-audit
 
-  run_specs:
+  test:
+    parallelism: 4
+    docker:
+      - image: cimg/ruby:3.1.2-node
+      - image: cimg/postgres:14.4
+        environment:
+          POSTGRES_USER: denver932
+          POSTGRES_PASSWORD: "postgres"
+          POSTGRES_DB: bookstore_test
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      BOOKSTORE_DATABASE_PASSWORD: "postgres"
+      RAILS_ENV: test
     steps:
+      - checkout
+      - ruby/install-deps
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          name: Assets precomplile
+          command: bin/rails assets:precompile
+      - run:
+          name: Install ImageMagick
+          command: sudo apt-get install imagemagick
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:setup
       - run:
           name: run specs
           command: bundle exec rspec
 
-jobs:
-  lintering:
-    executor: default
-    steps:
-      - defaults
-      - run_linters
-  run_specs:
-    executor: default
-    steps:
-      - defaults
-      - run_specs
-
 workflows:
-  version: 2.1
-  build:
+  version: 2
+  lint_and_test:
     jobs:
       - lintering
-      - run_specs
+      - test

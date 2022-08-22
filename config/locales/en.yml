@@ -1,0 +1,31 @@
+en:
+  head:
+    title: Bookstore
+  header:
+    title: Bookstore
+    shop_quantity: 3
+    home: Home
+    collapse:
+      shop: Shop
+      mobile: Mobile development
+      photo: Photo
+      design: Web design
+    account: My account
+    logout: Log Out
+  footer:
+    home: Home
+    shop: Shop
+    orders: Orders
+    settings: Settings
+    email: support@bookstore.com
+    phone: (555)-555-5555
+  home_page:
+    welcome_msg: Welcome to our amazing Bookstore!
+    btn_buy: Buy Now
+    pervious: Pervious
+    next: Next
+    description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
+    get_started: Get Started
+    best_sellers: Best Sellers
+
+
