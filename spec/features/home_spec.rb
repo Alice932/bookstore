@@ -1,18 +1,20 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
 RSpec.describe 'Home Page' do
-  let(:first_book) { create :book }
-  let(:second_book) { create :book }
-  let(:third_book) { create :book }
-  let(:fourth_book) { create :book }
-
   context 'right text on page' do
+    let!(:author) { create :author }
+
+    let!(:first_book) { create :book }
+    let!(:second_book) { create :book }
+    let!(:third_book) { create :book }
+    let!(:fourth_book) { create :book }
+
+    let!(:first_author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
+    let!(:second_author_books) { create :author_book, book_id: second_book.id, author_id: author.id }
+    let!(:third_author_books) { create :author_book, book_id: third_book.id, author_id: author.id }
+    let!(:fourth_author_books) { create :author_book, book_id: fourth_book.id, author_id: author.id }
+
     before do
-      first_book
-      second_book
-      third_book
-      fourth_book
       visit root_path
     end
 
@@ -33,6 +35,10 @@ RSpec.describe 'Home Page' do
 
     it 'have start button' do
       expect(page).to have_button('Get Started')
+    end
+
+    it 'have author name' do
+      expect(page).to have_content(author.name)
     end
   end
 end

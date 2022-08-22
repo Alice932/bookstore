@@ -17,6 +17,12 @@ jobs:
       - run:
           name: rubocop
           command: bundle exec rubocop
+      - run:
+          name: fasterer
+          command: bundle exec fasterer
+      - run:
+          name: bundle audit
+          command: bundle exec bundle-audit
 
   test:
     parallelism: 4

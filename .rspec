@@ -1,1 +1,5 @@
---require spec_helper
+--require rails_helper
+--require rspec-rails
+--require rubocop-rspec
+--require rubocop-performance
+--require rubocop-rails

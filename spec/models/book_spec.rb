@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-RSpec.describe 'Book Model' do
-  let(:valid_book) { create :book }
-  let(:not_valid_book) { Book.new({ title: nil }) }
-
-  it 'is valid' do
-    expect(valid_book).to be_valid
+RSpec.describe Book, type: :model do
+  describe 'validations' do
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:price) }
   end
 
-  it 'not valid' do
-    expect(not_valid_book).to_not be_valid
+  describe 'fields exist' do
+    it { should have_db_column(:title).of_type(:string) }
+    it { should have_db_column(:description).of_type(:string) }
+    it { should have_db_column(:price).of_type(:integer) }
+  end
+
+  describe 'relations' do
+    it { should have_many(:author_books) }
+    it { should have_many(:authors) }
   end
 end
