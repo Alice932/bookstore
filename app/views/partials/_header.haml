@@ -19,7 +19,7 @@
           %span{'aria-hidden': "true"} &times;
         %ul.nav.navbar-nav
           %li
-            %a{href: "#"}= I18n.t('header.home')
+            %a{href: "/"}= I18n.t('header.home')
           %li
             %a{type: "button", 'data-toggle': "collapse", href: "#menu", 'aria-expanded': "false", 'aria-controls': "menu"}= I18n.t('header.collapse.shop')
             %ul#menu.collapse.list-unstyled.pl-30.mb-10{'aria-expanded': "false"}
@@ -34,7 +34,7 @@
       .hidden-xs
         %ul.nav.navbar-nav
           %li
-            %a{href: "#"}= I18n.t('header.home')
+            %a{href: "/"}= I18n.t('header.home')
           %li.dropdown
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.collapse.shop')
             %ul.dropdown-menu

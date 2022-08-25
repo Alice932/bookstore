@@ -4,7 +4,7 @@
       .col-sm-9
         %ul.list-inline.general-align.mb-25
           %li
-            %a.nav-link{href: "#"}= I18n.t('footer.home')
+            %a.nav-link{href: "#"}= link_to I18n.t('footer.home'), root_path, class: 'nav-link'
           %li
             %a.nav-link{href: "#"}= I18n.t('footer.shop')
           %li
