@@ -1,6 +1,6 @@
 
 %main.container
-  %a.general-back-link{href: "#"}
+  = link_to request.referer, class: 'general-back-link' do
     %i.fa.fa-long-arrow-left.mr-15
     Back to results
   .row
@@ -16,25 +16,25 @@
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
-      %h1.mt-res-0 Real-Life Responsive Web Design
-      %p.lead.small Vitaly Friedman, Daniel Mall,Vitaly Friedman
+      %h1.mt-res-0= @book.title
+      %p.lead.small= book.truncated_all_authors
       .row
         .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10 €32.90
+          %p.h1.in-gold-500.mt-10#book_price= number_to_currency(@book.price, unit: '€')
         .col-xs-5.col-md-3
           .input-group.general-position
-            %a.input-link{href: "#"}
+            %a.input-link.b-n.pt-7#minus
               %i.fa.fa-minus.line-height-40
-            %input.form-control.quantity-input{type: "text"}
-            %a.input-link{href: "#"}
+            = text_field_tag "books_count", "", class: 'form-control quantity-input input-count-book', disabled: true, value: 1
+            %a.b-n.input-link#plus
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
           %button.btn.btn-default.pull-right.general-position Add to Cart
       .general-info-wrap.divider-lg
-        %p Description
-        %p.lead.small.line-height-2
-          Smashing Book 5: Real-Life Responsive Web Design is our brand new, upcoming book with smart front-end techniques and design patterns derived from real-life responsive projects. With 13 chapters on responsive workflow, SVG, Flexbox, Web fonts, responsive images, responsive email, content strategy, debugging ...
-          %a.in-gold-500.ml-10{href: "#"} Read More
+        %p= t('book.description')
+        %span.textControl
+          %span.lessText.lead.small.line-height-2= t('lorem')
+          %a.moreContentBtn.in-gold-500.ml-10
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left Year of publication

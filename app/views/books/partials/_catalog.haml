@@ -1,0 +1,25 @@
+.container
+  %h1.general-title-margin= t('books.catalog.title')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      .dropdown.width-240
+        %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}
+          = t("books.catalog.sort.#{params[:filter] || SortBooksService::BOOK_DEFAULT_FILTER}")
+          %i.fa.fa-angle-down.dropdown-icon.pull-right
+        %ul.dropdown-menu
+          - SortBooksService::BOOK_FILTERS.each_key do |filter|
+            %li
+              = link_to_unless params[:category_id], t("books.catalog.sort.#{filter}"), books_path(filter: filter) do
+                = link_to t("books.catalog.sort.#{filter}"), category_books_path(filter: filter)
+    %ul.list-inline.pt-10.mb-25.mr-240
+      %li.mr-35
+        = link_to books_path, class: 'filter-link' do
+          = t('catalog.filter.all')
+          %span.badge.general-badge
+            = @books_count
+      - @categories.each do |category|
+        %li.mr-35
+          = link_to category_books_path(category_id: category.id), class: 'filter-link' do
+            = category.category_name
+            %span.badge.general-badge
+              = category.books.count

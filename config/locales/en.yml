@@ -1,4 +1,6 @@
 en:
+  lorem:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
   head:
     title: Bookstore
   header:
@@ -27,5 +29,25 @@ en:
     description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
     get_started: Get Started
     best_sellers: Best Sellers
+  books:
+    index:
+      view_more: View More
+    catalog:
+      title: Сatalog
+      filter:
+        filter_by: Filter by category
+        all: All
+        mobile: Mobile Development
+        photo: Photo
+        design: Web Design
+      sort:
+        sort_by: Sort by
+        title_asc: 'Title: A - Z'
+        title_desc: 'Title: Z - A'
+        created_at_desc: Newest first
+        popular_asc: Popular first
+        price_asc: 'Price: Low to hight'
+        price_desc: 'Price: Hight to low'
+
 
 

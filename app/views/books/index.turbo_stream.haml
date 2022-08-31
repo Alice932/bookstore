@@ -1,0 +1,6 @@
+=turbo_stream.append "books" do
+  = render partial: 'books/partials/book', collection: books, as: :book
+
+=turbo_stream.update "next_link" do
+  - if @pagy.next.present?
+    = button_to "View More", pagy_url_for(@pagy, @pagy.next), {class: "btn btn-primary" }
