@@ -44,7 +44,7 @@ end
 Capybara.configure do |config|
   config.asset_host = 'http://localhost:3000'
   config.always_include_port = true
-  config.default_driver = :chrome
+  config.default_driver = :selenium
   config.default_max_wait_time = ENV['CI'] ? 10 : 5
   config.enable_aria_label = true
   config.ignore_hidden_elements = true

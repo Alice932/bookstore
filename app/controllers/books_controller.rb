@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   decorates_assigned :book, :books
 
   def index
+    @books_count = Book.all.count
     @pagy, @books = pagy_countless(scoped_books, items: BOOKS_PER_PAGE)
     @categories = Category.all
 

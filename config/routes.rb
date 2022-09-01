@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :categories, only: [] do
-    resources :books, only: :index do
+    resources :books, only: %i[index] do
       collection do
         post :index
       end
