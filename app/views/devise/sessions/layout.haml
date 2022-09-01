@@ -1,0 +1,39 @@
+
+%main.container.general-main-wrap
+  .text-center
+    %h3.general-login-title Log In
+    %a.general-login-icon{href: "#"}
+      %i.fa-brands.fa-facebook-square
+    %p.general-login-text or
+  %form.general-form
+    .form-group.mb-30
+      %label.control-label.input-label{for: "email"} Enter Email
+      %input#email.form-control{name:"email", type: "email", placeholder: "Enter Email"}
+    .form-group.mb-30
+      %label.control-label.input-label{for: "password"} Password
+      %input#password.form-control{name:"password", type: "password", placeholder: "Password"}
+      %a.help-block.in-gold-500{href: "#"} Forgot password?
+    .form-group.mb-30
+      %label.control-label.input-label{for: "confirm"} Confirm Password
+      %input#confirm.form-control{name:"confirm", type: "password", placeholder: "Confirm Password"}
+    .form-group.checkbox.text-center.mb-30
+      %label.checkbox-label
+        %input.checkbox-input{type: "checkbox", hidden: "true"}
+        %span.checkbox-icon
+          %i.fa.fa-check
+        %span.checkbox-text Remember me
+    .text-center
+      %button.btn.btn-default.mb-20 Back to Store
+  %p.general-sign-text.text-center
+    Don’t have an Account?
+    %a.in-gold-500{href: "#"} Sign Up
+
+= simple_form_for @user do |f|
+  = f.input :username, label: 'Your username please', error: 'Username is mandatory, please specify one'
+  = f.input :password, hint: 'No special characters.'
+  = f.input :email, placeholder: 'user@domain.com'
+  = f.input :remember_me, inline_label: 'Yes, remember me'
+  = f.button :submit
+.actions
+  = f.submit "Log in"
+= render "devise/shared/links"=
