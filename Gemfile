@@ -9,6 +9,7 @@ gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bundle-audit', '~> 0.1.0'
 gem 'cssbundling-rails', '~> 1.1.1'
+gem 'devise', '~> 4.0'
 gem 'draper', '~> 4.0.2'
 gem 'fasterer', '~> 0.10.0', require: false
 gem 'ffaker', '~> 2.21.0'

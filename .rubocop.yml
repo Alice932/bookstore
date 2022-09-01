@@ -11,6 +11,8 @@ Style/Documentation:
 
 Layout/LineLength:
   Max: 120
+  Exclude:
+    - 'config/initializers/devise.rb'
 
 Metrics/BlockLength:
   Exclude:
