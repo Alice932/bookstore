@@ -2,12 +2,12 @@
   %main.container
     = render 'home/partials/carousel'
     .jumbotron.text-center.mb-0
-      %h2.h1= I18n.t('home_page.welcome_msg')
+      %h2.h1= t('home_page.welcome_msg')
       .mb-res-50
-        %p= I18n.t('home_page.description')
-      %button.btn.btn-default= link_to I18n.t('home_page.get_started'), books_path, class: 'button btn btn-default'
+        %p= t('home_page.description')
+      %button.btn.btn-default= link_to t('home_page.get_started'), books_path, class: 'button btn btn-default'
   .container
     .mb-35
-      %h3= I18n.t('home_page.best_sellers')
+      %h3= t('home_page.best_sellers')
       .row
         = render partial: 'home/partials/book', collection: books, as: :book

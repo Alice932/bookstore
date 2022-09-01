@@ -1,19 +1,9 @@
 # frozen_string_literal: true
 
 class SortBooksService
-  BOOK_DEFAULT_FILTER = :created_at_desc
-  BOOK_FILTERS = {
-    created_at_desc: { created_at: :desc },
-    popular_asc: { created_at: :desc },
-    price_asc: { price: :asc },
-    price_desc: { price: :desc },
-    title_asc: { title: :asc },
-    title_desc: { title: :desc }
-  }.freeze
-
   def initialize(params)
     @category_id = params[:category_id]
-    @filter = params[:filter]&.to_sym || BOOK_DEFAULT_FILTER
+    @filter = params[:filter]&.to_sym || BooksHelper::BOOK_DEFAULT_FILTER
   end
 
   def call
@@ -35,6 +25,6 @@ class SortBooksService
   end
 
   def order_by_filter
-    @find_books.order(BOOK_FILTERS[@filter])
+    @find_books.order(BooksHelper::BOOK_FILTERS[@filter])
   end
 end

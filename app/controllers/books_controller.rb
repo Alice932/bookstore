@@ -2,13 +2,12 @@
 
 class BooksController < ApplicationController
   include Pagy::Backend
-  BOOKS_PER_PAGE = 12
 
   decorates_assigned :book, :books
 
   def index
     @books_count = Book.all.count
-    @pagy, @books = pagy_countless(scoped_books, items: BOOKS_PER_PAGE)
+    @pagy, @books = pagy_countless(scoped_books, items: BooksHelper::BOOKS_PER_PAGE)
     @categories = Category.all
 
     respond_to do |format|
@@ -19,7 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @categories = Category.all
-    @filters = SortBooksService::BOOK_FILTERS
+    @filters = BooksHelper::BOOK_FILTERS
     @book = Book.find(params[:id])
   end
 

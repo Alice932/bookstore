@@ -126,12 +126,6 @@ RSpec.describe 'Book Page' do
         expect(page).to have_content(first_book.materials)
         expect(page).to have_content(first_book.dimensions)
       end
-
-      # it 'adds to price' do
-      #   find("a.b-n.input-link#plus").click
-      #   find("a.b-n.input-link#plus").click
-      #   expect(page).to have_content(first_book.price + first_book.price)    #idk
-      # end
     end
   end
 end
