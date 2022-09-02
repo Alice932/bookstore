@@ -2,6 +2,8 @@
 
 module Constants
   module Books
+    TRUNCATED_LENGTH = { all_authors: 40,
+                         title: 25 }.freeze
     BOOKS_PER_PAGE = 12
     BOOK_DEFAULT_FILTER = :created_at_desc
     BOOK_FILTERS = {
