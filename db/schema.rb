@@ -35,9 +35,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_152134) do
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "publication_date", default: "", null: false
-    t.string "materials", default: "", null: false
-    t.string "dimensions", default: "", null: false
+    t.string "publication_date", null: false
+    t.string "materials", null: false
+    t.string "dimensions", null: false
   end
 
   create_table "categories", force: :cascade do |t|
