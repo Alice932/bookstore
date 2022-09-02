@@ -7,7 +7,7 @@ class BooksController < ApplicationController
 
   def index
     @books_count = Book.all.count
-    @pagy, @books = pagy_countless(scoped_books, items: BooksHelper::BOOKS_PER_PAGE)
+    @pagy, @books = pagy_countless(scoped_books, items: Constants::Books::BOOKS_PER_PAGE)
     @categories = Category.all
 
     respond_to do |format|
@@ -17,10 +17,11 @@ class BooksController < ApplicationController
   end
 
   def show
-    @categories = Category.all
-    @filters = BooksHelper::BOOK_FILTERS
+    @filters = Constants::Books::BOOK_FILTERS
     @book = Book.find(params[:id])
   end
+
+  private
 
   def scoped_books
     SortBooksService.new(params).call

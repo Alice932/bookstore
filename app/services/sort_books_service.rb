@@ -3,7 +3,7 @@
 class SortBooksService
   def initialize(params)
     @category_id = params[:category_id]
-    @filter = params[:filter]&.to_sym || BooksHelper::BOOK_DEFAULT_FILTER
+    @filter = params[:filter]&.to_sym || Constants::Books::BOOK_DEFAULT_FILTER
   end
 
   def call
@@ -25,6 +25,6 @@ class SortBooksService
   end
 
   def order_by_filter
-    @find_books.order(BooksHelper::BOOK_FILTERS[@filter])
+    @find_books.order(Constants::Books::BOOK_FILTERS[@filter])
   end
 end

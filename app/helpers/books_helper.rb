@@ -2,15 +2,4 @@
 
 module BooksHelper
   include Pagy::Frontend
-
-  BOOKS_PER_PAGE = 12
-  BOOK_DEFAULT_FILTER = :created_at_desc
-  BOOK_FILTERS = {
-    created_at_desc: { created_at: :desc },
-    popular_asc: { created_at: :desc },
-    price_asc: { price: :asc },
-    price_desc: { price: :desc },
-    title_asc: { title: :asc },
-    title_desc: { title: :desc }
-  }.freeze
 end
