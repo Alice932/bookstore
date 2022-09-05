@@ -2,6 +2,7 @@
 
 module Constants
   module Books
+    INCLUDES_OPTIONS = %i[author_books authors].freeze
     TRUNCATED_LENGTH = { all_authors: 40,
                          title: 25 }.freeze
     BOOKS_PER_PAGE = 12
