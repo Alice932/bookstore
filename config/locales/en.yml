@@ -27,5 +27,44 @@ en:
     description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
     get_started: Get Started
     best_sellers: Best Sellers
+  books:
+    index:
+      view_more: View More
+    catalog:
+      title: Сatalog
+      filter:
+        filter_by: Filter by category
+        all: All
+        mobile: Mobile Development
+        photo: Photo
+        design: Web Design
+      sort:
+        sort_by: Sort by
+        title_asc: 'Title: A - Z'
+        title_desc: 'Title: Z - A'
+        created_at_desc: Newest first
+        popular_asc: Popular first
+        price_asc: 'Price: Low to hight'
+        price_desc: 'Price: Hight to low'
+    show:
+      description: Description
+      back_to_results: Back to results
+      add_to_cart: Add to Cart
+      publication_date: Year of publication
+      dimensions: Dimensions
+      materials: Materials
+    review:
+      write_review: Write a Review
+      score: Score
+      title: Title
+      review: Review
+      post: Post
+      reviews_count: Reviews (2)
+      review_date: 11/11/16
+      verify: Verified Reviewer
+      reviewer: Rita J. Lewis
+      review_text: 'Thank you BookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.'
+
+
 
 

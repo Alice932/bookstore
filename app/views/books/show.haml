@@ -1,0 +1,103 @@
+
+%main.container
+  = link_to request.referer, class: 'general-back-link' do
+    %i.fa.fa-long-arrow-left.mr-15
+    = t('books.show.back_to_results')
+  .row
+    .col-sm-6
+      .product-gallery
+        .mb-20
+          %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+        .images.clearfix
+          %a.img-link{href: "#"}
+            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+          %a.img-link{href: "#"}
+            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+          %a.img-link{href: "#"}
+            %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+    .col-sm-6
+      %h1.mt-res-0= @book.title
+      %p.lead.small= book.all_authors
+      .row
+        .col-xs-12.col-md-4
+          %p.h1.in-gold-500.mt-10#book_price= number_to_currency(@book.price, unit: '€')
+        .col-xs-5.col-md-3
+          .input-group.general-position
+            %a.input-link.b-n.pt-7#minus
+              %i.fa.fa-minus.line-height-40
+            = text_field_tag "books_count", "", class: 'form-control quantity-input input-count-book', disabled: true, value: 1
+            %a.b-n.input-link#plus
+              %i.fa.fa-plus.line-height-40
+        .col-xs-7.col-md-5
+          %button.btn.btn-default.pull-right.general-position= t('books.show.add_to_cart')
+      .general-info-wrap.divider-lg
+        %p= t('books.show.description')
+        %span.textControl
+          %span.lessText.lead.small.line-height-2= @book.description
+          %a.moreContentBtn.in-gold-500.ml-10
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.publication_date')
+          %p.lead.small.pull-right= @book.publication_date
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.dimensions')
+          %p.lead.small.pull-right= @book.dimensions.split("\"").max(3).join(", ")
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.materials')
+          %p.lead.small.pull-right= @book.materials
+  .mb-80
+    %h3= t('books.review.write_review')
+    %p.general-info-text= t('books.review.score')
+    .mb-15
+      %i.fa.fa-star.rate-empty
+      %i.fa.fa-star.rate-empty
+      %i.fa.fa-star.rate-empty
+      %i.fa.fa-star.rate-empty
+      %i.fa.fa-star.rate-empty
+    %form.row
+      .col-md-8
+        .mb-40
+          .form-group
+            %label.control-label.input-label.in-grey-600{for: "title"}= t('books.review.title')
+            %input#title.form-control{name:"title", type: "text"}
+          .form-group
+            %label.control-label.input-label.in-grey-600{for: "review"}= t('books.review.review')
+            %textarea#review.form-control{name:"review", type: "text"}
+        .text-right
+          %button.btn.disabled.mb-20= t('books.review.post')
+  .mb-80
+    %h3.in-gold-500.mb-25= t('books.review.reviews_count')
+    .general-message-wrap.divider-lg
+      .clearfix
+        %img.img-circle.logo-size.inlide-block.pull-left{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+        .ml-70
+          %div
+            .general-message-date.hidden-xs= t('books.review.review_date')
+            .max-240
+              .general-message-verified= t('books.review.verify')
+              .general-message-name= t('books.review.reviewer')
+          .mb-15
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+          %p= t('books.review.review_text')
+    .general-message-wrap.divider-lg
+      .clearfix
+        %img.img-circle.logo-size.inlide-block.pull-left{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
+        .ml-70
+          %div
+            .general-message-date.hidden-xs= t('books.review.review_date')
+            .max-240
+              .general-message-verified= t('books.review.verify')
+              .general-message-name= t('books.review.reviewer')
+          .mb-15
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+            %i.fa.fa-star.rate-star
+          %p= t('books.review.review_text')
