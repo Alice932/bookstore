@@ -7,24 +7,24 @@ class SortBooksService
   end
 
   def call
-    find_books
     order_by_filter
   end
 
   private
 
   def find_books
-    @find_books ||= if @category_id
-                      Category.find_by(id: @category_id).books.includes(%i[author_books
-                                                                           authors])
-                    else
-                      Book.all.includes(%i[
-                                          author_books authors
-                                        ])
-                    end
+    @find_books ||= @category_id ? books_with_category : books
+  end
+
+  def books
+    Book.all.includes(Constants::Books::INCLUDES_OPTIONS)
+  end
+
+  def books_with_category
+    Category.find_by(id: @category_id).books.includes(Constants::Books::INCLUDES_OPTIONS)
   end
 
   def order_by_filter
-    @find_books.order(Constants::Books::BOOK_FILTERS[@filter])
+    find_books.order(Constants::Books::BOOK_FILTERS[@filter])
   end
 end
