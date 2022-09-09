@@ -1,9 +1,8 @@
 %main.container.general-main-wrap
   .text-center
     %h3.general-login-title= t('devise.registrations.new.registration')
-    -# = link_to user_facebook_omniauth_authorize_path, class: 'general-login-icon' do
-    %a.general-login-icon{href: "#"}
-      %i.fa-brands.fa-facebook-square
+    = link_to user_google_oauth2_omniauth_authorize_path,  method: :post, data: {turbo: "false"}, class: 'general-login-icon' do
+      %i.fa-brands.fa-google-plus-square
     %p.general-login-text= t('devise.sessions.or')
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: {class: "general-form"}) do |f|
     - render "devise/registrations/registrations_errors", resource: resource

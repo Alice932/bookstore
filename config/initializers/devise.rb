@@ -48,6 +48,8 @@ Devise.setup do |config|
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
 
+  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth_client_id, Rails.application.credentials.google_oauth_client_secret, { provider_ignores_state: true }
+  OmniAuth.config.allowed_request_methods = %i[get]
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,

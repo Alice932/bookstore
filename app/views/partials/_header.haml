@@ -16,16 +16,19 @@
     #navbar.navbar-collapse.collapse.pl-30{'aria-expanded': "false"}
       .hidden-xs
         %ul.nav.navbar-nav
-          %li
-            = link_to  t('header.home'), root_path, class: 'nav-link'
+          %li.dropdown
+            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.account')
+            %ul.dropdown-menu
+              - if current_user
+                %li= link_to t('header.logout'), destroy_user_session_path, method: :delete
+              - else
+                %li= link_to t('header.login'), new_user_session_path, method: :delete
+                %li= link_to t('header.sign_up'), new_user_registration_path, method: :delete
           %li.dropdown
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.collapse.shop')
             %ul.dropdown-menu
               - Category.find_each do |category|
                 %li= link_to category.category_name, category_books_path(category)
           %li
-            %a{href: "#", class: 'nav-link'}= I18n.t('header.account')
-          - if current_user
-            %li= link_to t('.logout'), destroy_user_session_path, method: :delete
-          - else
-            %li= link_to t('login'), new_user_session_path, method: :delete
+            = link_to  t('header.home'), root_path, class: 'nav-link'
+

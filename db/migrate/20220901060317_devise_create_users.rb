@@ -20,6 +20,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.datetime :confirmation_sent_at
       t.string   :unconfirmed_email
 
+      ## Custom columns
+      t.string :full_name
+      t.string :uid
+      t.string :avatar_url
+      t.string :provider
+
       t.timestamps null: false
     end
 

@@ -12,6 +12,8 @@ en:
       design: Web design
     account: My account
     logout: Log Out
+    login: Log In
+    sign_up: Sign Up
   footer:
     home: Home
     shop: Shop
