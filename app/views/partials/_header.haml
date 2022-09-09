@@ -25,3 +25,7 @@
                 %li= link_to category.category_name, category_books_path(category)
           %li
             %a{href: "#", class: 'nav-link'}= I18n.t('header.account')
+          - if current_user
+            %li= link_to t('.logout'), destroy_user_session_path, method: :delete
+          - else
+            %li= link_to t('login'), new_user_session_path, method: :delete

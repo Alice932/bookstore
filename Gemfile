@@ -35,6 +35,7 @@ group :development, :test do
   gem 'capybara', '~> 3.37.1'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'mail_interceptor'
   gem 'pry'
 
   gem 'rubocop', require: false

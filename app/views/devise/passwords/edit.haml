@@ -1,0 +1,12 @@
+%main.container.general-main-wrap
+  .text-center
+    %h3.general-login-title=t('devise.passwords.set_new')
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "general-form" }, data: { turbo: false }) do |f|
+    = f.hidden_field :reset_password_token
+    .form-group.mb-30
+      = f.label :password, class: "control-label input-label"
+      = f.password_field :password, placeholder: t('devise.passwords.enter_placeholder'), class: "form-control"
+    .form-group.mb-40
+      = f.label :password_confirmation, class: "control-label input-label"
+      = f.password_field :password_confirmation, placeholder: t('devise.passwords.confirm_placeholder'), class: "form-control"
+    = f.submit t('devise.passwords.change'), class: "btn btn-default mb-20"

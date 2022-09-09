@@ -64,7 +64,32 @@ en:
       verify: Verified Reviewer
       reviewer: Rita J. Lewis
       review_text: 'Thank you BookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.'
-
+  devise:
+    registrations:
+      new:
+        registration: Registration
+        password_confirm: Password Confirmation
+        already_account: Already have account?
+      alert: Please review the problems below
+    sessions:
+      or: or
+      enter_email: Enter Email
+      enter_password: Enter Password
+      remember_me: Remember Me
+      new:
+        login: Log In
+        sign_up: Sign Up
+        havent_account: "Haven't account?"
+    passwords:
+      set_new: Set new password
+      enter_placeholder: Enter new password
+      confirm_placeholder: Confirm password
+      change: Change
+      forgot_password: Forgot your password?
+      send_instructions: We'll email you instructions on how to reset it
+      email_placeholder: Enter Email
+      email_instructions: Email Instructions
+      cancel: Cancel
 
 
 
