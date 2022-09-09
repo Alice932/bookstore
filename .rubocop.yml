@@ -22,5 +22,4 @@ Metrics/MethodLength:
   Exclude:
     - 'db/migrate/**.rb'
 Metrics/AbcSize:
-  Exclude:
-    - 'db/migrate/**.rb'
+  Max: 20
