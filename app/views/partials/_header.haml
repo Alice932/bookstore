@@ -17,13 +17,13 @@
       .hidden-xs
         %ul.nav.navbar-nav
           %li.dropdown
-            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.account')
+            %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false", id: 'account_dropdown'}= I18n.t('header.account')
             %ul.dropdown-menu
               - if current_user
                 %li= link_to t('header.logout'), destroy_user_session_path, method: :delete
               - else
-                %li= link_to t('header.login'), new_user_session_path, method: :delete
-                %li= link_to t('header.sign_up'), new_user_registration_path, method: :delete
+                %li= link_to t('header.login'), new_user_session_path, method: :get
+                %li= link_to t('header.sign_up'), new_user_registration_path, method: :get
           %li.dropdown
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.collapse.shop')
             %ul.dropdown-menu
@@ -31,4 +31,11 @@
                 %li= link_to category.category_name, category_books_path(category)
           %li
             = link_to  t('header.home'), root_path, class: 'nav-link'
+.row
+  .col-xs-10.col-xs-offset-1
+    - flash.each do |type, msg|
+      - if type == "notice"
+        .alert.alert-success= notice if notice
+      - elsif type == "alert"
+        .alert.alert-danger= alert if alert
 

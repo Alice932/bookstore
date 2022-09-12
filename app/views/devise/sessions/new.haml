@@ -8,11 +8,11 @@
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: {class: "general-form"}) do |f|
     .form-group.mb-30
       = f.label :email, class: "control-label input-label"
-      = f.email_field :email, placeholder: t('devise.sessions.enter_email'), autocomplete: "email", class: 'form-control has-error'
+      = f.email_field :email, placeholder: t('devise.sessions.enter_email'), autocomplete: "email", class: 'form-control has-error', id: 'email_field'
       = f.full_error :email, id: 'inputEmail', class: 'form_errors'
     .form-group.mb-30
       = f.label :password, class: "control-label input-label"
-      = f.password_field :password, placeholder: t('devise.sessions.enter_password'), autocomplete: "current-password", class: "form-control"
+      = f.password_field :password, placeholder: t('devise.sessions.enter_password'), autocomplete: "current-password", class: "form-control", id: 'password_field'
       = f.full_error :password, class: 'form_errors'
       =link_to new_user_password_path, class: 'help-block in-gold-500' do
         = t('devise.passwords.forgot_password')

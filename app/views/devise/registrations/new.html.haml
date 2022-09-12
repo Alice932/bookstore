@@ -8,15 +8,15 @@
     - render "devise/registrations/registrations_errors", resource: resource
     .form-group.mb-30
       = f.label :email, class: "control-label input-label"
-      = f.email_field :email, placeholder: t('devise.sessions.enter_email'), class: 'form-control has-error'
+      = f.email_field :email, placeholder: t('devise.sessions.enter_email'), class: 'form-control has-error', id: 'email_field'
       = f.full_error :email, id: 'inputEmail', class: 'form_errors'
     .form-group.mb-30
       = f.label :password, class: "control-label input-label"
-      = f.password_field :password, placeholder: t('devise.sessions.enter_password'), class: "form-control"
+      = f.password_field :password, placeholder: t('devise.sessions.enter_password'), class: "form-control", id: 'password_field'
       = f.full_error :password, class: 'form_errors'
     .form-group.mb-30
       = f.label :password_confirmation, class: "control-label input-label"
-      = f.password_field :password_confirmation, placeholder: t('devise.registrations.new.password_confirm'), class: "form-control"
+      = f.password_field :password_confirmation, placeholder: t('devise.registrations.new.password_confirm'), class: "form-control", id: 'password_confirmation_field'
       = f.full_error :password, class: 'form_errors'
     - if defined?(devise_mapping.rememberable?)
       .form-group.checkbox.text-center.mb-30

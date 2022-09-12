@@ -54,6 +54,8 @@ group :development do
 end
 
 group :test do
+  gem 'capybara-email'
+  gem 'email_spec'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.1.2'
   gem 'rubocop-rspec', '~> 2.12.1', require: false

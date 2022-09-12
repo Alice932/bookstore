@@ -4,7 +4,5 @@
 
   %body
     = render 'partials/header', cached: true
-    = notice if notice
-    = alert if alert
     = yield
     = render 'partials/footer', cached: true
