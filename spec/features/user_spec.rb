@@ -35,7 +35,7 @@ RSpec.describe 'Authorization Page' do
       fill_in 'password_field', with: '12345678'
       fill_in 'password_confirmation_field', with: '12345678'
 
-      click_button(I18n.t('devise.registrations.new.registration'))
+      click_button I18n.t('devise.registrations.new.registration')
       expect(page).to have_text(I18n.t('devise.registrations.signed_up_but_unconfirmed'))
     end
 
