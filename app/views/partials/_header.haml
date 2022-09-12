@@ -40,4 +40,7 @@
         .alert.alert-success= notice if notice
       - elsif type == "alert"
         .alert.alert-danger= alert if alert
+      - else
+        %div{class: "alert alert-#{"#{type}"}"}= msg
+
 

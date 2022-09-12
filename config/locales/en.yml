@@ -95,6 +95,24 @@ en:
       email_placeholder: Enter Email
       email_instructions: Email Instructions
       cancel: Cancel
+  mailer:
+    confirmation:
+      welcome: Welcome %{email} !
+      confirm_msg: 'You can confirm your account email through the link below:'
+      confirm_link: 'Confirm my account'
+    email_change:
+      hello: Hello %{email} !
+      email_msg: "We're contacting you to notify you that your email is being changed to "
+    password_notify:
+      hello: Hello %{email} !
+      notify_msg: "We're contacting you to notify you that your password has been changed."
+    password_change:
+      hello: Hello %{email} !
+      notify: "Someone has requested a link to change your password. You can do this through the link below."
+      link: 'Change my password'
+      password_msg: |
+        If you didn't request this, please ignore this email.
+        Your password won't change until you access the link above and create a new one.
 
 
 

@@ -57,7 +57,7 @@ RSpec.describe 'Authorization Page' do
       fill_in 'email_field', with: user.email
 
       click_button I18n.t('devise.passwords.email_instructions')
-      expect(page).to have_text("We'll email you instructions on how to reset it")
+      expect(page).to have_text(I18n.t('devise.passwords.send_instructions'))
     end
   end
 end
