@@ -68,6 +68,8 @@ en:
       reviewer: Rita J. Lewis
       review_text: 'Thank you BookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.'
   devise:
+    google: Google
+    reason: Not authorized
     registrations:
       new:
         registration: Registration

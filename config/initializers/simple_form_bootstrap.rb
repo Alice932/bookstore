@@ -2,24 +2,15 @@
 
 SimpleForm.setup do |config|
   config.button_class = 'btn'
-
   config.boolean_label_class = 'form-check-label'
-
   config.label_text = ->(label, required, _explicit_label) { "#{label} #{required}" }
-
   config.boolean_style = :inline
-
   config.item_wrapper_tag = :div
-
   config.include_default_input_wrapper_class = false
-
   config.error_notification_class = 'alert alert-danger'
-
   config.error_method = :to_sentence
-
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
-
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'form-group-invalid',
                                   valid_class: 'form-group-valid' do |b|
     b.use :html5

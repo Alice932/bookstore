@@ -21,9 +21,9 @@
             %ul.dropdown-menu
               %li
                 - if current_user
+                  %li= link_to t('header.settings'), root_path, method: :get
                   %li= link_to t('header.logout'), destroy_user_session_path, method: :delete
                 - else
-                  %li= link_to t('header.settings'), root_path, method: :get
                   %li= link_to t('header.login'), new_user_session_path, method: :get
                   %li= link_to t('header.sign_up'), new_user_registration_path, method: :get
           %li.dropdown

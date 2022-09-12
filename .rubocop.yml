@@ -21,5 +21,9 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Exclude:
     - 'db/migrate/**.rb'
+    - 'app/controllers/users/omniauth_callbacks_controller.rb'
 Metrics/AbcSize:
-  Max: 20
+  Exclude:
+    - 'app/models/user.rb'
+    - 'db/migrate/*.rb'
+    - 'app/controllers/users/omniauth_callbacks_controller.rb'
