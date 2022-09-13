@@ -12,6 +12,9 @@ en:
       design: Web design
     account: My account
     logout: Log Out
+    login: Log In
+    sign_up: Sign Up
+    settings: Settings
   footer:
     home: Home
     shop: Shop
@@ -64,7 +67,52 @@ en:
       verify: Verified Reviewer
       reviewer: Rita J. Lewis
       review_text: 'Thank you BookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.'
-
+  devise:
+    google: Google
+    reason: Not authorized
+    registrations:
+      new:
+        registration: Registration
+        password_confirm: Password Confirmation
+        already_account: Already have account?
+      alert: Please review the problems below
+    sessions:
+      or: or
+      enter_email: Enter Email
+      enter_password: Enter Password
+      remember_me: Remember Me
+      new:
+        login: Log In
+        sign_up: Sign Up
+        havent_account: "Haven't account?"
+    passwords:
+      set_new: Set new password
+      enter_placeholder: Enter new password
+      confirm_placeholder: Confirm password
+      change: Change
+      forgot_password: Forgot your password?
+      send_instructions: We'll email you instructions on how to reset it
+      email_placeholder: Enter Email
+      email_instructions: Email Instructions
+      cancel: Cancel
+  mailer:
+    confirmation:
+      welcome: Welcome %{email} !
+      confirm_msg: 'You can confirm your account email through the link below:'
+      confirm_link: 'Confirm my account'
+    email_change:
+      hello: Hello %{email} !
+      email_msg: "We're contacting you to notify you that your email is being changed to "
+    password_notify:
+      hello: Hello %{email} !
+      notify_msg: "We're contacting you to notify you that your password has been changed."
+    password_change:
+      hello: Hello %{email} !
+      notify: "Someone has requested a link to change your password. You can do this through the link below."
+      link: 'Change my password'
+      password_msg: |
+        If you didn't request this, please ignore this email.
+        Your password won't change until you access the link above and create a new one.
 
 
 
