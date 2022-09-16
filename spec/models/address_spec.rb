@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe Address, type: :model do
-  # describe 'validations' do
-  #   it { should validate_length_of(:first_name).is_at_least(3)}
-  #   it { should validate_length_of(:last_name).is_at_least(3)}
-  # end
-
   describe 'fields exist' do
     it { should have_db_column(:first_name).with_options(null: false).of_type(:string) }
     it { should have_db_column(:last_name).with_options(null: false).of_type(:string) }

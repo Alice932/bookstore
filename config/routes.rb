@@ -9,13 +9,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: %i[edit update destroy]
-  # delete "/users/:id" => "users#destroy", as: :users_destroy
   resources :addresses, only: %i[edit update create]
-  # match 'users/:id' => 'users#destroy', :via => :delete, :as => :user_destroy
-  # get '/addresses', to: 'addresses#edit'
-  # get '/addresses/:id', to: 'addresses#edit'
-  # get '/users/:id', to: 'users#edit'
-
   resources :books, only: %i[index show] do
     collection { post :index }
   end
