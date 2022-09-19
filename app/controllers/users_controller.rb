@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user_form.save
       redirect_to root_path, notice: t('privacy.update')
     else
-      redirect_to edit_user_path, alert: t('privacy.failure')
+      render :edit
     end
   end
 
