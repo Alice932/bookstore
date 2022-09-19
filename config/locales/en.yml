@@ -150,6 +150,8 @@ en:
         password: password
         delete_account: delete_account
       update: Your info was updated
+      user_deleted: User deleted.
+      failure: Fail.
       title_email: Email
       title_remove_account: Remove Account
       button_submit: Save
@@ -161,6 +163,10 @@ en:
       current_password: Old Password
       password: New Password
       password_confirmation: Confirm Password
+  test:
+    user_form:
+      email: 'user@test.com'
+      password: Password123
 
 
 

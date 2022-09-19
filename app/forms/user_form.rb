@@ -42,9 +42,20 @@ class UserForm
   end
 
   def password_validation
+    current_password_validation
+    password_confirmation_validation
+  end
+
+  def password_confirmation_validation
     return if password == password_confirmation
 
-    errors.add(:password_confirmation, I18n.t('privacy.validation.password_confirmation'))
+    errors.add(:password_confirmation, I18n.t('privacy.validations.password_confirmation'))
+  end
+
+  def current_password_validation
+    return if @model.valid_password?(current_password)
+
+    errors.add(:current_password, I18n.t('privacy.validations.old_password'))
   end
 
   def password_attributes_not_blank
