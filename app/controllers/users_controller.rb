@@ -11,10 +11,9 @@ class UsersController < ApplicationController
     @user_form = UserForm.new(User.find(current_user.id), users_params)
     @user_form.save
     if @user_form.save
-      flash[:notice] = t('privacy.update')
-      redirect_to root_path
+      redirect_to root_path, notice: t('privacy.update')
     else
-      render :edit
+      redirect_to edit_user_path, alert: t('privacy.failure')
     end
   end
 
@@ -22,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @user.destroy
     flash[:notice] = t('privacy.destroy')
-    redirect_to root_url, notice: 'User deleted.' if @user.destroy
+    redirect_to root_url, notice: t('privacy.user_deleted') if @user.destroy
   end
 
   private

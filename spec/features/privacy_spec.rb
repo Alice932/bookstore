@@ -7,7 +7,7 @@ RSpec.describe 'Edit Page' do
     let!(:user) { create :user }
     let(:old_password) { '12345678' }
     let(:new_password) { 'Create123' }
-    let(:new_email) { 'some@gmail.com' }
+    let(:new_email) { 'some@test.com' }
 
     before do
       sign_in user
@@ -38,6 +38,17 @@ RSpec.describe 'Edit Page' do
       end
 
       it 'password updated' do
+        expect(page).to have_current_path(root_path)
+      end
+    end
+
+    context 'delete account' do
+      before do
+        find('.checkbox-input', visible: false).set(true)
+        find_link(I18n.t('privacy.btn_remove_account')).click
+      end
+
+      it 'account deleted' do
         expect(page).to have_current_path(root_path)
       end
     end
