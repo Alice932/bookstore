@@ -9,3 +9,4 @@ window.bootstrap = bootstrap
 
 import "@fortawesome/fontawesome-free/js/all"
 import "./books"
+import "./user_account"

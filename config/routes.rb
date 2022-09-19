@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :users, only: %i[edit update destroy]
+  get '/users/:id', to: 'users#edit'
+  resources :addresses, only: %i[edit update create]
   resources :books, only: %i[index show] do
     collection { post :index }
   end

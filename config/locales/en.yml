@@ -113,6 +113,60 @@ en:
       password_msg: |
         If you didn't request this, please ignore this email.
         Your password won't change until you access the link above and create a new one.
+  address:
+    validations:
+      first_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      last_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      address: "should not be not empty, consist of a-z, A-Z, 0-9 ',' '-' ' ' only, no special symbols, must be less than 50 characters."
+      country: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      city: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      zip: "should not be empty, consist of 0-9 only,'-' no special symbols. Max Length should be 10 characters."
+      phone: "should not be empty, plus (+) at the beginning, after should contain country code of chosen country in Country drop down list consist of 0-9 only no special symbols. Must be 15 characters or less."
+    address_link: Address
+    privacy_link: Privacy
+    settings: Settings
+    billing_address: Billing Address
+    type_billing: BillingAddress
+    shipping_address: Shipping Address
+    type_shipping: ShippingAddress
+    create: Succesfully added info
+    failure: Fail.
+    first_name: First Name
+    last_name: Last Name
+    address: Address
+    country: Country
+    city: City
+    zip: Zip
+    phone: Phone
+    button_submit: Save
+  privacy:
+      validations:
+        old_password: Invalid password
+        password_confirmation: Not equal new password
+        password: Not valid password
+        email: Not valid email
+      type:
+        email: email
+        password: password
+        delete_account: delete_account
+      update: Your info was updated
+      user_deleted: User deleted.
+      failure: Fail.
+      title_email: Email
+      title_remove_account: Remove Account
+      button_submit: Save
+      button_submit_password: Update Password
+      title_password: Password
+      btn_remove_account: Please Remove My Account
+      checkbox: I understand that all data will be lost
+      email: Enter Email
+      current_password: Old Password
+      password: New Password
+      password_confirmation: Confirm Password
+  test:
+    user_form:
+      email: 'user@test.com'
+      password: Password123
 
 
 

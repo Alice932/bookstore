@@ -76,14 +76,6 @@ RSpec.describe 'Book Page' do
           expect(books_titles).to eq displayed_titles
         end
 
-        it 'sorts by price desc' do
-          books_titles = books_list.sort_by(&:price).map(&:title).reverse
-          click_link('sort_list')
-          click_link(I18n.t('books.catalog.sort.price_desc'))
-          displayed_titles = page.all('p.title').first(books_count).map(&:text)
-          expect(books_titles).to eq displayed_titles
-        end
-
         it 'sorts by price asc' do
           books_titles = books_list.sort_by(&:price).map(&:title)
           click_link('sort_list')

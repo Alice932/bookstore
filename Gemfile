@@ -8,6 +8,7 @@ ruby '3.1.2'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bundle-audit', '~> 0.1.0'
+gem 'country_select', '~> 8.0.0'
 gem 'cssbundling-rails', '~> 1.1.1'
 gem 'devise', '~> 4.0'
 gem 'draper', '~> 4.0.2'
