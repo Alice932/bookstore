@@ -45,7 +45,7 @@ RSpec.describe 'Edit Page' do
     context 'delete account' do
       before do
         find('.checkbox-input', visible: false).set(true)
-        find_link(I18n.t('privacy.btn_remove_account')).click
+        find_button(I18n.t('privacy.btn_remove_account')).click
       end
 
       it 'account deleted' do
