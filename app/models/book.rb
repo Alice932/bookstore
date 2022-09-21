@@ -11,7 +11,6 @@ class Book < ApplicationRecord
 
   accepts_nested_attributes_for :author_books, allow_destroy: true
   accepts_nested_attributes_for :category_books, allow_destroy: true
-  # accepts_nested_attributes_for :authors, allow_destroy: true
 
   validates :title, presence: true
   validates :description, presence: true

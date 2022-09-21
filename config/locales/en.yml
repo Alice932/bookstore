@@ -167,6 +167,16 @@ en:
     user_form:
       email: 'user@test.com'
       password: Password123
+  active_admin:
+    login: "Login"
+    sign_in: "Signed in successfully."
+    new_model: "New %{model}"
+    create_model: "Create %{model}"
+    update_model: "Update %{model}"
+    delete_model: "Delete %{model}"
+    success_create: "%{model} was successfully created."
+    success_update: "%{model} was successfully updated."
+    success_delete: "%{model} was successfully destroyed."
 
 
 

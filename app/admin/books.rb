@@ -1,16 +1,6 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Book do
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # controller do
-  #   def scoped_collection
-  #     AuthorBook.includes(:author)
-  #   end
-  # end
   remove_filter :author_books, :category_books
 
   permit_params :title, :description, :price, :publication_date, :materials, :dimensions,
@@ -40,12 +30,4 @@ ActiveAdmin.register Book do
     end
     f.actions
   end
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :description, :price, :publication_date, :materials, :dimensions]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
 end
