@@ -31,7 +31,6 @@ j = 1
   CategoryBook.create({ book_id: j, category_id: rand(1..4) })
   j += 1
 end
-if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password',
-                    password_confirmation: 'password')
-end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password',
+                  password_confirmation: 'password')
