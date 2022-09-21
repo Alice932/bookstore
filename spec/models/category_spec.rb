@@ -2,11 +2,11 @@
 
 RSpec.describe Category, type: :model do
   describe 'validations' do
-    it { should validate_presence_of(:category_name) }
+    it { should validate_presence_of(:name) }
   end
 
   describe 'fields exist' do
-    it { should have_db_column(:category_name).of_type(:string) }
+    it { should have_db_column(:name).of_type(:string) }
   end
 
   describe 'relations' do

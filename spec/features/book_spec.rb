@@ -31,18 +31,18 @@ RSpec.describe 'Book Page' do
       end
 
       it 'have names of categories' do
-        expect(page).to have_content(first_category.category_name)
-        expect(page).to have_content(second_category.category_name)
+        expect(page).to have_content(first_category.name)
+        expect(page).to have_content(second_category.name)
       end
 
       it 'have books by category' do
-        click_link(first_category.category_name)
+        click_link(first_category.name)
         expect(page).to have_content(first_book.title)
         expect(page).to have_no_content(second_book.title)
       end
 
       it 'have not books by empty category' do
-        click_link(third_category.category_name)
+        click_link(third_category.name)
         expect(page).to have_no_content(first_book.title)
         expect(page).to have_no_content(second_book.title)
       end

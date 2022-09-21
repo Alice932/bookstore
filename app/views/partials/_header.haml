@@ -30,7 +30,7 @@
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.collapse.shop')
             %ul.dropdown-menu
               - Category.find_each do |category|
-                %li= link_to category.category_name, category_books_path(category)
+                %li= link_to category.name, category_books_path(category)
           %li
             = link_to  t('header.home'), root_path, class: 'nav-link'
 .row

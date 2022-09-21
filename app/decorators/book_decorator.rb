@@ -4,7 +4,7 @@ class BookDecorator < ApplicationDecorator
   delegate_all
 
   def all_authors
-    authors.map(&:name).join(Constants::Books::COMMA)
+    authors.map(&:display_name).join(Constants::Books::COMMA)
   end
 
   def truncated_all_authors

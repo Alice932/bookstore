@@ -7,6 +7,8 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = 'Bookstore'
+  config.display_name_methods = %i[first_name last_name]
+  config.comments = false
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.

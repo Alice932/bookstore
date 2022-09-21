@@ -18,7 +18,7 @@
                     %h1= book.title
                     %p.lead= book.description
                     - book.authors.each do |author|
-                      %p.lead.small= author.name
+                      %p.lead.small= author.first_name + ' ' + author.last_name
                     .general-align
                       %button.disabled.btn= t('home_page.btn_buy')
           - else
@@ -32,7 +32,7 @@
                     %h1= book.title
                     %p.lead= book.description
                     - book.authors.each do |author|
-                      %p.lead.small= author.name
+                      %p.lead.small=author.first_name + ' ' +  author.last_name
                     .general-align
                       %button.disabled.btn= t('home_page.btn_buy')
     %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}
