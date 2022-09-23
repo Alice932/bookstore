@@ -3,7 +3,6 @@
 class BookDecorator < ApplicationDecorator
   delegate_all
   decorates_association :authors, with: AuthorDecorator
-  delegate :full_name, to: :authors, allow_nil: true, prefix: true
 
   def all_authors
     authors.map(&:full_name).join(Constants::Books::COMMA)
