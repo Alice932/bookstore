@@ -27,7 +27,7 @@ jobs:
   test:
     parallelism: 4
     docker:
-      - image: cimg/ruby:3.1.2-node
+      - image: cimg/ruby:3.1.2-browsers
       - image: cimg/postgres:14.4
         environment:
           POSTGRES_USER: denver932
@@ -44,9 +44,6 @@ jobs:
       - ruby/install-deps
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - run:
-          name: Assets precomplile
-          command: bin/rails assets:precompile
       - run:
           name: Install ImageMagick
           command: sudo apt-get install imagemagick

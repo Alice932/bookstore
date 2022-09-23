@@ -12,7 +12,6 @@ RSpec.describe AddressForm, type: :model do
     context 'billing address' do
       let!(:result) { AddressForm.new(address_initialize, address_params).save }
       let(:expected_result) { BillingAddress }
-      let!(:address_saves) { Address.last.id }
       let(:address_params) do
         {
           first_name: billing_address.first_name,
@@ -29,14 +28,12 @@ RSpec.describe AddressForm, type: :model do
         Address.find_or_initialize_by(user_id: user.id, type: address_params[:type])
       end
 
-      it { expect(address_saves).to eq result.id }
       it { expect(result).to be_kind_of(expected_result) }
     end
 
     context 'shipping address' do
       let!(:result) { AddressForm.new(address_initialize, address_params).save }
       let(:expected_result) { ShippingAddress }
-      let!(:address_saves) { Address.last.id }
       let(:address_params) do
         {
           first_name: shipping_address.first_name,
@@ -53,7 +50,6 @@ RSpec.describe AddressForm, type: :model do
         Address.find_or_initialize_by(user_id: user.id, type: address_params[:type])
       end
 
-      it { expect(address_saves).to eq result.id }
       it { expect(result).to be_kind_of(expected_result) }
     end
   end

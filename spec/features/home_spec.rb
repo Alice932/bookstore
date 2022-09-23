@@ -38,7 +38,7 @@ RSpec.describe 'Home Page' do
     end
 
     it 'have author name' do
-      expect(page).to have_content(author.name)
+      expect(page).to have_content(author.first_name)
     end
   end
 end

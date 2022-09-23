@@ -2,9 +2,10 @@
 
 class BookDecorator < ApplicationDecorator
   delegate_all
+  decorates_association :authors, with: AuthorDecorator
 
   def all_authors
-    authors.map(&:name).join(Constants::Books::COMMA)
+    authors.map(&:full_name).join(Constants::Books::COMMA)
   end
 
   def truncated_all_authors
@@ -13,5 +14,9 @@ class BookDecorator < ApplicationDecorator
 
   def truncated_title
     title.truncate(Constants::Books::TRUNCATED_LENGTH[:title], separator: Constants::Books::SEPARATOR)
+  end
+
+  def all_categories
+    categories.map(&:name).join(Constants::Books::COMMA)
   end
 end

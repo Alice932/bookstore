@@ -9,6 +9,9 @@ class Book < ApplicationRecord
   has_many :category_books, dependent: :destroy
   has_many :categories, through: :category_books
 
+  accepts_nested_attributes_for :author_books, allow_destroy: true
+  accepts_nested_attributes_for :category_books, allow_destroy: true
+
   validates :title, presence: true
   validates :description, presence: true
   validates :price, presence: true

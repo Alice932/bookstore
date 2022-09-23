@@ -17,6 +17,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+Capybara.javascript_driver = :selenium_chrome
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include Devise::Test::ControllerHelpers, type: :controller
