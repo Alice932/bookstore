@@ -27,7 +27,7 @@ jobs:
   test:
     parallelism: 4
     docker:
-      - image: cimg/ruby:3.1.2-node
+      - image: cimg/ruby:3.1.2-browsers
       - image: cimg/postgres:14.4
         environment:
           POSTGRES_USER: denver932
@@ -60,16 +60,8 @@ jobs:
           name: Database migrate
           command: bundle exec rails db:migrate
       - run:
-          name: Assets precomplile
-          command: bin/rails assets:precompile
-      - type: shell
-        command: |
-          bundle exec rspec --profile 10 \
-                            --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress
-      - type: store_test_results
-        path: /tmp/test-results
+          name: run specs
+          command: bundle exec rspec
 
 workflows:
   version: 2
