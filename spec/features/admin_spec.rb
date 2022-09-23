@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 describe 'Admin page', js: true do
   let!(:admin) { create :admin_user }
 
