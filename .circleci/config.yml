@@ -45,9 +45,6 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
-          name: Assets precomplile
-          command: bin/rails assets:precompile
-      - run:
           name: Install ImageMagick
           command: sudo apt-get install imagemagick
       - node/install-packages:
@@ -62,6 +59,9 @@ jobs:
       - run:
           name: Database migrate
           command: bundle exec rails db:migrate
+      - run:
+          name: Assets precomplile
+          command: bin/rails assets:precompile
       - run:
           name: run specs
           command: bundle exec rspec
