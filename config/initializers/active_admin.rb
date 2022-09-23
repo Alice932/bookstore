@@ -2,7 +2,7 @@
 
 ActiveAdmin.setup do |config|
   config.site_title = 'Bookstore'
-  config.display_name_methods = %i[first_name last_name]
+  config.display_name_methods = %i[first_name last_name full_name]
   config.comments = false
   config.authentication_method = :authenticate_admin_user!
 

@@ -177,6 +177,8 @@ en:
     success_create: "%{model} was successfully created."
     success_update: "%{model} was successfully updated."
     success_delete: "%{model} was successfully destroyed."
+    add_category: 'Add New Category book'
+    add_author: 'Add New Author book'
 
 
 
