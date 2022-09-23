@@ -63,12 +63,11 @@ jobs:
           name: Assets precomplile
           command: bin/rails assets:precompile
       - type: shell
-          name: run specs
-          command: |
-            bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out /tmp/test-results/rspec.xml \
-                              --format progress
+        command: |
+          bundle exec rspec --profile 10 \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress
       - type: store_test_results
         path: /tmp/test-results
 
