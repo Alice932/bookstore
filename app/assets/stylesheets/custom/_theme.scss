@@ -565,6 +565,18 @@
   }
 }
 
+.rating {
+  transform: rotateY(180deg);
+  max-width: 10%;
+}
+
+.rating .fa-star.--selected,
+.rating .fa-star.--selected~.fa-star,
+.rating .fa-star:hover,
+.rating .fa-star:hover~.fa-star {
+  color: #000;
+}
+
 
 
 @media (min-width: $grid-float-breakpoint) {

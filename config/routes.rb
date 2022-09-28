@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :books, only: %i[index show] do
     collection { post :index }
   end
+  resources :reviews
 
   resources :categories, only: [] do
     resources :books, only: %i[index] do

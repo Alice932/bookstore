@@ -137,4 +137,30 @@ describe 'Admin page' do
       it { expect(page).to have_content(I18n.t('active_admin.success_delete', model: 'Category')) }
     end
   end
+
+  describe 'Review' do
+    let!(:book) { create :book }
+    let!(:user) { create :user }
+    let!(:review) { create :review, book_id: book.id, user_id: user.id }
+
+    before do
+      subject
+      visit admin_reviews_path
+    end
+
+    it 'have review params' do
+      expect(page).to have_content(review.title)
+      expect(page).to have_content(review.status)
+    end
+
+    context 'approved review' do
+      before do
+        visit admin_review_path(review.id)
+        find_link(I18n.t('active_admin.approve_button')).click
+        visit book_path(book.id)
+      end
+
+      it { expect(page).to have_content(I18n.t('review.verified')) }
+    end
+  end
 end

@@ -42,62 +42,13 @@
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('books.show.dimensions')
-          %p.lead.small.pull-right= @book.dimensions.split("\"").max(3).join(", ")
+          %p.lead.small.pull-right= @book.dimensions
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('books.show.materials')
-          %p.lead.small.pull-right= @book.materials
+          %p.lead.small.pull-right= @book.materials.split("\"").max(3).join(", ")
   .mb-80
-    %h3= t('books.review.write_review')
-    %p.general-info-text= t('books.review.score')
-    .mb-15
-      %i.fa.fa-star.rate-empty
-      %i.fa.fa-star.rate-empty
-      %i.fa.fa-star.rate-empty
-      %i.fa.fa-star.rate-empty
-      %i.fa.fa-star.rate-empty
-    %form.row
-      .col-md-8
-        .mb-40
-          .form-group
-            %label.control-label.input-label.in-grey-600{for: "title"}= t('books.review.title')
-            %input#title.form-control{name:"title", type: "text"}
-          .form-group
-            %label.control-label.input-label.in-grey-600{for: "review"}= t('books.review.review')
-            %textarea#review.form-control{name:"review", type: "text"}
-        .text-right
-          %button.btn.disabled.mb-20= t('books.review.post')
+    - if user_signed_in?
+      = render partial: 'books/partials/form_review'
   .mb-80
-    %h3.in-gold-500.mb-25= t('books.review.reviews_count')
-    .general-message-wrap.divider-lg
-      .clearfix
-        %img.img-circle.logo-size.inlide-block.pull-left{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
-        .ml-70
-          %div
-            .general-message-date.hidden-xs= t('books.review.review_date')
-            .max-240
-              .general-message-verified= t('books.review.verify')
-              .general-message-name= t('books.review.reviewer')
-          .mb-15
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-          %p= t('books.review.review_text')
-    .general-message-wrap.divider-lg
-      .clearfix
-        %img.img-circle.logo-size.inlide-block.pull-left{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
-        .ml-70
-          %div
-            .general-message-date.hidden-xs= t('books.review.review_date')
-            .max-240
-              .general-message-verified= t('books.review.verify')
-              .general-message-name= t('books.review.reviewer')
-          .mb-15
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-            %i.fa.fa-star.rate-star
-          %p= t('books.review.review_text')
+    = render partial: 'books/partials/reviews'

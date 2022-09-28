@@ -1,0 +1,21 @@
+.mb-80
+  %h3= t('books.review.write_review')
+  %p.general-info-text= t('books.review.score')
+  = simple_form_for @review, data: { turbo: false } do |f|
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :book_id, value: book.id
+    .mb-15
+      .rating
+        = f.collection_radio_buttons :score, [[5], [4], [3], [2], [1]], :first, :last do |b|
+          = b.radio_button + b.label{''}
+        -# = f.collection_radio_buttons :score, [[5], [4], [3], [2], [1]], :first, :last, item_wrapper_class: "fa fa-star rate-empty" do |b|
+        -#   = b.radio_button + b.label{''}
+    .mb-40
+      .form-group
+        =f.input :name, label: t('books.review.name'), label_html: { class: 'control-label input-label' }, input_html: { id: 'name_field', class: 'form-control' }, type: 'text'
+      .form-group
+        =f.input :title, label: t('books.review.title'), label_html: { class: 'control-label input-label' }, input_html: { id: 'title_field', class: 'form-control' }, type: 'text'
+      .form-group
+        =f.input :review_text, as: :text, label: t('books.review.review'), label_html: { class: 'control-label input-label' }, input_html: { id: 'text_review_field', class: 'form-control' }, type: 'text'
+    .text-right
+      =f.button :submit, t('review.post_button'), class: 'btn mb-20'

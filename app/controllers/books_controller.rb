@@ -19,6 +19,7 @@ class BooksController < ApplicationController
   def show
     @filters = Constants::Books::BOOK_FILTERS
     @book = Book.find(params[:id])
+    @review = Review.new
   end
 
   private

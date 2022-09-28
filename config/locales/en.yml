@@ -57,12 +57,13 @@ en:
       dimensions: Dimensions
       materials: Materials
     review:
+      name: Name
       write_review: Write a Review
       score: Score
       title: Title
       review: Review
       post: Post
-      reviews_count: Reviews (2)
+      reviews_count: Reviews (%{count})
       review_date: 11/11/16
       verify: Verified Reviewer
       reviewer: Rita J. Lewis
@@ -168,6 +169,7 @@ en:
       email: 'user@test.com'
       password: Password123
   active_admin:
+    approve_button: Approve
     login: "Login"
     sign_in: "Signed in successfully."
     new_model: "New %{model}"
@@ -177,6 +179,15 @@ en:
     success_create: "%{model} was successfully created."
     success_update: "%{model} was successfully updated."
     success_delete: "%{model} was successfully destroyed."
+    notice:
+      approved: Successfully Approved.
+      rejected: Successfully Rejected.
+  review:
+    alert: Review creation has failed.
+    notice: Review successfully created!
+    verified: Verified Author
+    approved_status: approved
+    post_button: Post
 
 
 
