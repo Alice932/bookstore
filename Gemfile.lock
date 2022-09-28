@@ -467,7 +467,6 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2.0)
   fasterer (~> 0.10.0)
   ffaker (~> 2.21.0)
-  formtastic (~> 4.0.0.rc1)
   haml (~> 5.2)
   haml-rails (~> 2.0.1)
   importmap-rails (~> 1.1)

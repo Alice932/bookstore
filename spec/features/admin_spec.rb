@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe 'Admin page' do
+describe 'Admin page', js: true do
   let!(:admin) { create :admin_user }
 
   subject do
@@ -14,7 +12,7 @@ describe 'Admin page' do
 
   describe 'Author' do
     let!(:author) { create :author }
-    let(:builded_author) { build :author }
+    let(:author_attributes) { FactoryBot.attributes_for(:author) }
 
     before do
       subject
@@ -26,9 +24,9 @@ describe 'Admin page' do
       before do
         visit admin_authors_path
         click_link I18n.t('active_admin.new_model', model: 'Author')
-        fill_in 'author_first_name', with: builded_author.first_name
-        fill_in 'author_last_name', with: builded_author.last_name
-        fill_in 'author_description', with: builded_author.description
+        fill_in 'author_first_name', with: author_attributes[:first_name]
+        fill_in 'author_last_name', with: author_attributes[:last_name]
+        fill_in 'author_description', with: author_attributes[:description]
         find_button(I18n.t('active_admin.create_model', model: 'Author')).click
       end
 
@@ -38,7 +36,7 @@ describe 'Admin page' do
     context 'edit author' do
       before do
         visit edit_admin_author_path(author.id)
-        fill_in 'author_first_name', with: builded_author.first_name
+        fill_in 'author_first_name', with: author_attributes[:first_name]
         find_button(I18n.t('active_admin.update_model', model: 'Author')).click
       end
 
@@ -49,6 +47,7 @@ describe 'Admin page' do
       before do
         visit admin_author_path(author.id)
         find_link(I18n.t('active_admin.delete_model', model: 'Author')).click
+        accept_alert
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_delete', model: 'Author')) }
@@ -57,7 +56,7 @@ describe 'Admin page' do
 
   describe 'Book' do
     let!(:book) { create :book }
-    let!(:builded_book) { build :book }
+    let(:book_attributes) { FactoryBot.attributes_for(:book) }
 
     before do
       subject
@@ -67,22 +66,46 @@ describe 'Admin page' do
       before do
         visit admin_books_path
         click_link I18n.t('active_admin.new_model', model: 'Book')
-        fill_in 'book_title', with: builded_book.title
-        fill_in 'book_description', with: builded_book.description
-        fill_in 'book_price', with: builded_book.price
-        fill_in 'book_publication_date', with: builded_book.publication_date
-        fill_in 'book_materials', with: builded_book.materials
-        fill_in 'book_dimensions', with: builded_book.dimensions
+        fill_in 'book_title', with: book_attributes[:title]
+        fill_in 'book_description', with: book_attributes[:description]
+        fill_in 'book_price', with: book_attributes[:price]
+        fill_in 'book_publication_date', with: book_attributes[:publication_date]
+        fill_in 'book_materials', with: book_attributes[:materials]
+        fill_in 'book_dimensions', with: book_attributes[:dimensions].first
         find_button(I18n.t('active_admin.create_model', model: 'Book')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_create', model: 'Book')) }
     end
 
+    context 'attach author' do
+      let!(:author) { create :author }
+      before do
+        visit edit_admin_book_path(book.id)
+        find_link(I18n.t('active_admin.add_author')).click
+        select "#{author.first_name} #{author.last_name}", from: 'book_author_books_attributes_0_author_id'
+        find_button(I18n.t('active_admin.update_model', model: 'Book')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Book')) }
+    end
+
+    context 'attach category' do
+      let!(:category) { create :category }
+      before do
+        visit edit_admin_book_path(book.id)
+        find_link(I18n.t('active_admin.add_category')).click
+        select category.name, from: 'book_category_books_attributes_0_category_id'
+        find_button(I18n.t('active_admin.update_model', model: 'Book')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Book')) }
+    end
+
     context 'edit book' do
       before do
         visit edit_admin_book_path(book.id)
-        fill_in 'book_title', with: builded_book.title
+        fill_in 'book_title', with: book_attributes[:title]
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
@@ -93,6 +116,7 @@ describe 'Admin page' do
       before do
         visit admin_book_path(book.id)
         find_link(I18n.t('active_admin.delete_model', model: 'Book')).click
+        accept_alert
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_delete', model: 'Book')) }
@@ -101,7 +125,7 @@ describe 'Admin page' do
 
   describe 'Category' do
     let!(:category) { create :category }
-    let!(:builded_category) { build :category }
+    let(:category_attributes) { FactoryBot.attributes_for(:category) }
 
     before do
       subject
@@ -111,7 +135,7 @@ describe 'Admin page' do
       before do
         visit admin_categories_path
         click_link I18n.t('active_admin.new_model', model: 'Category')
-        fill_in 'category_name', with: builded_category.name
+        fill_in 'category_name', with: category_attributes[:name]
         find_button(I18n.t('active_admin.create_model', model: 'Category')).click
       end
 
@@ -121,7 +145,7 @@ describe 'Admin page' do
     context 'edit category' do
       before do
         visit edit_admin_category_path(category.id)
-        fill_in 'category_name', with: builded_category.name
+        fill_in 'category_name', with: category_attributes[:name]
         find_button(I18n.t('active_admin.update_model', model: 'Category')).click
       end
 
@@ -132,6 +156,7 @@ describe 'Admin page' do
       before do
         visit admin_category_path(category.id)
         find_link(I18n.t('active_admin.delete_model', model: 'Category')).click
+        accept_alert
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_delete', model: 'Category')) }

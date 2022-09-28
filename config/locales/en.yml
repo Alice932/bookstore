@@ -179,6 +179,8 @@ en:
     success_create: "%{model} was successfully created."
     success_update: "%{model} was successfully updated."
     success_delete: "%{model} was successfully destroyed."
+    add_category: 'Add New Category book'
+    add_author: 'Add New Author book'
     notice:
       approved: Successfully Approved.
       rejected: Successfully Rejected.
@@ -188,6 +190,8 @@ en:
     verified: Verified Author
     approved_status: approved
     post_button: Post
+    add_category: 'Add New Category book'
+    add_author: 'Add New Author book'
 
 
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Author do
+  remove_filter :author_books
   permit_params :first_name, :last_name, :description
 
   form do |f|
