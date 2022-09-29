@@ -1,7 +1,7 @@
-$(document).on('turbo:load', function(){
-  $('.rating .fa-star').on('click', function() {
-    $(this).closest('.rating').find('.--selected').removeClass('--selected');
-    $(this).toggleClass('--selected');
-  });
+$('.rating').on('click', '.ratings_stars', function () {
+  var star = $(this)
+  star.addClass('selected')
+  star.prevAll().addClass('selected')
+  star.nextAll().removeClass('selected')
+  $('#rating').val(star.data('rating'))
 });
-

@@ -12,7 +12,7 @@ RSpec.describe 'Review Part' do
       before do
         sign_in user
         visit book_path(book.id)
-        choose('review[score]', option: '5')
+        first('.ratings_stars').click
         fill_in 'name_field', with: review_attributes[:name]
         fill_in 'title_field', with: review_attributes[:title]
         fill_in 'text_review_field', with: review_attributes[:review_text]
