@@ -62,3 +62,5 @@ group :test do
 end
 
 gem 'importmap-rails', '~> 1.1'
+
+gem 'shrine', '~> 3.4'
