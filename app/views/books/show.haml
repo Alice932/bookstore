@@ -16,11 +16,11 @@
           %a.img-link{href: "#"}
             %img{src: "https://www.smashingmagazine.com/wp-content/uploads/2015/09/smashing-book-5-2-large.jpg"}
     .col-sm-6
-      %h1.mt-res-0= @book.title
+      %h1.mt-res-0= book.title
       %p.lead.small= book.all_authors
       .row
         .col-xs-12.col-md-4
-          %p.h1.in-gold-500.mt-10#book_price= number_to_currency(@book.price, unit: '€')
+          %p.h1.in-gold-500.mt-10#book_price= number_to_currency(book.price, unit: '€')
         .col-xs-5.col-md-3
           .input-group.general-position
             %a.input-link.b-n.pt-7#minus
@@ -33,20 +33,20 @@
       .general-info-wrap.divider-lg
         %p= t('books.show.description')
         %span.textControl
-          %span.lessText.lead.small.line-height-2= @book.description
+          %span.lessText.lead.small.line-height-2= book.description
           %a.moreContentBtn.in-gold-500.ml-10
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('books.show.publication_date')
-          %p.lead.small.pull-right= @book.publication_date
+          %p.lead.small.pull-right= book.publication_date
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('books.show.dimensions')
-          %p.lead.small.pull-right= @book.dimensions
+          %p.lead.small.pull-right= book.dimensions
       .general-info-wrap.divider-lg
         .clearfix
           %p.pull-left= t('books.show.materials')
-          %p.lead.small.pull-right= @book.materials.split("\"").max(3).join(", ")
+          %p.lead.small.pull-right= book.formated_materials
   .mb-80
     - if user_signed_in?
       = render partial: 'books/partials/form_review'

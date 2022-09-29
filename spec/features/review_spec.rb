@@ -2,11 +2,9 @@
 
 RSpec.describe 'Review Part' do
   describe 'right text on page' do
-    let!(:user) { create :user }
-    let!(:author) { create :author }
-    let!(:book) { create :book }
-    let!(:author_books) { create :author_book, book_id: book.id, author_id: author.id }
-    let!(:review_attributes) { FactoryBot.attributes_for :review }
+    let(:user) { create :user }
+    let(:book) { create :book }
+    let(:review_attributes) { FactoryBot.attributes_for :review }
 
     describe 'review' do
       before do

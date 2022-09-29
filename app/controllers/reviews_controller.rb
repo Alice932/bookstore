@@ -4,12 +4,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review.book, notice: t('review.notice') }
-      else
-        format.html { redirect_to @review.book, alert: t('review.alert') }
-      end
+    if @review.save
+      redirect_to @review.book, notice: t('review.notice')
+    else
+      redirect_to @review.book, alert: t('review.alert')
     end
   end
 

@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory(:review) do
     score { FFaker::Random.rand(5) }
-    title { 'SomeTitle' }
+    title { FFaker::Lorem.word }
     name { FFaker::Name.first_name }
     review_text { FFaker::Book.description }
     user
