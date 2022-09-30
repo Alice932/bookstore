@@ -116,7 +116,7 @@ RSpec.describe 'Book Page' do
         expect(page).to have_content(first_book.price)
         expect(page).to have_content(first_book.publication_date)
         expect(page).to have_content(first_book.materials)
-        expect(page).to have_content(first_book.dimensions.split('"').max(3).join(', '))
+        expect(page).to have_content(first_book.dimensions)
       end
     end
   end

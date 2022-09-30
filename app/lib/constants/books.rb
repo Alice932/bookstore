@@ -2,6 +2,10 @@
 
 module Constants
   module Books
+    LATEST_BOOK_COUNT = 4
+    NEW_BOOKS_COUNT = 3
+    LONGEST_ELEMENTS = 3
+
     INCLUDES_OPTIONS = %i[author_books authors].freeze
     TRUNCATED_LENGTH = { all_authors: 40,
                          title: 25 }.freeze

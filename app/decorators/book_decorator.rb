@@ -19,4 +19,8 @@ class BookDecorator < ApplicationDecorator
   def all_categories
     categories.map(&:name).join(Constants::Books::COMMA)
   end
+
+  def formated_materials
+    materials.split('"').max(Constants::Books::LONGEST_ELEMENTS).join(Constants::Books::COMMA)
+  end
 end

@@ -1,0 +1,23 @@
+.mb-80
+  %h3= t('books.review.write_review')
+  %p.general-info-text= t('books.review.score')
+  = simple_form_for @review, data: { turbo: false } do |f|
+    .mb-15
+      .rating
+        %i.ratings_stars.fa.fa-star.rate-empty{"data-rating" => "1"}
+        %i.ratings_stars.fa.fa-star.rate-empty{"data-rating" => "2"}
+        %i.ratings_stars.fa.fa-star.rate-empty{"data-rating" => "3"}
+        %i.ratings_stars.fa.fa-star.rate-empty{"data-rating" => "4"}
+        %i.ratings_stars.fa.fa-star.rate-empty{"data-rating" => "5"}
+    .mb-40
+      .form-group
+        =f.input :name, label: t('books.review.name'), label_html: { class: 'control-label input-label' }, input_html: { id: 'name_field', class: 'form-control' }, type: 'text'
+      .form-group
+        =f.input :title, label: t('books.review.title'), label_html: { class: 'control-label input-label' }, input_html: { id: 'title_field', class: 'form-control' }, type: 'text'
+      .form-group
+        =f.input :review_text, as: :text, label: t('books.review.review'), label_html: { class: 'control-label input-label' }, input_html: { id: 'text_review_field', class: 'form-control' }, type: 'text'
+      .text-right
+        = f.hidden_field :score, id: 'rating'
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :book_id, value: book.id
+        =f.button :submit, t('review.post_button'), class: 'btn mb-20'

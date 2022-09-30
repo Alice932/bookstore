@@ -566,6 +566,14 @@
 }
 
 
+.ratings_stars.fa-star:hover {
+  color: #001628;
+}
+
+.ratings_stars.fa-star.selected {
+  color: #001628;
+}
+
 
 @media (min-width: $grid-float-breakpoint) {
   .navbar-nav {
