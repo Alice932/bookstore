@@ -24,6 +24,7 @@ app/.DS_Store
 !/tmp/storage/.keep
 
 /public/assets
+/public/uploads
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

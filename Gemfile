@@ -61,6 +61,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
 end
 
+gem 'aws-sdk-s3', require: false
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'importmap-rails', '~> 1.1'
-
 gem 'shrine', '~> 3.4'
