@@ -3,7 +3,6 @@
 class BookDecorator < ApplicationDecorator
   delegate_all
   decorates_association :authors, with: AuthorDecorator
-  decorates_association :book_photos, with: BookPhotoDecorator
 
   def all_authors
     authors.map(&:full_name).join(Constants::Books::COMMA)
@@ -24,8 +23,4 @@ class BookDecorator < ApplicationDecorator
   def formated_materials
     materials.split('"').max(Constants::Books::LONGEST_ELEMENTS).join(Constants::Books::COMMA)
   end
-
-  # def book_image
-  #   book_photos.map(&:image_url)
-  # end
 end

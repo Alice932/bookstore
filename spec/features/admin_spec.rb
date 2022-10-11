@@ -82,7 +82,7 @@ describe 'Admin page', js: true do
       before do
         visit edit_admin_book_path(book.id)
         find_link(I18n.t('active_admin.add_photo')).click
-        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}spec/fixtures/images/test.jpg")
+        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/images/test.jpg")
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
