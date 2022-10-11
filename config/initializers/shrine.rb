@@ -4,8 +4,8 @@ require 'shrine'
 require 'shrine/storage/file_system'
 require 'shrine/storage/s3'
 
-Shrine.plugin :activerecord           # loads Active Record integration
-Shrine.plugin :cached_attachment_data # enables retaining cached file across form redisplays
+Shrine.plugin :activerecord
+Shrine.plugin :cached_attachment_data
 Shrine.plugin :restore_cached_data
 
 s3_options = {

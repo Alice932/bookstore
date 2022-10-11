@@ -27,8 +27,4 @@ class BooksController < ApplicationController
   def scoped_books
     SortBooksService.new(params).call
   end
-
-  def book_params
-    params.require(:book).permit(:title, :description, :image)
-  end
 end
