@@ -28,22 +28,12 @@ ActiveAdmin.register Book do
     actions
   end
 
-  # show do
-  #   attributes_table do
-  #     row :book_photos do |ad|
-  #       image_tag url_for(ad.image)
-  #     end
-  #   end
-  # end
-
   form do |f|
     f.inputs 'Details' do
       f.inputs :title, :description, :price, :publication_date, :dimensions, :materials
-      # f.input :image, as: :file
       f.has_many :book_photos do |p|
         p.hidden_field :image, value: p.object.cached_image_data
         p.input :image, as: :file
-        # p.check_box    :_destroy unless p.object.new_record?
       end
 
       f.has_many :author_books, allow_destroy: true do |app_f|
