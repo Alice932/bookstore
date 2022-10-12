@@ -6,7 +6,7 @@ module Constants
     NEW_BOOKS_COUNT = 3
     LONGEST_ELEMENTS = 3
 
-    INCLUDES_OPTIONS = %i[author_books authors].freeze
+    INCLUDES_OPTIONS = %i[author_books authors book_photos].freeze
     TRUNCATED_LENGTH = { all_authors: 40,
                          title: 25 }.freeze
     BOOKS_PER_PAGE = 12

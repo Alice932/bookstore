@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_21_021033) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_105106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_021033) do
     t.datetime "updated_at", null: false
     t.string "last_name", null: false
     t.string "description", default: ""
+  end
+
+  create_table "book_photos", force: :cascade do |t|
+    t.bigint "book_id"
+    t.text "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_photos_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -136,6 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_021033) do
   add_foreign_key "addresses", "users"
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
+  add_foreign_key "book_photos", "books"
   add_foreign_key "category_books", "books"
   add_foreign_key "category_books", "categories"
   add_foreign_key "reviews", "books"

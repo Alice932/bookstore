@@ -181,6 +181,8 @@ en:
     success_delete: "%{model} was successfully destroyed."
     add_category: 'Add New Category book'
     add_author: 'Add New Author book'
+    add_photo: 'Add New Book photo'
+    unvalid_file: 'extension must be one of: jpg, jpeg, png'
     notice:
       approved: Successfully Approved.
       rejected: Successfully Rejected.

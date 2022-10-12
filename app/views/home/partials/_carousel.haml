@@ -12,7 +12,10 @@
               .row
                 .col-sm-5
                   .general-img-wrap
-                    %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+                    - if book.book_photos.first
+                      = image_tag book.book_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+                    - else
+                      %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
                 .col-sm-7
                   .mb-60
                     %h1= book.title
@@ -27,7 +30,10 @@
               .row
                 .col-sm-5
                   .general-img-wrap
-                    %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+                    - if book.book_photos.first
+                      = image_tag book.book_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+                    - else
+                      %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
                 .col-sm-7
                   .mb-60
                     %h1= book.title

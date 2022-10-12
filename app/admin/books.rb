@@ -4,11 +4,12 @@ ActiveAdmin.register Book do
   remove_filter :author_books, :category_books
   decorate_with BookDecorator
 
-  permit_params :title, :description, :price, :publication_date, :materials, :dimensions,
+  permit_params :title, :description, :price, :publication_date, :materials, :dimensions, :book_photos,
                 authors_attributes: %i[id first_name last_name],
                 author_books_attributes: %i[id book_id author_id _destroy],
                 categories_attributes: %i[id name],
-                category_books_attributes: %i[id book_id category_id _destroy]
+                category_books_attributes: %i[id book_id category_id _destroy],
+                book_photos_attributes: %i[id book_id image]
 
   filter :title
   filter :authors, as: :select,
@@ -30,6 +31,10 @@ ActiveAdmin.register Book do
   form do |f|
     f.inputs 'Details' do
       f.inputs :title, :description, :price, :publication_date, :dimensions, :materials
+      f.has_many :book_photos do |p|
+        p.hidden_field :image, value: p.object.cached_image_data
+        p.input :image, as: :file
+      end
 
       f.has_many :author_books, allow_destroy: true do |app_f|
         app_f.input :author_id, as: :select, label: 'Author', collection: Author.all.map { |a|

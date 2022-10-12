@@ -6,7 +6,9 @@ class Book < ApplicationRecord
   has_many :category_books, dependent: :destroy
   has_many :categories, through: :category_books
   has_many :reviews, dependent: :destroy
+  has_many :book_photos, dependent: :destroy
 
+  accepts_nested_attributes_for :book_photos, allow_destroy: true
   accepts_nested_attributes_for :author_books, allow_destroy: true
   accepts_nested_attributes_for :category_books, allow_destroy: true
 

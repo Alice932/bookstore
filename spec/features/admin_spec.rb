@@ -78,6 +78,28 @@ describe 'Admin page', js: true do
       it { expect(page).to have_content(I18n.t('active_admin.success_create', model: 'Book')) }
     end
 
+    context 'attach photo' do
+      before do
+        visit edit_admin_book_path(book.id)
+        find_link(I18n.t('active_admin.add_photo')).click
+        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/images/test.jpg")
+        find_button(I18n.t('active_admin.update_model', model: 'Book')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Book')) }
+    end
+
+    context 'attach unvalid file' do
+      before do
+        visit edit_admin_book_path(book.id)
+        find_link(I18n.t('active_admin.add_photo')).click
+        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/texts/test.txt")
+        find_button(I18n.t('active_admin.update_model', model: 'Book')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.unvalid_file')) }
+    end
+
     context 'attach author' do
       let!(:author) { create :author }
       before do
