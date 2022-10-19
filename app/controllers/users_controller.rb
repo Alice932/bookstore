@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(current_user.id)
+    current_cart.destroy
+    cookies.delete :cart_id
     @user.destroy
     flash[:notice] = t('privacy.destroy')
     redirect_to root_url, notice: t('privacy.user_deleted') if @user.destroy

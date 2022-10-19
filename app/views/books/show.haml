@@ -29,7 +29,10 @@
             %a.b-n.input-link#plus
               %i.fa.fa-plus.line-height-40
         .col-xs-7.col-md-5
-          %button.btn.btn-default.pull-right.general-position= t('books.show.add_to_cart')
+          = simple_form_for :cart_book, url: cart_books_path, data: { turbo: false }, method: :post do |f|
+            = f.hidden_field :quantity, class: 'input-count-book'
+            = f.hidden_field :book_id, value: book.id
+            = f.button :submit, t('books.show.add_to_cart'), class: 'btn btn-default pull-right general-position'
       .general-info-wrap.divider-lg
         %p= t('books.show.description')
         %span.textControl

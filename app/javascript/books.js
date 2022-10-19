@@ -4,6 +4,7 @@ $(document).on('turbo:load', function(){
     var ellipsesText = "...";
     var lessText = "Read less";
     var moreText = "Read more";
+    $('.input-count-book').val(1);
 
     var initContent = $('.lessText').text();
     const book_priceValue = Number($('#book_price').text().slice(1));

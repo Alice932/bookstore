@@ -1,0 +1,37 @@
+%main.container.general-main-wrap
+  %h1.general-title-margin= t('cart.title')
+  -if @current_cart.cart_books.present?
+    = render partial: 'carts/partials/cart_book', locals: { cart_books: @current_cart.cart_books.includes([:book]) }
+    .general-order-wrap
+      .row
+        .col-sm-4
+          .input-group.general-input-group
+            - if @current_cart.coupon
+              %h3= t('coupon.used_coupon')
+            - else
+              = simple_form_for :coupon, url: coupon_path, method: :put do |f|
+                = f.input :code, label: t('coupon.label'), input_html: { class: 'form-control mb-30' }, label_html: { class: 'input-labe' }, placeholder: t('coupon.placeholder'), type: 'text'
+                = f.button :submit, t('coupon.submit'), class: 'btn btn-primary mb-30'
+        .col-sm-8
+          .res-mr-200.text-center.general-text-right
+            %p.in-gold-500.font-18= t('cart.order_summary')
+            %table.general-summary-table.general-summary-table-right.general-text-right
+              %tr
+                %td
+                  %p.font-16= t('cart.order_subtotal')
+                %td
+                  %p.font-16= number_to_currency(@current_cart.subtotal_price, unit: '€')
+              %tr
+                %td
+                  %p.font-16= t('cart.coupon')
+                %td
+                  %p.font-16= number_to_currency(@current_cart.discount, unit: '€')
+              %tr
+                %td
+                  %strong.font-18= t('cart.order_total')
+                %td
+                  %strong.font-18= number_to_currency(@current_cart.total_price, unit: '€')
+    %button.btn.btn-default.mb-20.hidden-xs.center-block= t('cart.checkout')
+  -else
+    %h1= t('cart.empty_cart')
+    = link_to t('cart.link_to_books'), books_path
