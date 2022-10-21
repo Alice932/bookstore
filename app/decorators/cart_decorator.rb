@@ -2,9 +2,9 @@
 
 class CartDecorator < Draper::Decorator
   delegate_all
-  decorates_association :cart_book
+  decorates_association :cart_item
   def subtotal_price
-    cart_books.sum { |item| item.quantity * item.book.price }
+    cart_items.sum { |item| item.quantity * item.book.price }
   end
 
   def discount

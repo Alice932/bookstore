@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe CartBook, type: :model do
+RSpec.describe CartItem, type: :model do
   describe 'fields exist' do
     it { should have_db_column(:quantity).of_type(:integer) }
   end

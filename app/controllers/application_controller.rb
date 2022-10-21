@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :current_cart, :cart_count
 
   def current_cart
-    @current_cart ||= CartService.new(current_user, cookies).check_cart
+    @current_cart ||= CurrentCart.new(current_user, cookies).call
   end
 
   def cart_count
-    @cart_count ||= current_cart ? current_cart.cart_books.sum(:quantity) : '0'
+    @cart_count ||= current_cart ? current_cart.cart_items.sum(:quantity) : Constants::Cart::NULL_COUNT
   end
 end

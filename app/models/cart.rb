@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class Cart < ApplicationRecord
-  enum status: { unprocessed: 0, delivered: 1, canceled: 2 }
+  enum status: { empty: 0, filled: 1 }
   belongs_to :user, optional: true
 
-  has_many :cart_books, dependent: :destroy
-  has_many :books, through: :cart_books, dependent: :destroy
+  has_many :cart_items, dependent: :destroy
+  has_many :books, through: :cart_items, dependent: :destroy
   has_one :coupon, dependent: :destroy
 end

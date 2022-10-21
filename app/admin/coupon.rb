@@ -11,12 +11,14 @@ ActiveAdmin.register Coupon do
     column :status
     actions
   end
+
   form do |f|
     f.inputs 'Details' do
       f.input :code
       f.input :discount
       f.input :status
     end
+
     f.actions
   end
 end

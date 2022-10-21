@@ -7,7 +7,7 @@ RSpec.describe 'Cart Part', js: true do
     let!(:used_coupon) { create :coupon, status: 1 }
     let(:book) { create :book }
     let(:cart) { create :cart, user_id: user.id }
-    let(:cart_book) { create :cart_book, cart_id: cart.id, book_id: book.id }
+    let(:cart_item) { create :cart_item, cart_id: cart.id, book_id: book.id }
     let(:total) { book.price * coupon.discount / Constants::Coupon::MAX_DISCOUNT }
 
     describe 'user signed in' do

@@ -1,7 +1,7 @@
 %main.container.general-main-wrap
   %h1.general-title-margin= t('cart.title')
-  -if @current_cart.cart_books.present?
-    = render partial: 'carts/partials/cart_book', locals: { cart_books: @current_cart.cart_books.includes([:book]) }
+  -if @current_cart.cart_items.present?
+    = render partial: 'carts/partials/cart_item', locals: { cart_items: @current_cart.cart_items.includes([:book]) }
     .general-order-wrap
       .row
         .col-sm-4

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     collection { post :index }
   end
   resources :reviews, only: %i[create]
-  resources :cart_books, only: %i[create destroy update]
+  resources :cart_items, only: %i[create destroy update]
   resource :cart, only: %i[show]
   resource :coupon, only: %i[update]
 

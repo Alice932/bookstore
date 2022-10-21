@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory(:cart_book) do
+  factory(:cart_item) do
     cart
     book
   end
