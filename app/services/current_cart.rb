@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class CurrentCart
-  attr_accessor :cookies
-  attr_reader :user
-
   def call
     if cart_exist?
       user_id_set(user)
@@ -15,6 +12,9 @@ class CurrentCart
   end
 
   private
+
+  attr_accessor :cookies
+  attr_reader :user
 
   def initialize(user, cookies)
     @user = user

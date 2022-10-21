@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class CurrentCartItems
-  attr_reader :cart, :params
-
   def call
     cart_item ? update_cart_item : create_cart_item
   end
 
   private
+
+  attr_reader :cart, :params
 
   def initialize(cart:, params:)
     @cart = cart
