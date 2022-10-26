@@ -30,4 +30,6 @@ Rails.application.routes.draw do
       collection { post :index }
     end
   end
+
+  resource :checkout, only: %i[show]
 end
