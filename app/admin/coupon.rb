@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Coupon do
-  remove_filter :cart
+  remove_filter :order
   permit_params :code, :discount, :status
 
   index do

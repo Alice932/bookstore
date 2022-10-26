@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  before_action :current_cart, :cart_count
+  before_action :current_cart, :order_count
 
   def current_cart
-    @current_cart ||= CurrentCart.new(current_user, cookies).call
+    @current_cart ||= CurrentOrder.new(current_user, cookies).call
   end
 
-  def cart_count
-    @cart_count ||= current_cart ? current_cart.cart_items.sum(:quantity) : Constants::Cart::NULL_COUNT
+  def order_count
+    @order_count ||= current_cart ? current_cart.order_items.sum(:quantity) : Constants::Order::NULL_COUNT
   end
 end

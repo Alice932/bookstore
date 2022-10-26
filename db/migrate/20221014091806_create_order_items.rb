@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class CreateCartItems < ActiveRecord::Migration[7.0]
+class CreateOrderItems < ActiveRecord::Migration[7.0]
   def change
-    create_table :cart_items do |t|
+    create_table :order_items do |t|
       t.integer :quantity, default: 1, null: false
-      t.belongs_to :cart, foreign_key: true
+      t.belongs_to :order, foreign_key: true
       t.belongs_to :book, foreign_key: true
       t.timestamps
     end

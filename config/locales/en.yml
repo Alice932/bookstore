@@ -194,7 +194,7 @@ en:
     post_button: Post
     add_category: 'Add New Category book'
     add_author: 'Add New Author book'
-  cart:
+  order:
     title: Cart
     product: Product
     price: Price
