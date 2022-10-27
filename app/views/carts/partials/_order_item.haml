@@ -24,7 +24,7 @@
         %span.font-16.in-gold-500= number_to_currency(order_item.book.price, unit: '€')
       %td
         .input-group
-          = render partial: 'orders/partials/quantity', locals: { order_item: order_item, summary_quantity: order_item.quantity, book_id: order_item.book.id }
+          = render partial: 'carts/partials/quantity', locals: { order_item: order_item, summary_quantity: order_item.quantity, book_id: order_item.book.id }
       %td
         %span.font-16.in-gold-500= number_to_currency(order_item.decorate.subtotal_price, unit: '€')
       %td
