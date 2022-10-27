@@ -128,7 +128,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "status", default: 0
-    t.float "total_price", default: 0.0
+    t.float "total", default: 0.0
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
