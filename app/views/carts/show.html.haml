@@ -32,7 +32,7 @@
                 %td
                   %strong.font-18= number_to_currency(@current_cart.total_price, unit: '€')
     .text-center
-      = link_to t('cart.checkout'), @user_checkout_path, class: 'btn btn-default mb-20'
+      = link_to t('order.checkout'), @user_checkout_path, class: 'btn btn-default mb-20'
   -else
     %h1= t('order.empty_cart')
     = link_to t('order.link_to_books'), books_path

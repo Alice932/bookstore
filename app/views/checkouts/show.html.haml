@@ -1,6 +1,6 @@
 
 %main.container
-  %h1.general-title-margin Checkout
+  %h1.general-title-margin= t('checkout.title')
   = render partial: 'checkouts/partials/steps'
   %form.res-mb-100
   .tab-content
@@ -22,16 +22,16 @@
         -else
           = render partial: 'addresses/partials/form_address', locals: { address: @shipping_address.nil? ?  AddressForm.new(Address.new(type: t('address.type_shipping'))) : @shipping_address, type: t('address.type_shipping') }
     .general-text-align.mb-60
-      %p.in-gold-500.font-18 Order Summary
+      %p.in-gold-500.font-18= t('checkout.summary')
       %table.general-summary-table
         %tr
           %td
-            %p.font-16 Item Total:
+            %p.font-16= t('checkout.item_total')
           %td
-            %p.font-16 €117.69
+            %p.font-16= t('checkout.sum')
         %tr
           %td
-            %p.font-16 Order Total:
+            %p.font-16= t('checkout.order_total')
           %td
-            %p.font-16 €117.69
-      %button.btn.disabled.center-block.mb-20 Save and Continue
+            %p.font-16= t('checkout.sum')
+      %button.btn.disabled.center-block.mb-20= t('checkout.save')

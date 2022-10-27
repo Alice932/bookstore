@@ -230,6 +230,24 @@ en:
     label: Enter Your Coupon Code
     placeholder: Enter Your Coupon Code
     submit: Apply Coupon
+  checkout:
+    title: Checkout
+    summary: Order Summary
+    item_total: "Item Total:"
+    order_total: "Order Total:"
+    sum: "€117.69"
+    save: Save and Continue
+    steps:
+      first: '1'
+      second: '2'
+      third: '3'
+      fourth: '4'
+      fifth: '5'
+      address: Address
+      delivery: Delivery
+      payment: Payment
+      confirm: Confirm
+      complete: Complete
 
 
 
