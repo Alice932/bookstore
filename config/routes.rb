@@ -31,5 +31,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :checkout, only: %i[show]
+  resource :quick_registration, only: %i[show]
 end
