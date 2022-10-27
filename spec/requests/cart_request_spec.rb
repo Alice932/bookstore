@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe OrdersController, type: :controller do
+RSpec.describe CartsController, type: :controller do
   describe 'GET #show' do
     before { get :show }
 

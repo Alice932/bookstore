@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Order Part', js: true do
+RSpec.describe 'Cart Part', js: true do
   describe 'right text on page' do
     let!(:user) { create :user }
     let!(:coupon) { create :coupon, status: 0 }
@@ -31,7 +31,7 @@ RSpec.describe 'Order Part', js: true do
       context 'clear order' do
         before do
           sign_out user
-          visit order_path
+          visit cart_path
         end
 
         it { expect(page).to have_content(I18n.t('order.empty_cart')) }
@@ -79,7 +79,7 @@ RSpec.describe 'Order Part', js: true do
       context 'login with order' do
         before do
           sign_in user
-          visit order_path
+          visit cart_path
         end
 
         it { expect(page).to have_content(book.title) }

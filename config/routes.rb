@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: %i[create]
   resources :order_items, only: %i[create destroy update]
-  resource :order, only: %i[show]
+  resource :cart, only: %i[show]
   resource :coupon, only: %i[update]
 
   resources :categories, only: [] do

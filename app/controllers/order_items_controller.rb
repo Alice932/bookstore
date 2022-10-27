@@ -4,25 +4,25 @@ class OrderItemsController < ApplicationController
   before_action :book_quantity, only: [:update], unless: :create_user_order
 
   def create
-    return redirect_to(order_path, alert: t('order.alert')) if order_item_exist?
+    return redirect_to(cart_path, alert: t('order.alert')) if order_item_exist?
 
     create_user_order
-    redirect_to order_path, notice: t('order.notice')
+    redirect_to cart_path, notice: t('order.notice')
   end
 
   def update
-    redirect_to order_path, notice: t('order.updated')
+    redirect_to cart_path, notice: t('order.updated')
   end
 
   def destroy
     OrderItem.find_by(id: params[:id])&.destroy
-    redirect_to order_path, notice: t('order.deleted')
+    redirect_to cart_path, notice: t('order.deleted')
   end
 
   private
 
   def book_quantity
-    redirect_to order_path
+    redirect_to cart_path
   end
 
   def create_user_order
