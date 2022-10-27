@@ -96,6 +96,18 @@ en:
       email_placeholder: Enter Email
       email_instructions: Email Instructions
       cancel: Cancel
+    returning_customer:
+      customer: Returning Customer
+      log_in: Log In with Password
+      submit: Log In with Password
+    quick_registration:
+      new_customer: New Customer
+      quick_register: Quik Register
+      password_later: "You’ll be able to create password later"
+      send_password_instructions: We sent you email with password instructions
+      label: Enter Email
+      placeholder: Enter Email
+      submit: Continue to Checkout
   mailer:
     confirmation:
       welcome: Welcome %{email} !

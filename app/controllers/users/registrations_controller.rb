@@ -13,34 +13,38 @@ module Users
     end
 
     def create
-      quick_registration? ? quick_registrate : super
+      if params[:user][:quick].present?
+        quick_registration
+      else
+        super
+      end
     end
 
     private
 
-    def quick_registrate
-      params[:user][:password] = params[:user][:password_confirmation] = devise_password
-      build_resource(sign_up_params)
-      resource.skip_confirmation!
-      resource.save ? authenticate_user : redirect_back_and_show_errors
-    end
-
-    def authenticate_user
-      sign_up(resource_name, resource)
-      resource.send_reset_password_instructions
-      redirect_to(books_path, notice: t('devise.quick_registration.message.password_instructions'))
+    def quick_registration
+      user_create
+      if resource.save
+        authenticate_user
+      else
+        redirect_to cart_path, alert: resource.errors.full_messages.to_sentence
+      end
     end
 
     def devise_password
       Devise.friendly_token[1, 8]
     end
 
-    def quick_registration?
-      params[:user][:quick].present?
+    def user_create
+      params[:user][:password] = params[:user][:password_confirmation] = devise_password
+      build_resource(sign_up_params)
+      resource.skip_confirmation!
     end
 
-    def redirect_back_and_show_errors
-      redirect_to order_path, alert: resource.errors.full_messages.to_sentence
+    def authenticate_user
+      sign_up(resource_name, resource)
+      resource.send_reset_password_instructions
+      redirect_to(cart_path, notice: t('devise.quick_registration.send_password_instructions'))
     end
   end
 end
