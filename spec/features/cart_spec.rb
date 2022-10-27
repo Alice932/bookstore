@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Cart Part', js: true do
+RSpec.describe 'Order Part', js: true do
   describe 'right text on page' do
     let!(:user) { create :user }
     let!(:coupon) { create :coupon, status: 0 }
     let!(:used_coupon) { create :coupon, status: 1 }
     let(:book) { create :book }
-    let(:cart) { create :cart, user_id: user.id }
-    let(:cart_item) { create :cart_item, cart_id: cart.id, book_id: book.id }
+    let(:order) { create :order, user_id: user.id }
+    let(:order_item) { create :order_item, order_id: order.id, book_id: book.id }
     let(:total) { book.price * coupon.discount / Constants::Coupon::MAX_DISCOUNT }
 
     describe 'user signed in' do
@@ -17,24 +17,24 @@ RSpec.describe 'Cart Part', js: true do
         click_button(I18n.t('books.show.add_to_cart'))
       end
 
-      context 'add book to cart' do
-        it { expect(page).to have_content(I18n.t('cart.notice')) }
+      context 'add book to order' do
+        it { expect(page).to have_content(I18n.t('order.notice')) }
       end
 
-      context 'delete from cart' do
+      context 'delete from order' do
         before do
           find('.close.general-cart-close').click
         end
-        it { expect(page).to have_content(I18n.t('cart.deleted')) }
+        it { expect(page).to have_content(I18n.t('order.deleted')) }
       end
 
-      context 'clear cart' do
+      context 'clear order' do
         before do
           sign_out user
-          visit cart_path
+          visit order_path
         end
 
-        it { expect(page).to have_content(I18n.t('cart.empty_cart')) }
+        it { expect(page).to have_content(I18n.t('order.empty_cart')) }
       end
 
       describe 'coupon part' do
@@ -65,21 +65,21 @@ RSpec.describe 'Cart Part', js: true do
         click_button(I18n.t('books.show.add_to_cart'))
       end
 
-      context 'add book to cart' do
-        it { expect(page).to have_content(I18n.t('cart.notice')) }
+      context 'add book to order' do
+        it { expect(page).to have_content(I18n.t('order.notice')) }
       end
 
-      context 'delete from cart' do
+      context 'delete from order' do
         before do
           find('.close.general-cart-close').click
         end
-        it { expect(page).to have_content(I18n.t('cart.deleted')) }
+        it { expect(page).to have_content(I18n.t('order.deleted')) }
       end
 
-      context 'login with cart' do
+      context 'login with order' do
         before do
           sign_in user
-          visit cart_path
+          visit order_path
         end
 
         it { expect(page).to have_content(book.title) }

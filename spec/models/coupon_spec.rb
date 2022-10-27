@@ -13,6 +13,6 @@ RSpec.describe Coupon, type: :model do
   end
 
   describe 'have indexes' do
-    it { should have_db_index(:cart_id) }
+    it { should have_db_index(:order_id) }
   end
 end

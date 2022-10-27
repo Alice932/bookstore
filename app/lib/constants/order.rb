@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Constants
-  module Cart
+  module Order
     NULL_COUNT = 0
     QUANTITY_INCREMENT = 1
   end

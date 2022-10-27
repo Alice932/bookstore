@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CartItemDecorator < Draper::Decorator
+class OrderItemDecorator < Draper::Decorator
   delegate_all
   delegate :price, to: :book, prefix: true
 

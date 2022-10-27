@@ -91,23 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
     t.string "dimensions", null: false
   end
 
-  create_table "cart_items", force: :cascade do |t|
-    t.integer "quantity", default: 1, null: false
-    t.bigint "cart_id"
-    t.bigint "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_cart_items_on_book_id"
-    t.index ["cart_id"], name: "index_cart_items_on_cart_id"
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_carts_on_user_id"
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -127,10 +110,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
     t.integer "status", default: 0, null: false
     t.string "code", null: false
     t.float "discount", null: false
-    t.bigint "cart_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_coupons_on_cart_id", unique: true
+    t.index ["order_id"], name: "index_coupons_on_order_id", unique: true
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "quantity", default: 1, null: false
+    t.bigint "order_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_order_items_on_book_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "status", default: 0
+    t.float "total", default: 0.0
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -172,12 +174,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
   add_foreign_key "book_photos", "books"
-  add_foreign_key "cart_items", "books"
-  add_foreign_key "cart_items", "carts"
-  add_foreign_key "carts", "users"
   add_foreign_key "category_books", "books"
   add_foreign_key "category_books", "categories"
-  add_foreign_key "coupons", "carts"
+  add_foreign_key "coupons", "orders"
+  add_foreign_key "order_items", "books"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class CartDecorator < Draper::Decorator
+class OrderDecorator < Draper::Decorator
   delegate_all
-  decorates_association :cart_item
+  decorates_association :order_item
   def subtotal_price
-    cart_items.sum { |item| item.quantity * item.book.price }
+    order_items.includes([:book]).sum { |item| item.quantity * item.book.price }
   end
 
   def discount
