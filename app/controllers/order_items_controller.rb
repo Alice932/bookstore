@@ -15,8 +15,8 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    OrderItem.find_by(id: params[:id])&.destroy
-    redirect_to cart_path, notice: t('order.deleted')
+    item_to_delete = OrderItem.find_by(id: params[:id])
+    redirect_to cart_path, notice: t('order.deleted') if item_to_delete.destroy
   end
 
   private

@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
 class CurrentOrder
-  def call
-    if order_exist?
-      user_id_set(user)
-    elsif user_exist?
-      order_from_user(user)
-    else
-      create_order(user&.id)
-    end
-  end
-
-  private
-
   attr_accessor :cookies
   attr_reader :user
 
@@ -20,6 +8,18 @@ class CurrentOrder
     @user = user
     @cookies = cookies
   end
+
+  def call
+    if order_exist?
+      user_id_set(user)
+    elsif user_order_exist?
+      order_from_user(user)
+    else
+      create_order(user&.id)
+    end
+  end
+
+  private
 
   def user_id_set(user)
     order_from_cookies.update(user_id: user.id) if user
@@ -32,7 +32,7 @@ class CurrentOrder
     order
   end
 
-  def user_exist?
+  def user_order_exist?
     user&.order.present?
   end
 

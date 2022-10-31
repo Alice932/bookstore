@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 class CurrentOrderItems
-  def call
-    order_item ? update_order_item : create_order_item
-  end
-
-  private
-
   attr_reader :order, :params
 
   def initialize(order:, params:)
     @order = order
     @params = params
   end
+
+  def call
+    order_item ? update_order_item : create_order_item
+  end
+
+  private
 
   def order_item
     @order_item ||= order.order_items.find_by(book: params[:book_id])
