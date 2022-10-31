@@ -23,7 +23,7 @@ module Users
     private
 
     def quick_registration?
-      params[:user][:registration_format] == 'quick_registration'
+      params[:user][:registration_format] == 'quick_register'
     end
 
     def quick_register
