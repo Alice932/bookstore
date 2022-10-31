@@ -108,6 +108,7 @@ en:
       label: Enter Email
       placeholder: Enter Email
       submit: Continue to Checkout
+      error: Something went wrong!
   mailer:
     confirmation:
       welcome: Welcome %{email} !

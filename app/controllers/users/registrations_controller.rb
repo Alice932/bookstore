@@ -13,8 +13,8 @@ module Users
     end
 
     def create
-      if params[:user][:quick].present?
-        quick_registration
+      if quick_registration?
+        quick_register
       else
         super
       end
@@ -22,17 +22,21 @@ module Users
 
     private
 
-    def quick_registration
+    def quick_registration?
+      params[:user][:registration_format] == 'quick_registration'
+    end
+
+    def quick_register
       user_create
       if resource.save
         authenticate_user
       else
-        redirect_to cart_path, alert: resource.errors.full_messages.to_sentence
+        redirect_to cart_path, alert: t('devise.quick_registration.error')
       end
     end
 
     def devise_password
-      Devise.friendly_token[1, 8]
+      Devise.friendly_token
     end
 
     def user_create
@@ -44,7 +48,7 @@ module Users
     def authenticate_user
       sign_up(resource_name, resource)
       resource.send_reset_password_instructions
-      redirect_to(checkout_path, notice: t('devise.quick_registration.send_password_instructions'))
+      redirect_to checkout_path, notice: t('devise.quick_registration.send_password_instructions')
     end
   end
 end
