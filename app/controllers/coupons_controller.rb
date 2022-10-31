@@ -14,8 +14,7 @@ class CouponsController < ApplicationController
   private
 
   def update_status
-    @coupon.used!
-    @coupon.update(order_id: current_cart.id)
+    @coupon.update(order_id: current_cart.id, status: 'used')
   end
 
   def coupon_params
