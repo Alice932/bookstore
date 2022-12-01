@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class OrderItemsController < ApplicationController
-  before_action :book_quantity, only: [:update], unless: :create_user_order
+  before_action :book_quantity, only: [:update]
 
   def create
     return redirect_to(cart_path, alert: t('order.alert')) if order_item_exist?
 
-    create_user_order
+    CurrentOrderItems.new(order: current_cart, params: order_items_params).call
     redirect_to cart_path, notice: t('order.notice')
   end
 
   def update
-    redirect_to cart_path, notice: t('order.updated')
+    redirect_to cart_path, status: :see_other, notice: t('order.updated')
   end
 
   def destroy
@@ -22,11 +22,7 @@ class OrderItemsController < ApplicationController
   private
 
   def book_quantity
-    redirect_to cart_path
-  end
-
-  def create_user_order
-    @create_user_order ||= CurrentOrderItems.new(order: current_cart, params: order_items_params).call
+    CurrentOrderItems.new(order: current_cart, params: order_items_params).call
   end
 
   def order_item_exist?

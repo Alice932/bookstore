@@ -10,10 +10,10 @@ class CurrentOrder
   end
 
   def call
-    if order_exist?
-      user_id_set(user)
-    elsif user_order_exist?
+    if user_order_exist?
       order_from_user(user)
+    elsif order_exist?
+      user_id_set(user)
     else
       create_order(user&.id)
     end
