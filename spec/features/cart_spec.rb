@@ -105,6 +105,23 @@ RSpec.describe 'Cart Part', js: true do
           it { expect(page).to have_content(I18n.t('coupon.invalid')) }
         end
       end
+
+      describe 'quantity part' do
+        context 'plus link' do
+          before do
+            first('.plus-link').click
+          end
+
+          it { expect(page).to have_content(I18n.t('order.updated')) }
+        end
+        context 'minus link' do
+          before do
+            first('.minus-link').click
+          end
+
+          it { expect(page).to have_content(I18n.t('order.updated')) }
+        end
+      end
     end
   end
 end
