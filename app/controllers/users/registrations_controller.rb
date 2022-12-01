@@ -35,12 +35,8 @@ module Users
       end
     end
 
-    def devise_password
-      Devise.friendly_token
-    end
-
     def user_create
-      params[:user][:password] = params[:user][:password_confirmation] = devise_password
+      params[:user][:password] = params[:user][:password_confirmation] = Devise.friendly_token
       build_resource(sign_up_params)
       resource.skip_confirmation!
     end
