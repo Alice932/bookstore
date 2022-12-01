@@ -5,10 +5,10 @@ class CouponsController < ApplicationController
     @coupon = Coupon.find_by(code: coupon_params[:code])
     if @coupon&.active?
       update_status
-      redirect_to cart_path, notice: t('coupon.valid')
-    else
-      redirect_to cart_path, alert: t('coupon.invalid')
+      redirect_to cart_path, notice: t('coupon.valid') and return
     end
+
+    redirect_to cart_path, alert: t('coupon.invalid')
   end
 
   private

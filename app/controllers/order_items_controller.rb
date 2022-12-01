@@ -6,12 +6,12 @@ class OrderItemsController < ApplicationController
   def create
     return redirect_to(cart_path, alert: t('order.alert')) if order_item_exist?
 
-    create_user_order
+    CurrentOrderItems.new(order: current_cart, params: order_items_params).call
     redirect_to cart_path, notice: t('order.notice')
   end
 
   def update
-    redirect_to cart_path, notice: t('order.updated')
+    redirect_to cart_path, status: :see_other, notice: t('order.updated')
   end
 
   def destroy

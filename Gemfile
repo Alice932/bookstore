@@ -59,6 +59,7 @@ group :test do
   gem 'rspec-rails', '~> 5.1.2'
   gem 'rubocop-rspec', '~> 2.12.1', require: false
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
 end
 
 gem 'aws-sdk-s3', require: false

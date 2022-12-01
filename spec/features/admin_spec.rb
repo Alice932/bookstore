@@ -210,4 +210,53 @@ describe 'Admin page', js: true do
       it { expect(page).to have_content(I18n.t('review.verified')) }
     end
   end
+
+  describe 'Coupon' do
+    let!(:book) { create :book }
+    let!(:user) { create :user }
+    let!(:coupon) { create :coupon }
+    let(:coupon_attributes) { FactoryBot.attributes_for(:coupon) }
+
+    before do
+      subject
+      visit admin_coupons_path
+    end
+
+    it 'have review params' do
+      expect(page).to have_content(coupon.code)
+      expect(page).to have_content(coupon.discount)
+      expect(page).to have_content(coupon.status)
+    end
+
+    context 'create coupon' do
+      before do
+        click_link I18n.t('active_admin.new_model', model: 'Coupon')
+        fill_in 'coupon_code', with: coupon_attributes[:code]
+        fill_in 'coupon_discount', with: coupon_attributes[:discount]
+        find_button(I18n.t('active_admin.create_model', model: 'Coupon')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_create', model: 'Coupon')) }
+    end
+
+    context 'edit coupon' do
+      before do
+        visit edit_admin_coupon_path(coupon.id)
+        fill_in 'coupon_discount', with: coupon_attributes[:discount]
+        find_button(I18n.t('active_admin.update_model', model: 'Coupon')).click
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Coupon')) }
+    end
+
+    context 'delete coupon' do
+      before do
+        visit admin_coupon_path(coupon.id)
+        find_link(I18n.t('active_admin.delete_model', model: 'Coupon')).click
+        accept_alert
+      end
+
+      it { expect(page).to have_content(I18n.t('active_admin.success_delete', model: 'Coupon')) }
+    end
+  end
 end
