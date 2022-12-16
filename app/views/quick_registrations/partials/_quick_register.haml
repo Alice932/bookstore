@@ -3,8 +3,7 @@
   = link_to user_google_oauth2_omniauth_authorize_path,  method: :post, data: {turbo: "false"}, class: 'general-login-icon' do
     %i.fa-brands.fa-google-plus-square
   %p.general-login-text= t('devise.sessions.or')
-= simple_form_for(:user, url: user_registration_path, data: { turbo: "false" }, method: :post, html: { class: 'general-form' }) do |f|
-  = f.hidden_field :registration_format, value: 'quick_register'
+= simple_form_for(:user, url: quick_registration_path, data: { turbo: "false" }, method: :post, html: { class: 'general-form' }) do |f|
   .mb-40
     %p.mb-5= t('devise.quick_registration.quick_register')
     %p.general-info-text.font-12.mb-20= t('devise.quick_registration.password_later')
