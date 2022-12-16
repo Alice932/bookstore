@@ -11,6 +11,9 @@ require_relative 'support/factory_bot'
 require_relative 'support/chrome'
 require_relative 'support/request_spec_helper'
 require 'webdrivers'
+require 'simplecov'
+SimpleCov.start
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e

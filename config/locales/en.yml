@@ -194,6 +194,30 @@ en:
     post_button: Post
     add_category: 'Add New Category book'
     add_author: 'Add New Author book'
+  order:
+    title: Cart
+    product: Product
+    price: Price
+    quantity: Quantity
+    subtotal: SubTotal
+    order_summary: Order Summary
+    order_subtotal: 'Subtotal:'
+    coupon: 'Coupon:'
+    order_total: 'Order Total:'
+    checkout: Checkout
+    alert: Add to cart process has failed.
+    notice: Successfully added to cart!
+    updated: Your item successfully updated!
+    deleted: Your item has been deleted.
+    empty_cart: Your cart now is empty
+    link_to_books: Let's fix it!
+  coupon:
+    valid: Coupon succesfully used
+    invalid: Something went wrong
+    used_coupon: Coupon already used
+    label: Enter Your Coupon Code
+    placeholder: Enter Your Coupon Code
+    submit: Apply Coupon
 
 
 

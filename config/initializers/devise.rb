@@ -4,7 +4,8 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   config.omniauth :google_oauth2, Rails.application.credentials.google_oauth_client_id, Rails.application.credentials.google_oauth_client_secret, { provider_ignores_state: true }
-  OmniAuth.config.allowed_request_methods = %i[get]
+  OmniAuth.config.allowed_request_methods = %i[get post]
+  OmniAuth.config.silence_get_warning = true
   config.mailer_sender = 'aliceway932@gmail.com'
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
