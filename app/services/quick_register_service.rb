@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuickRegisterService
   attr_accessor :user
 
