@@ -32,5 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :quick_registration, only: %i[show]
+  resource :quick_registration, only: %i[create show]
 end
