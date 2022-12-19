@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory(:user) do
-    email { 'test@gmail.com' }
+    email { "#{FFaker::Lorem.word}@gmail.com" }
     password { '12345678' }
     password_confirmation { '12345678' }
     confirmed_at { Time.now }

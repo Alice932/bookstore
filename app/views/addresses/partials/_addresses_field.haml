@@ -1,0 +1,17 @@
+= f.hidden_field :type, value: type
+.visible-xs.visible-sm
+  %h3.general-subtitle.mt-0= type
+.form-group
+  =f.input :first_name, label: t('address.label.first_name'), label_html: { class: 'control-label input-label' }, input_html: { id: 'first_name_field', class: 'form-control' }, type: 'text', placeholder: t('address.placeholder.first_name')
+.form-group
+  =f.input :last_name, label: t('address.label.last_name'), label_html: { class: 'control-label input-label' }, input_html: { id: 'last_name_field', class: 'form-control' }, type: 'text', placeholder: t('address.placeholder.last_name')
+.form-group
+  =f.input :address, label: t('address.label.address'), label_html: { class: 'control-label input-label' },  input_html: { id: 'address_field', class: 'form-control' }, type: 'text', placeholder: t('address.placeholder.address')
+.form-group
+  =f.input :country, label: t('address.label.country'), label_html: { class: 'control-label input-label' },  input_html: { id: 'country_field', class: 'form-control' }, type: 'text', prompt: :translate
+.form-group
+  =f.input :city, label: t('address.label.city'), label_html: { class: 'control-label input-label' },  input_html: { id: 'city_field', class: 'form-control' }, type: 'text', placeholder: t('address.placeholder.city')
+.form-group
+  =f.input :zip, label: t('address.label.zip'), label_html: { class: 'control-label input-label' },  input_html: { id: 'zip_field', class: 'form-control' }, type: 'text', placeholder: t('address.placeholder.zip')
+.form-group.mb-60
+  =f.input :phone, label: t('address.label.phone'), label_html: { class: 'control-label input-label' },  input_html: { id: 'phone_field', class: 'form-control' }, type: 'tel', placeholder: t('address.placeholder.phone')

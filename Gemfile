@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'aasm', '~> 5.4.0'
 gem 'activeadmin'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass', '~> 3.4.1'

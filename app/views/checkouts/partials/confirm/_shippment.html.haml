@@ -1,0 +1,8 @@
+.col-sm-3
+  %h3.general-subtitle= t('.title')
+  %p.general-address
+    = shippment.name
+    - if link
+      = link_to t('.edit'), checkout_path(state: :delivery), class: 'general-edit', data: {'turbo-method' => :put}
+    %br
+    = number_to_currency(shippment.price, unit: '€')

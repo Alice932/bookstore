@@ -33,7 +33,7 @@ class CurrentOrder
   end
 
   def user_order_exist?
-    user&.order.present?
+    user&.orders.present?
   end
 
   def order_exist?
@@ -41,7 +41,7 @@ class CurrentOrder
   end
 
   def order_from_user(user)
-    Order.find_by(id: user.order.id)
+    Order.find_by(id: user.orders.first.id)
   end
 
   def order_from_cookies

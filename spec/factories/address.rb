@@ -5,10 +5,10 @@ FactoryBot.define do
     first_name { FFaker::Name.first_name }
     last_name { FFaker::Name.last_name }
     address { FFaker::Address.street_address }
-    city { FFaker::Address.city }
+    city { FFaker::Lorem.word }
     zip { FFaker::AddressUA.zip_code }
     country { FFaker::Address.country_code }
-    phone { FFaker::PhoneNumberUA.international_home_phone_number }
+    phone { "+#{FFaker::PhoneNumberPL.mobile_phone_number}" }
     user
 
     trait :billing_address do
