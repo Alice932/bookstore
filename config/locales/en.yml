@@ -366,14 +366,7 @@ en:
       delivery:
         button_submit: Save and Continue
         shipping_method_title: Shipping Method
-        desktop:
-          days: '%{from_date} to %{to_date} days'
-          radion_button_name: delivery_id
-          method_title: Method
-          days_title: Days
-          price_title: Price
-          title: Shipping
-        mobile:
+        table:
           days: '%{from_date} to %{to_date} days'
           radion_button_name: delivery_id
           method_title: Method
