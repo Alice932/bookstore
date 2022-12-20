@@ -14,7 +14,7 @@
           %td
             .form-group.radio.mt-0.mb-0
               %label.radio-label
-                = radio_button_tag t('.radion_button_name'), delivery.id, type: 'radio'
+                = radio_button_tag t('.radion_button_name'), delivery.id, type: 'radio', name: "delivery_id"
                 %span.radio-icon
                 %span.radio-text= delivery.name
           %td

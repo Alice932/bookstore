@@ -354,7 +354,7 @@ en:
         hint: 3-digit security code, usually found on the back of your card. American Express cards has 4-digit code, located on the front.
         errors:
           card_date: Has a month on the left of a slash /, the year on the right. Month value can be from 01 to 12.
-          card_cvv: Min Length is %{default_length} digits, or min Length is %{american_length} digits.
+          card_cvv: Min Length is 3 digits and max Length is 4 digits.
           card_name: 'Should not be not empty, consist of a-z, A-Z, no special symbols, can contain spaces, must be less than 50 characters.'
           card_number: Should not be empty, can start with, consist of 0-9 only
       cart_summary:

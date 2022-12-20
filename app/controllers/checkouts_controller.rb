@@ -12,7 +12,11 @@ class CheckoutsController < ApplicationController
     @service = checkout_service
     @current_cart = decorate_current_cart
     @state = current_cart.state
-    render :show
+    if current_cart.complete?
+      redirect_to checkout_path, status: :see_other
+    else
+      render :show
+    end
   end
 
   private

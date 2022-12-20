@@ -31,7 +31,7 @@ class CheckoutConfirmService < CheckoutApplicationService
 
   def complete
     order.set_complete!
-    ConfirmedOrderMailer.confirm_order_email(user.email)
+    # ConfirmedOrderMailer.confirm_order_email(user.email)
     order.in_queue!
     order.update(number: order_number)
   end

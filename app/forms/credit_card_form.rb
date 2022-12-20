@@ -10,5 +10,5 @@ class CreditCardForm < ApplicationForm
                              message: I18n.t('checkouts.partials.payment.errors.card_name') }
   validates :date, format: { with: Constants::CreditCard::DATE_REGEX,
                              message: I18n.t('checkouts.partials.payment.errors.card_date') }
-  validates :cvv, numericality: { only_integer: true }
+  validates :cvv, length: { in: Constants::CreditCard::CVV_RANGE }, numericality: { only_integer: true }
 end

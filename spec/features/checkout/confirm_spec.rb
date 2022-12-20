@@ -66,7 +66,7 @@ RSpec.describe 'Checkout page', type: :feature do
       end
 
       context 'when user want change delivery' do
-        let(:expected_result) { I18n.t('checkouts.partials.delivery.desktop.title') }
+        let(:expected_result) { I18n.t('checkouts.partials.delivery.table.title') }
 
         before { link_to_delivery.click }
 
