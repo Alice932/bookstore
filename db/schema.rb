@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_105700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,28 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.text "body"
     t.string "resource_type"
     t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
+    t.string "coach_type"
+    t.bigint "coach_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["coach_type", "coach_id"], name: "index_active_admin_comments_on_coach"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
-  end
-
-  create_table "addresses", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "zip", null: false
-    t.string "country", null: false
-    t.string "phone", null: false
-    t.string "type", null: false
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -55,55 +40,36 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "author_books", force: :cascade do |t|
-    t.bigint "author_id", null: false
-    t.bigint "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_author_books_on_author_id"
-    t.index ["book_id"], name: "index_author_books_on_book_id"
-  end
-
-  create_table "authors", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "last_name", null: false
-    t.string "description", default: ""
-  end
-
-  create_table "book_photos", force: :cascade do |t|
-    t.bigint "book_id"
-    t.text "image_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_book_photos_on_book_id"
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description", null: false
-    t.integer "price", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "publication_date", null: false
-    t.string "materials", null: false
-    t.string "dimensions", null: false
-  end
-
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "category_books", force: :cascade do |t|
-    t.bigint "book_id", null: false
+  create_table "category_courses", force: :cascade do |t|
+    t.bigint "course_id", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_category_books_on_book_id"
-    t.index ["category_id"], name: "index_category_books_on_category_id"
+    t.index ["category_id"], name: "index_category_courses_on_category_id"
+    t.index ["course_id"], name: "index_category_courses_on_course_id"
+  end
+
+  create_table "coach_courses", force: :cascade do |t|
+    t.bigint "coach_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coach_id"], name: "index_coach_courses_on_coach_id"
+    t.index ["course_id"], name: "index_coach_courses_on_course_id"
+  end
+
+  create_table "coaches", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "last_name", null: false
+    t.string "description", default: ""
   end
 
   create_table "coupons", force: :cascade do |t|
@@ -116,22 +82,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.index ["order_id"], name: "index_coupons_on_order_id", unique: true
   end
 
-  create_table "credit_cards", force: :cascade do |t|
-    t.string "number", null: false
-    t.string "date", null: false
-    t.string "cvv", null: false
-    t.string "name", null: false
-    t.bigint "order_id"
+  create_table "course_photos", force: :cascade do |t|
+    t.bigint "course_id"
+    t.text "image_data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_credit_cards_on_order_id", unique: true
+    t.index ["course_id"], name: "index_course_photos_on_course_id"
   end
 
-  create_table "deliveries", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "from_date", null: false
-    t.integer "to_date", null: false
-    t.float "price", null: false
+  create_table "courses", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "description", null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -139,10 +101,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity", default: 1, null: false
     t.bigint "order_id"
-    t.bigint "book_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_order_items_on_book_id"
+    t.index ["course_id"], name: "index_order_items_on_course_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
 
@@ -153,9 +115,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "state", default: 0, null: false
-    t.bigint "delivery_id"
-    t.string "number"
-    t.index ["delivery_id"], name: "index_orders_on_delivery_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -166,10 +125,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.string "review_text", null: false
     t.integer "status", default: 0
     t.bigint "user_id", null: false
-    t.bigint "book_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["course_id"], name: "index_reviews_on_course_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -194,18 +153,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
-  add_foreign_key "author_books", "authors"
-  add_foreign_key "author_books", "books"
-  add_foreign_key "book_photos", "books"
-  add_foreign_key "category_books", "books"
-  add_foreign_key "category_books", "categories"
+  add_foreign_key "category_courses", "categories"
+  add_foreign_key "category_courses", "courses"
+  add_foreign_key "coach_courses", "coaches"
+  add_foreign_key "coach_courses", "courses"
   add_foreign_key "coupons", "orders"
-  add_foreign_key "credit_cards", "orders"
-  add_foreign_key "order_items", "books"
+  add_foreign_key "course_photos", "courses"
+  add_foreign_key "order_items", "courses"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "deliveries"
   add_foreign_key "orders", "users"
-  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "courses"
   add_foreign_key "reviews", "users"
 end

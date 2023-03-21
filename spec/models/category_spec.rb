@@ -10,7 +10,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'relations' do
-    it { should have_many(:category_books) }
-    it { should have_many(:books) }
+    it { should have_many(:category_courses) }
+    it { should have_many(:courses) }
   end
 end

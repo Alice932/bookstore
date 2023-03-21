@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class OrderItemsController < ApplicationController
-  before_action :book_quantity, only: [:update]
+  before_action :course_quantity, only: [:update]
 
   def create
     return redirect_to(cart_path, alert: t('order.alert')) if order_item_exist?
@@ -21,15 +21,15 @@ class OrderItemsController < ApplicationController
 
   private
 
-  def book_quantity
+  def course_quantity
     CurrentOrderItems.new(order: current_cart, params: order_items_params).call
   end
 
   def order_item_exist?
-    @order_item_exist ||= current_cart.order_items.find_by(book_id: order_items_params[:book_id]).present?
+    @order_item_exist ||= current_cart.order_items.find_by(course_id: order_items_params[:course_id]).present?
   end
 
   def order_items_params
-    params.require(:order_item).permit(:book_id, :quantity)
+    params.require(:order_item).permit(:course_id, :quantity)
   end
 end

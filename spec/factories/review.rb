@@ -7,6 +7,6 @@ FactoryBot.define do
     name { FFaker::Name.first_name }
     review_text { FFaker::Book.description }
     user
-    book
+    course
   end
 end

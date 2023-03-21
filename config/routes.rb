@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[edit update destroy]
   get '/users/:id', to: 'users#edit'
   resources :addresses, only: %i[edit update create]
-  resources :books, only: %i[index show] do
+  resources :courses, only: %i[index show] do
     collection { post :index }
   end
   resources :reviews, only: %i[create]
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resource :checkout, only: %i[show update]
 
   resources :categories, only: [] do
-    resources :books, only: %i[index] do
+    resources :courses, only: %i[index] do
       collection { post :index }
     end
   end

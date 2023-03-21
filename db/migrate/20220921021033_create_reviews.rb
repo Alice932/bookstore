@@ -9,7 +9,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.string :review_text, null: false
       t.integer :status, default: 0
       t.belongs_to :user, foreign_key: true, null: false
-      t.belongs_to :book, foreign_key: true, null: false
+      t.belongs_to :course, foreign_key: true, null: false
       t.timestamps
     end
   end

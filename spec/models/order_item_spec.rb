@@ -6,12 +6,12 @@ RSpec.describe OrderItem, type: :model do
   end
 
   describe 'relations' do
-    it { should belong_to(:book) }
+    it { should belong_to(:course) }
     it { should belong_to(:order) }
   end
 
   describe 'have indexes' do
     it { should have_db_index(:order_id) }
-    it { should have_db_index(:book_id) }
+    it { should have_db_index(:course_id) }
   end
 end

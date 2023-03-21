@@ -5,23 +5,23 @@
       %li{'data-target': "#slider", 'data-slide-to': "1"}
       %li{'data-target': "#slider", 'data-slide-to': "2"}
     .carousel-inner{role: "listbox"}
-      - @new_books.each_with_index do |book, index|
+      - @new_courses.each_with_index do |course, index|
         %div{'class': "item#{' active' if index.zero?}"}
-          - if @new_books.first == book
+          - if @new_courses.first == course
             .item.active
               .row
                 .col-sm-5
                   .general-img-wrap
-                    - if book.book_photos.first
-                      = image_tag book.book_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+                    - if course.course_photos.first
+                      = image_tag course.course_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
                     - else
-                      %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+                      %img.img-shadow.general-thumbnail-img{src: "https://images.pexels.com/photos/4861373/pexels-photo-4861373.jpeg?auto=compress&cs=tinysrgb&w=1200", alt: "design-course"}
                 .col-sm-7
                   .mb-60
-                    %h1= book.title
-                    %p.lead= book.description
-                    - book.authors.each do |author|
-                      %p.lead.small= "#{author.first_name} #{author.last_name}"
+                    %h1= course.title
+                    %p.lead= course.description
+                    - course.coaches.each do |coach|
+                      %p.lead.small= "#{coach.first_name} #{coach.last_name}"
 
                     .general-align
                       %button.disabled.btn= t('home_page.btn_buy')
@@ -30,16 +30,16 @@
               .row
                 .col-sm-5
                   .general-img-wrap
-                    - if book.book_photos.first
-                      = image_tag book.book_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+                    - if course.course_photos.first
+                      = image_tag course.course_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
                     - else
-                      %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+                      %img.img-shadow.general-thumbnail-img{src: "https://images.pexels.com/photos/4855367/pexels-photo-4855367.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load", alt: "design-course"}
                 .col-sm-7
                   .mb-60
-                    %h1= book.title
-                    %p.lead= book.description
-                    - book.authors.each do |author|
-                      %p.lead.small= "#{author.first_name} #{author.last_name}"
+                    %h1= course.title
+                    %p.lead= course.description
+                    - course.coaches.each do |coach|
+                      %p.lead.small= "#{coach.first_name} #{coach.last_name}"
                     .general-align
                       %button.disabled.btn= t('home_page.btn_buy')
     %a.left.carousel-control{href: "#slider", role: "button", 'data-slide': "prev"}

@@ -7,7 +7,7 @@ RSpec.describe Order, type: :model do
 
   describe 'relations' do
     it { should have_one(:coupon) }
-    it { should have_many(:books) }
+    it { should have_many(:courses) }
     it { should have_many(:order_items) }
   end
 

@@ -11,8 +11,8 @@ describe 'Admin page', js: true do
   end
 
   describe 'Author' do
-    let!(:author) { create :author }
-    let(:author_attributes) { FactoryBot.attributes_for(:author) }
+    let!(:coach) { create :coach }
+    let(:coach_attributes) { FactoryBot.attributes_for(:coach) }
 
     before do
       subject
@@ -20,32 +20,32 @@ describe 'Admin page', js: true do
 
     it { expect(page).to have_content(I18n.t('active_admin.sign_in')) }
 
-    context 'creates author' do
+    context 'creates coach' do
       before do
-        visit admin_authors_path
+        visit admin_coachs_path
         click_link I18n.t('active_admin.new_model', model: 'Author')
-        fill_in 'author_first_name', with: author_attributes[:first_name]
-        fill_in 'author_last_name', with: author_attributes[:last_name]
-        fill_in 'author_description', with: author_attributes[:description]
+        fill_in 'coach_first_name', with: coach_attributes[:first_name]
+        fill_in 'coach_last_name', with: coach_attributes[:last_name]
+        fill_in 'coach_description', with: coach_attributes[:description]
         find_button(I18n.t('active_admin.create_model', model: 'Author')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_create', model: 'Author')) }
     end
 
-    context 'edit author' do
+    context 'edit coach' do
       before do
-        visit edit_admin_author_path(author.id)
-        fill_in 'author_first_name', with: author_attributes[:first_name]
+        visit edit_admin_coach_path(coach.id)
+        fill_in 'coach_first_name', with: coach_attributes[:first_name]
         find_button(I18n.t('active_admin.update_model', model: 'Author')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Author')) }
     end
 
-    context 'delete author' do
+    context 'delete coach' do
       before do
-        visit admin_author_path(author.id)
+        visit admin_coach_path(coach.id)
         find_link(I18n.t('active_admin.delete_model', model: 'Author')).click
         accept_alert
       end
@@ -55,23 +55,23 @@ describe 'Admin page', js: true do
   end
 
   describe 'Book' do
-    let!(:book) { create :book }
-    let(:book_attributes) { FactoryBot.attributes_for(:book) }
+    let!(:course) { create :course }
+    let(:course_attributes) { FactoryBot.attributes_for(:course) }
 
     before do
       subject
     end
 
-    context 'create book' do
+    context 'create course' do
       before do
-        visit admin_books_path
+        visit admin_courses_path
         click_link I18n.t('active_admin.new_model', model: 'Book')
-        fill_in 'book_title', with: book_attributes[:title]
-        fill_in 'book_description', with: book_attributes[:description]
-        fill_in 'book_price', with: book_attributes[:price]
-        fill_in 'book_publication_date', with: book_attributes[:publication_date]
-        fill_in 'book_materials', with: book_attributes[:materials]
-        fill_in 'book_dimensions', with: book_attributes[:dimensions].first
+        fill_in 'course_title', with: course_attributes[:title]
+        fill_in 'course_description', with: course_attributes[:description]
+        fill_in 'course_price', with: course_attributes[:price]
+        fill_in 'course_publication_date', with: course_attributes[:publication_date]
+        fill_in 'course_materials', with: course_attributes[:materials]
+        fill_in 'course_dimensions', with: course_attributes[:dimensions].first
         find_button(I18n.t('active_admin.create_model', model: 'Book')).click
       end
 
@@ -80,9 +80,9 @@ describe 'Admin page', js: true do
 
     context 'attach photo' do
       before do
-        visit edit_admin_book_path(book.id)
+        visit edit_admin_course_path(course.id)
         find_link(I18n.t('active_admin.add_photo')).click
-        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/images/test.jpg")
+        page.attach_file('course_course_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/images/test.jpg")
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
@@ -91,21 +91,21 @@ describe 'Admin page', js: true do
 
     context 'attach unvalid file' do
       before do
-        visit edit_admin_book_path(book.id)
+        visit edit_admin_course_path(course.id)
         find_link(I18n.t('active_admin.add_photo')).click
-        page.attach_file('book_book_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/texts/test.txt")
+        page.attach_file('course_course_photos_attributes_0_image', "#{Rails.root}/spec/fixtures/texts/test.txt")
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.unvalid_file')) }
     end
 
-    context 'attach author' do
-      let!(:author) { create :author }
+    context 'attach coach' do
+      let!(:coach) { create :coach }
       before do
-        visit edit_admin_book_path(book.id)
-        find_link(I18n.t('active_admin.add_author')).click
-        select "#{author.first_name} #{author.last_name}", from: 'book_author_books_attributes_0_author_id'
+        visit edit_admin_course_path(course.id)
+        find_link(I18n.t('active_admin.add_coach')).click
+        select "#{coach.first_name} #{coach.last_name}", from: 'course_coach_courses_attributes_0_coach_id'
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
@@ -115,28 +115,28 @@ describe 'Admin page', js: true do
     context 'attach category' do
       let!(:category) { create :category }
       before do
-        visit edit_admin_book_path(book.id)
+        visit edit_admin_course_path(course.id)
         find_link(I18n.t('active_admin.add_category')).click
-        select category.name, from: 'book_category_books_attributes_0_category_id'
+        select category.name, from: 'course_category_courses_attributes_0_category_id'
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Book')) }
     end
 
-    context 'edit book' do
+    context 'edit course' do
       before do
-        visit edit_admin_book_path(book.id)
-        fill_in 'book_title', with: book_attributes[:title]
+        visit edit_admin_course_path(course.id)
+        fill_in 'course_title', with: course_attributes[:title]
         find_button(I18n.t('active_admin.update_model', model: 'Book')).click
       end
 
       it { expect(page).to have_content(I18n.t('active_admin.success_update', model: 'Book')) }
     end
 
-    context 'delete book' do
+    context 'delete course' do
       before do
-        visit admin_book_path(book.id)
+        visit admin_course_path(course.id)
         find_link(I18n.t('active_admin.delete_model', model: 'Book')).click
         accept_alert
       end
@@ -186,9 +186,9 @@ describe 'Admin page', js: true do
   end
 
   describe 'Review' do
-    let!(:book) { create :book }
+    let!(:course) { create :course }
     let!(:user) { create :user }
-    let!(:review) { create :review, book_id: book.id, user_id: user.id }
+    let!(:review) { create :review, course_id: course.id, user_id: user.id }
 
     before do
       subject
@@ -204,7 +204,7 @@ describe 'Admin page', js: true do
       before do
         visit admin_review_path(review.id)
         find_link(I18n.t('active_admin.approve_button')).click
-        visit book_path(book.id)
+        visit course_path(course.id)
       end
 
       it { expect(page).to have_content(I18n.t('review.verified')) }
@@ -212,7 +212,7 @@ describe 'Admin page', js: true do
   end
 
   describe 'Coupon' do
-    let!(:book) { create :book }
+    let!(:course) { create :course }
     let!(:user) { create :user }
     let!(:coupon) { create :coupon }
     let(:coupon_attributes) { FactoryBot.attributes_for(:coupon) }

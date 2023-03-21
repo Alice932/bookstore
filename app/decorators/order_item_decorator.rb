@@ -2,9 +2,9 @@
 
 class OrderItemDecorator < Draper::Decorator
   delegate_all
-  delegate :price, to: :book, prefix: true
+  delegate :price, to: :course, prefix: true
 
   def subtotal_price
-    quantity * book_price
+    quantity * course_price
   end
 end

@@ -18,7 +18,6 @@
             %ul.dropdown-menu
               %li
                 - if current_user
-                  %li= link_to t('header.settings'), edit_address_path(current_user.id), method: :get
                   %li= link_to t('header.logout'), destroy_user_session_path, method: :delete
                 - else
                   %li= link_to t('header.login'), new_user_session_path, method: :get
@@ -27,7 +26,7 @@
             %a.dropdown-toggle{href: "#", 'data-toggle': "dropdown", class: 'nav-link', role: "button", 'aria-haspopup': "true", 'aria-expanded': "false"}= I18n.t('header.collapse.shop')
             %ul.dropdown-menu
               - Category.find_each do |category|
-                %li= link_to category.name, category_books_path(category)
+                %li= link_to category.name, category_courses_path(category)
           %li
             = link_to  t('header.home'), root_path, class: 'nav-link'
 .row

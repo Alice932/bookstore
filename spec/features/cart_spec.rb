@@ -5,19 +5,19 @@ RSpec.describe 'Cart Part', js: true do
     let!(:user) { create :user }
     let!(:coupon) { create :coupon, status: 0 }
     let!(:used_coupon) { create :coupon, status: 1 }
-    let(:book) { create :book }
+    let(:course) { create :course }
     let(:order) { create :order, user_id: user.id }
-    let(:order_item) { create :order_item, order_id: order.id, book_id: book.id }
-    let(:total) { book.price * coupon.discount / Constants::Coupon::MAX_DISCOUNT }
+    let(:order_item) { create :order_item, order_id: order.id, course_id: course.id }
+    let(:total) { course.price * coupon.discount / Constants::Coupon::MAX_DISCOUNT }
 
     describe 'user signed in' do
       before do
         sign_in user
-        visit book_path(book)
-        click_button(I18n.t('books.show.add_to_cart'))
+        visit course_path(course)
+        click_button(I18n.t('courses.show.add_to_cart'))
       end
 
-      context 'add book to order' do
+      context 'add course to order' do
         it { expect(page).to have_content(I18n.t('order.notice')) }
       end
 
@@ -61,11 +61,11 @@ RSpec.describe 'Cart Part', js: true do
 
     describe 'user not signed in' do
       before do
-        visit book_path(book)
-        click_button(I18n.t('books.show.add_to_cart'))
+        visit course_path(course)
+        click_button(I18n.t('courses.show.add_to_cart'))
       end
 
-      context 'add book to order' do
+      context 'add course to order' do
         it { expect(page).to have_content(I18n.t('order.notice')) }
       end
 
@@ -82,7 +82,7 @@ RSpec.describe 'Cart Part', js: true do
           visit cart_path
         end
 
-        it { expect(page).to have_content(book.title) }
+        it { expect(page).to have_content(course.title) }
       end
 
       describe 'coupon part' do

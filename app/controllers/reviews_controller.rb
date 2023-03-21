@@ -5,15 +5,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      redirect_to @review.book, notice: t('review.notice')
+      redirect_to @review.course, notice: t('review.notice')
     else
-      redirect_to @review.book, alert: t('review.alert')
+      redirect_to @review.course, alert: t('review.alert')
     end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :book_id, :score, :title, :name, :review_text)
+    params.require(:review).permit(:user_id, :course_id, :score, :title, :name, :review_text)
   end
 end

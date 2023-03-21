@@ -1,4 +1,4 @@
 # Bookstore
 
-https://ay-bookstore.herokuapp.com
+https://ay-coursestore.herokuapp.com
 

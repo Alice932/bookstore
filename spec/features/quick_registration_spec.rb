@@ -2,13 +2,13 @@
 
 RSpec.describe 'Quick Registration Part', js: true do
   describe 'right text on page' do
-    let(:book) { create :book }
+    let(:course) { create :course }
 
     describe 'when user sign out' do
       let(:user_attributes) { FactoryBot.attributes_for :user }
       before do
-        visit book_path(book)
-        click_button(I18n.t('books.show.add_to_cart'))
+        visit course_path(course)
+        click_button(I18n.t('courses.show.add_to_cart'))
         click_link(I18n.t('order.checkout'))
         fill_in 'quick_email_field', with: user_attributes[:email]
         click_button(I18n.t('devise.quick_registration.submit'))
@@ -24,8 +24,8 @@ RSpec.describe 'Quick Registration Part', js: true do
       let(:user) { create :user }
       before do
         sign_in user
-        visit book_path(book)
-        click_button(I18n.t('books.show.add_to_cart'))
+        visit course_path(course)
+        click_button(I18n.t('courses.show.add_to_cart'))
         click_link(I18n.t('order.checkout'))
       end
 

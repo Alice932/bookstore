@@ -10,7 +10,7 @@ Shrine.plugin :restore_cached_data
 Shrine.plugin :validation_helpers
 
 s3_options = {
-  bucket: 'book-photos',
+  bucket: 'course-photos',
   access_key_id: Rails.application.credentials.aws.access_key_id,
   secret_access_key: Rails.application.credentials.aws.secret_access_key,
   region: 'us-west-1'

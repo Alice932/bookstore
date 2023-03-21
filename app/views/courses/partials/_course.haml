@@ -1,0 +1,19 @@
+.col-xs-6.col-sm-3
+  .general-thumb-wrap
+    .thumbnail.general-thumbnail
+      - if course.course_photos.first
+        = image_tag course.course_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+      - else
+        %img.img-shadow.general-thumbnail-img{src: "https://images.pexels.com/photos/4855367/pexels-photo-4855367.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load", alt: "design-course"}
+      .thumb-hover
+        .general-thumb-link-wrap
+          = link_to course_path(id: course), class: 'thumb-hover-link' do
+            %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
+          = link_to order_items_path(order_item: { quantity: Constants::Order::QUANTITY_INCREMENT, course_id: course.id }), data: {'turbo-method' => :post}, method: :post, class: 'thumb-hover-link' do
+            %i.fa.fa-shopping-cart.thumb-icon{'aria-hidden': "true"}
+  .general-thumb-info
+    %p.title=course.title
+    %p.font-16.in-gold-500=number_to_currency(course.price, unit: '€')
+    %span.divider-sm
+    %p.lead.small= course.all_coaches
+

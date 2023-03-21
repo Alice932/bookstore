@@ -32,7 +32,7 @@ jobs:
         environment:
           POSTGRES_USER: denver932
           POSTGRES_PASSWORD: "postgres"
-          POSTGRES_DB: bookstore_test
+          POSTGRES_DB: coursestore_test
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"

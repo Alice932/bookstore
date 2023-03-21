@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory(:order_item) do
     order
-    book
+    course
     quantity { FFaker::Random.rand(1..3) }
   end
 end

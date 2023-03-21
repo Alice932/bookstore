@@ -5,9 +5,9 @@
       %h2.h1= t('home_page.welcome_msg')
       .mb-res-50
         %p= t('home_page.description')
-      %button.btn.btn-default= link_to t('home_page.get_started'), books_path, class: 'button btn btn-default'
+      %button.btn.btn-default= link_to t('home_page.get_started'), courses_path, class: 'button btn btn-default'
   .container
     .mb-35
       %h3= t('home_page.best_sellers')
       .row
-        = render partial: 'home/partials/book', collection: books, as: :book
+        = render partial: 'home/partials/course', collection: courses, as: :course

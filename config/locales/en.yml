@@ -1,8 +1,8 @@
 en:
   head:
-    title: Bookstore
+    title: Dream Course
   header:
-    title: Bookstore
+    title: Dream Course
     shop_quantity: 3
     home: Home
     collapse:
@@ -20,17 +20,17 @@ en:
     shop: Shop
     orders: Orders
     settings: Settings
-    email: support@bookstore.com
+    email: support@coursestore.com
     phone: (555)-555-5555
   home_page:
-    welcome_msg: Welcome to our amazing Bookstore!
+    welcome_msg: Welcome to our amazing Dream Course's!
     btn_buy: Buy Now
     pervious: Pervious
     next: Next
-    description: We pore through hundreds of new books each month and select the five best we can find to share with our members.
+    description: We pore through hundreds of new courses each month and select the five best we can find to share with our members.
     get_started: Get Started
     best_sellers: Best Sellers
-  books:
+  courses:
     index:
       view_more: View More
     catalog:
@@ -207,8 +207,8 @@ en:
     success_create: "%{model} was successfully created."
     success_update: "%{model} was successfully updated."
     success_delete: "%{model} was successfully destroyed."
-    add_category: 'Add New Category book'
-    add_author: 'Add New Author book'
+    add_category: 'Add New Category course'
+    add_coach: 'Add New Author course'
     add_photo: 'Add New Book photo'
     unvalid_file: 'extension must be one of: jpg, jpeg, png'
     notice:
@@ -220,8 +220,8 @@ en:
     verified: Verified Author
     approved_status: approved
     post_button: Post
-    add_category: 'Add New Category book'
-    add_author: 'Add New Author book'
+    add_category: 'Add New Category course'
+    add_coach: 'Add New Author course'
   order:
     title: Cart
     product: Product
@@ -238,7 +238,7 @@ en:
     updated: Your item successfully updated!
     deleted: Your item has been deleted.
     empty_cart: Your cart now is empty
-    link_to_books: Let's fix it!
+    link_to_courses: Let's fix it!
   coupon:
     valid: Coupon succesfully used
     invalid: Something went wrong
@@ -328,13 +328,13 @@ en:
         order_number: Order %{number}
         button_submit: Back to Store
         desktop:
-          book_item:
-            title_book: Book
+          course_item:
+            title_course: Book
             title_price: Price
             title_quantity: Quantity
             title_subtotal: Sub Total
         mobile:
-          book_item:
+          course_item:
             title_price: Price
             title_quantity: Quantity
             title_subtotal: Sub Total

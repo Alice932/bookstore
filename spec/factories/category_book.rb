@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory(:category_book) do
+  factory(:category_course) do
     category
-    book
+    course
   end
 end

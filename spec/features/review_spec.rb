@@ -3,13 +3,13 @@
 RSpec.describe 'Review Part' do
   describe 'right text on page' do
     let(:user) { create :user }
-    let(:book) { create :book }
+    let(:course) { create :course }
     let(:review_attributes) { FactoryBot.attributes_for :review }
 
     describe 'review' do
       before do
         sign_in user
-        visit book_path(book.id)
+        visit course_path(course.id)
         first('.ratings_stars').click
         fill_in 'name_field', with: review_attributes[:name]
         fill_in 'title_field', with: review_attributes[:title]

@@ -13,7 +13,7 @@ RSpec.describe Author, type: :model do
   end
 
   describe 'relations' do
-    it { should have_many(:author_books) }
-    it { should have_many(:books) }
+    it { should have_many(:coach_courses) }
+    it { should have_many(:courses) }
   end
 end

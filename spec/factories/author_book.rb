@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory(:author_book) do
-    author
-    book
+  factory(:coach_course) do
+    coach
+    course
   end
 end

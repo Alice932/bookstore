@@ -2,31 +2,31 @@
 
 RSpec.describe 'Home Page' do
   context 'right text on page' do
-    let!(:author) { create :author }
+    let!(:coach) { create :coach }
 
-    let!(:first_book) { create :book }
-    let!(:second_book) { create :book }
-    let!(:third_book) { create :book }
-    let!(:fourth_book) { create :book }
+    let!(:first_course) { create :course }
+    let!(:second_course) { create :course }
+    let!(:third_course) { create :course }
+    let!(:fourth_course) { create :course }
 
-    let!(:first_author_books) { create :author_book, book_id: first_book.id, author_id: author.id }
-    let!(:second_author_books) { create :author_book, book_id: second_book.id, author_id: author.id }
-    let!(:third_author_books) { create :author_book, book_id: third_book.id, author_id: author.id }
-    let!(:fourth_author_books) { create :author_book, book_id: fourth_book.id, author_id: author.id }
+    let!(:first_coach_courses) { create :coach_course, course_id: first_course.id, coach_id: coach.id }
+    let!(:second_coach_courses) { create :coach_course, course_id: second_course.id, coach_id: coach.id }
+    let!(:third_coach_courses) { create :coach_course, course_id: third_course.id, coach_id: coach.id }
+    let!(:fourth_coach_courses) { create :coach_course, course_id: fourth_course.id, coach_id: coach.id }
 
     before do
       visit root_path
     end
 
-    it 'have a one book' do
-      expect(page).to have_content(first_book.title)
+    it 'have a one course' do
+      expect(page).to have_content(first_course.title)
     end
 
-    it 'have four books' do
-      expect(page).to have_content(first_book.title)
-      expect(page).to have_content(second_book.title)
-      expect(page).to have_content(third_book.title)
-      expect(page).to have_content(fourth_book.title)
+    it 'have four courses' do
+      expect(page).to have_content(first_course.title)
+      expect(page).to have_content(second_course.title)
+      expect(page).to have_content(third_course.title)
+      expect(page).to have_content(fourth_course.title)
     end
 
     it 'have welcome message' do
@@ -37,8 +37,8 @@ RSpec.describe 'Home Page' do
       expect(page).to have_button('Get Started')
     end
 
-    it 'have author name' do
-      expect(page).to have_content(author.first_name)
+    it 'have coach name' do
+      expect(page).to have_content(coach.first_name)
     end
   end
 end

@@ -10,32 +10,32 @@ class Order < ApplicationRecord
 
   has_one :credit_card, dependent: :destroy
   has_many :order_items, dependent: :destroy
-  has_many :books, through: :order_items, dependent: :destroy
+  has_many :courses, through: :order_items, dependent: :destroy
   has_one :coupon, dependent: :destroy
 
-  aasm column: :state, enum: true do
-    state :address, initial: true
-    state :delivery
-    state :payment
-    state :confirm
-    state :complete
+  # aasm column: :state, enum: true do
+  #   state :address, initial: true
+  #   state :delivery
+  #   state :payment
+  #   state :confirm
+  #   state :complete
 
-    event :set_delivery do
-      transitions from: :address, to: :delivery
-    end
+  #   event :set_delivery do
+  #     transitions from: :address, to: :delivery
+  #   end
 
-    event :set_payment do
-      transitions from: :delivery, to: :payment
-    end
+  #   event :set_payment do
+  #     transitions from: :delivery, to: :payment
+  #   end
 
-    event :set_confirm do
-      transitions from: :payment, to: :confirm
-    end
+  #   event :set_confirm do
+  #     transitions from: :payment, to: :confirm
+  #   end
 
-    event :set_complete do
-      transitions from: :confirm, to: :complete
-    end
-  end
+  #   event :set_complete do
+  #     transitions from: :confirm, to: :complete
+  #   end
+  # end
 
   def available_delivery
     Delivery.all

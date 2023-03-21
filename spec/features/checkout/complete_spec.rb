@@ -47,8 +47,8 @@ RSpec.describe 'Checkout page', type: :feature do
         result.find('a', class: 'btn btn-default mb-20').click
       end
 
-      it 'redirect_to books_path' do
-        expect(result.current_path).to eq(books_path)
+      it 'redirect_to courses_path' do
+        expect(result.current_path).to eq(courses_path)
       end
     end
   end

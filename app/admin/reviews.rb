@@ -4,8 +4,8 @@ ActiveAdmin.register Review do
   actions :index, :show
 
   permit_params :title, :name, :review_text,
-                :score, :status, :book_id, :user_id,
-                books_attributes: %i[id title],
+                :score, :status, :course_id, :user_id,
+                courses_attributes: %i[id title],
                 user_attributes: %i[id email]
 
   scope :unprocessed, default: true
@@ -15,7 +15,7 @@ ActiveAdmin.register Review do
   index do
     selectable_column
     id_column
-    column :book_id
+    column :course_id
     column :title
     column :created_at
     column :user_id
@@ -30,7 +30,7 @@ ActiveAdmin.register Review do
       row :review_text
       row :score
       row :status
-      row :book_id
+      row :course_id
       row :user_id
       row :created_at
       row :updated_at

@@ -2,7 +2,7 @@
 
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :book
+  belongs_to :course
 
   validates :score, numericality: { in: Constants::Review::SCORE_RANGE }
   validates :title, presence: true,

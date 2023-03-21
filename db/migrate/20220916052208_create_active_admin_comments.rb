@@ -6,7 +6,7 @@ class CreateActiveAdminComments < ActiveRecord::Migration[7.0]
       t.string :namespace
       t.text   :body
       t.references :resource, polymorphic: true
-      t.references :author, polymorphic: true
+      t.references :coach, polymorphic: true
       t.timestamps
     end
     add_index :active_admin_comments, [:namespace]

@@ -4,7 +4,7 @@
       %thead
         %tr
           %th
-            %span.in-grey-600= t('.title_book')
+            %span.in-grey-600= t('.title_course')
           %th.col-method
           %th
             %span.in-grey-600= t('.title_price')
@@ -16,16 +16,16 @@
         %tr
           %td
             .images.clearfix
-              - if item.book.book_photos.any?
+              - if item.course.course_photos.any?
                 .mb-20
-                  = image_tag item.book.book_photos.first.image_url, size: "350x350", class: 'img-responsive', id: "photo-0"
+                  = image_tag item.course.course_photos.first.image_url, size: "350x350", class: 'img-responsive', id: "photo-0"
               - else
-                %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+                %img.img-responsive{src: "https://www.bramstein.com/static/smashing-course-5-photo-stack.9d5d114e3e.jpg"}
           %td
-            %p.title= item.book.title
-            %p.in-grey-600.fw-300= item.book.decorate.short_description
+            %p.title= item.course.title
+            %p.in-grey-600.fw-300= item.course.decorate.short_description
           %td
-            %span.font-16.in-gold-500= number_to_currency(item.book.price, unit: '€')
+            %span.font-16.in-gold-500= number_to_currency(item.course.price, unit: '€')
           %td
             %span.ml-30= item.quantity
           %td

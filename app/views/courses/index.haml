@@ -1,0 +1,9 @@
+%main.container
+  = render 'courses/partials/catalog'
+  .mb-120
+    .row#courses
+      = render partial: 'courses/partials/course', collection: courses, as: :course
+    .text-center
+      #next_link
+        - if @pagy.next.present?
+          =button_to t('courses.index.view_more'), pagy_url_for(@pagy, @pagy.next), {class: "btn btn-primary"}

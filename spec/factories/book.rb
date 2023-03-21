@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory(:book) do
+  factory(:course) do
     title { FFaker::Book.title }
     description { FFaker::Book.description }
     price { FFaker::Random.rand(100) }

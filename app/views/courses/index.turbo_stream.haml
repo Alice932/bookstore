@@ -1,0 +1,6 @@
+=turbo_stream.append "courses" do
+  = render partial: 'courses/partials/course', collection: courses, as: :course
+
+=turbo_stream.update "next_link" do
+  - if @pagy.next.present?
+    = button_to t('courses.index.view_more'), pagy_url_for(@pagy, @pagy.next), {class: "btn btn-primary"}

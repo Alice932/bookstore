@@ -20,11 +20,11 @@ RSpec.describe Review, type: :model do
 
   describe 'relations' do
     it { should belong_to(:user) }
-    it { should belong_to(:book) }
+    it { should belong_to(:course) }
   end
 
   describe 'have indexes' do
     it { should have_db_index(:user_id) }
-    it { should have_db_index(:book_id) }
+    it { should have_db_index(:course_id) }
   end
 end

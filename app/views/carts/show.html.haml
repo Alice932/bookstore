@@ -1,7 +1,7 @@
 %main.container.general-main-wrap
   %h1.general-title-margin= t('order.title')
   -if @current_cart.order_items.present?
-    = render partial: 'carts/partials/order_item', locals: { order_items: @current_cart.order_items.includes([:book]) }
+    = render partial: 'carts/partials/order_item', locals: { order_items: @current_cart.order_items.includes([:course]) }
     .general-order-wrap
       .row
         .col-sm-4
@@ -35,4 +35,4 @@
       = link_to t('order.checkout'), @user_checkout_path, class: 'btn btn-default mb-20'
   -else
     %h1= t('order.empty_cart')
-    = link_to t('order.link_to_books'), books_path
+    = link_to t('order.link_to_courses'), courses_path
