@@ -1,0 +1,12 @@
+# pre-commit:
+#   parallel: true
+#   commands:
+#     bundle-audit:
+#       run: bundle exec bundle-audit
+#     rubocop:
+#       run: bundle exec rubocop
+#     fasterer:
+#       run: bundle exec fasterer
+#     rspec:
+#       run: bundle exec rspec
+

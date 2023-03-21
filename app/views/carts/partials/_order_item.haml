@@ -1,0 +1,32 @@
+%table.table.table-hover
+  %tr.no-hover
+    %th.col-pic.pl-0
+      %span.in-grey-600= t('order.product')
+    %th.col-title
+    %th.col-price
+      %span.in-grey-600= t('order.price')
+    %th.col-quantity
+      %span.in-grey-600= t('order.quantity')
+    %th.col-total
+      %span.in-grey-600= t('order.subtotal')
+    %th.col-close
+  -order_items.each do |order_item|
+    %tr
+      %td
+        - if order_item.course.course_photos.includes([:course_photos]).any?
+          = image_tag order_item.course.course_photos.first.image_url, class: 'cart-img-shadow pull-left'
+        - else
+          %img.order-img-shadow.pull-left{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-course"}
+      %td
+        = link_to course_path(order_item.course) do
+          %p.title= order_item.course.title
+      %td
+        %span.font-16.in-gold-500= number_to_currency(order_item.course.price, unit: '€')
+      %td
+        .input-group
+          = render partial: 'carts/partials/quantity', locals: { order_item: order_item, summary_quantity: order_item.quantity, course_id: order_item.course.id }
+      %td
+        %span.font-16.in-gold-500= number_to_currency(order_item.decorate.subtotal_price, unit: '€')
+      %td
+        = button_to order_item_path(order_item.id), method: :delete, data: {turbo: "false"}, class: "close general-cart-close" do
+          %span{'aria-hidden': "true"} &times;

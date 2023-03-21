@@ -1,0 +1,30 @@
+%footer.navbar-inverse
+  .container
+    .row
+      .col-sm-9
+        %ul.list-inline.general-align.mb-25
+          %li
+            = link_to I18n.t('footer.home'), root_path, class: 'nav-link'
+          %li
+            %a.nav-link{href: "#"}= I18n.t('footer.shop')
+          %li
+            %a.nav-link{href: "#"}= I18n.t('footer.orders')
+          - if current_user
+            %li
+              = link_to t('footer.settings'), edit_address_path(current_user.id), method: :get, class: 'nav-link'
+      .col-sm-3
+        %p.general-nav-mail= I18n.t('footer.email')
+        %p.general-nav-number= I18n.t('footer.phone')
+        %ul.list-inline.general-align
+          %li
+            %a.nav-link{href: "#"}
+              %i.fa-brands.fa-facecourse{'aria-hidden': "true"}
+          %li
+            %a.nav-link{href: "#"}
+              %i.fa-brands.fa-twitter{'aria-hidden': "true"}
+          %li
+            %a.nav-link{href: "#"}
+              %i.fa-brands.fa-google-plus{'aria-hidden': "true"}
+          %li
+            %a.nav-link{href: "#"}
+              %i.fa-brands.fa-instagram{'aria-hidden': "true"}

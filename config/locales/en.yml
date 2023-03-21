@@ -1,0 +1,378 @@
+en:
+  head:
+    title: Dream Course
+  header:
+    title: Dream Course
+    shop_quantity: 3
+    home: Home
+    collapse:
+      shop: Shop
+      mobile: Mobile development
+      photo: Photo
+      design: Web design
+    account: My account
+    logout: Log Out
+    login: Log In
+    sign_up: Sign Up
+    settings: Settings
+  footer:
+    home: Home
+    shop: Shop
+    orders: Orders
+    settings: Settings
+    email: support@coursestore.com
+    phone: (555)-555-5555
+  home_page:
+    welcome_msg: Welcome to our amazing Dream Course's!
+    btn_buy: Buy Now
+    pervious: Pervious
+    next: Next
+    description: We pore through hundreds of new courses each month and select the five best we can find to share with our members.
+    get_started: Get Started
+    best_sellers: Best Sellers
+  courses:
+    index:
+      view_more: View More
+    catalog:
+      title: Сatalog
+      filter:
+        filter_by: Filter by category
+        all: All
+        mobile: Mobile Development
+        photo: Photo
+        design: Web Design
+      sort:
+        sort_by: Sort by
+        title_asc: 'Title: A - Z'
+        title_desc: 'Title: Z - A'
+        created_at_desc: Newest first
+        popular_asc: Popular first
+        price_asc: 'Price: Low to hight'
+        price_desc: 'Price: Hight to low'
+    show:
+      description: Description
+      back_to_results: Back to results
+      add_to_cart: Add to Cart
+      publication_date: Year of publication
+      dimensions: Dimensions
+      materials: Materials
+    review:
+      name: Name
+      write_review: Write a Review
+      score: Score
+      title: Title
+      review: Review
+      post: Post
+      reviews_count: Reviews (%{count})
+      review_date: 11/11/16
+      verify: Verified Reviewer
+      reviewer: Rita J. Lewis
+      review_text: 'Thank you BookStore, I was very pleased to receive my order for the Moleskine diary so soon after placing the order.'
+  devise:
+    google: Google
+    reason: Not authorized
+    registrations:
+      new:
+        registration: Registration
+        password_confirm: Password Confirmation
+        already_account: Already have account?
+      alert: Please review the problems below
+    sessions:
+      or: or
+      enter_email: Enter Email
+      enter_password: Enter Password
+      remember_me: Remember Me
+      new:
+        login: Log In
+        sign_up: Sign Up
+        havent_account: "Haven't account?"
+    passwords:
+      set_new: Set new password
+      enter_placeholder: Enter new password
+      confirm_placeholder: Confirm password
+      change: Change
+      forgot_password: Forgot your password?
+      send_instructions: We'll email you instructions on how to reset it
+      email_placeholder: Enter Email
+      email_instructions: Email Instructions
+      cancel: Cancel
+    returning_customer:
+      customer: Returning Customer
+      log_in: Log In with Password
+      submit: Log In with Password
+    quick_registration:
+      new_customer: New Customer
+      quick_register: Quik Register
+      password_later: "You’ll be able to create password later"
+      send_password_instructions: We sent you email with password instructions
+      label: Enter Email
+      placeholder: Enter Email
+      submit: Continue to Checkout
+      error: Something went wrong!
+  mailer:
+    confirmation:
+      welcome: Welcome %{email} !
+      confirm_msg: 'You can confirm your account email through the link below:'
+      confirm_link: 'Confirm my account'
+    email_change:
+      hello: Hello %{email} !
+      email_msg: "We're contacting you to notify you that your email is being changed to "
+    password_notify:
+      hello: Hello %{email} !
+      notify_msg: "We're contacting you to notify you that your password has been changed."
+    password_change:
+      hello: Hello %{email} !
+      notify: "Someone has requested a link to change your password. You can do this through the link below."
+      link: 'Change my password'
+      password_msg: |
+        If you didn't request this, please ignore this email.
+        Your password won't change until you access the link above and create a new one.
+  address:
+    validations:
+      first_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      last_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      address: "should not be not empty, consist of a-z, A-Z, 0-9 ',' '-' ' ' only, no special symbols, must be less than 50 characters."
+      country: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      city: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      zip: "should not be empty, consist of 0-9 only,'-' no special symbols. Max Length should be 10 characters."
+      phone: "should not be empty, plus (+) at the beginning, after should contain country code of chosen country in Country drop down list consist of 0-9 only no special symbols. Must be 15 characters or less."
+    address_link: Address
+    privacy_link: Privacy
+    settings: Settings
+    billing_address: Billing Address
+    type_billing: BillingAddress
+    shipping_address: Shipping Address
+    type_shipping: ShippingAddress
+    create: Succesfully added info
+    failure: Fail.
+    first_name: First Name
+    last_name: Last Name
+    address: Address
+    country: Country
+    city: City
+    zip: Zip
+    phone: Phone
+    button_submit: Save
+  privacy:
+      validations:
+        old_password: Invalid password
+        password_confirmation: Not equal new password
+        password: Not valid password
+        email: Not valid email
+      type:
+        email: email
+        password: password
+        delete_account: delete_account
+      update: Your info was updated
+      user_deleted: User deleted.
+      failure: Fail.
+      title_email: Email
+      title_remove_account: Remove Account
+      button_submit: Save
+      button_submit_password: Update Password
+      title_password: Password
+      btn_remove_account: Please Remove My Account
+      checkbox: I understand that all data will be lost
+      email: Enter Email
+      current_password: Old Password
+      password: New Password
+      password_confirmation: Confirm Password
+  test:
+    user_form:
+      email: 'user@test.com'
+      password: Password123
+  active_admin:
+    orders:
+      links:
+        in_delivery: In delivery
+        delivered: Delivered
+        canceled: Canceled
+      notice:
+        in_delivery: Status change to In delivery
+        delivered: Status change to Delivered
+        canceled: Status change to Canceled
+    notice:
+      approved: You approved this review
+      rejected: You rejected this review
+    links:
+      approve: Approve
+      reject: Reject
+    approve_button: Approve
+    login: "Login"
+    sign_in: "Signed in successfully."
+    new_model: "New %{model}"
+    create_model: "Create %{model}"
+    update_model: "Update %{model}"
+    delete_model: "Delete %{model}"
+    success_create: "%{model} was successfully created."
+    success_update: "%{model} was successfully updated."
+    success_delete: "%{model} was successfully destroyed."
+    add_category: 'Add New Category course'
+    add_coach: 'Add New Author course'
+    add_photo: 'Add New Book photo'
+    unvalid_file: 'extension must be one of: jpg, jpeg, png'
+    notice:
+      approved: Successfully Approved.
+      rejected: Successfully Rejected.
+  review:
+    alert: Review creation has failed.
+    notice: Review successfully created!
+    verified: Verified Author
+    approved_status: approved
+    post_button: Post
+    add_category: 'Add New Category course'
+    add_coach: 'Add New Author course'
+  order:
+    title: Cart
+    product: Product
+    price: Price
+    quantity: Quantity
+    subtotal: SubTotal
+    order_summary: Order Summary
+    order_subtotal: 'Subtotal:'
+    coupon: 'Coupon:'
+    order_total: 'Order Total:'
+    checkout: Checkout
+    alert: Add to cart process has failed.
+    notice: Successfully added to cart!
+    updated: Your item successfully updated!
+    deleted: Your item has been deleted.
+    empty_cart: Your cart now is empty
+    link_to_courses: Let's fix it!
+  coupon:
+    valid: Coupon succesfully used
+    invalid: Something went wrong
+    used_coupon: Coupon already used
+    label: Enter Your Coupon Code
+    placeholder: Enter Your Coupon Code
+    submit: Apply Coupon
+  checkout:
+    title: Checkout
+    summary: Order Summary
+    item_total: "Item Total:"
+    order_total: "Order Total:"
+    sum: "€117.69"
+    save: Save and Continue
+    steps:
+      first: '1'
+      second: '2'
+      third: '3'
+      fourth: '4'
+      fifth: '5'
+      address: Address
+      delivery: Delivery
+      payment: Payment
+      confirm: Confirm
+      complete: Complete
+  orders:
+    partials:
+      navigation:
+        sort_by: Sort by
+        all_orders: All orders
+        in_queue: Waiting for processing
+        in_delivery: In delivery
+        delivered: Delivered
+        canceled: Canceled
+        title_queue: Waiting for processing
+        title_in_delivery: In delivery
+        title_delivered: Delivered
+        title_canceled: Canceled
+      desktop:
+        orders:
+          in_queue: Waiting for processing
+          in_delivery: In delivery
+          delivered: Delivered
+          canceled: Canceled
+          title_number: Number
+          title_completed_at: Completed at
+          title_status: Status
+          title_total: Total
+      mobile:
+        orders:
+          in_queue: Waiting for processing
+          in_delivery: In delivery
+          delivered: Delivered
+          canceled: Canceled
+          title_number: Number
+          title_completed_at: Completed at
+          title_status: Status
+          title_total: Total
+    index:
+      title: My Orders
+    show:
+      order_number: Order %{order_number}
+  checkouts:
+    confirm_order_email:
+      email: 'Thank you for your order!'
+    show:
+      checkout_title: Checkout
+    partials:
+      confirm:
+        button_submit: Place Order
+        shipping_address:
+          edit: edit
+          shipping_title: Shipping Address
+          full_name: '%{first_name} %{last_name}'
+        billing_address:
+          billing_title: Billing Address
+          full_name: '%{first_name} %{last_name}'
+          edit: edit
+        shippment:
+          title: Shipments
+          edit: edit
+        payment_info:
+          title: Payment Information
+          masked_card: '**** **** **** %{last_number}'
+          card_date_expire: 'MM/YY: %{date}'
+      complete:
+        order_number: Order %{number}
+        button_submit: Back to Store
+        desktop:
+          course_item:
+            title_course: Book
+            title_price: Price
+            title_quantity: Quantity
+            title_subtotal: Sub Total
+        mobile:
+          course_item:
+            title_price: Price
+            title_quantity: Quantity
+            title_subtotal: Sub Total
+        title: Thank You for your Order!
+        email_notife: An order confirmation has been has been sent to %{email}
+      payment:
+        button_submit: Save and Continue
+        title: Credit Card
+        number_placeholder: Card Number
+        number_label: Card Number
+        name_label: Name on Card
+        name_placeholder: Name on Card
+        date_label: MM / YY
+        date_placeholder: MM / YY
+        cvv_label: CVV
+        cvv_placeholder: CVV
+        hint: 3-digit security code, usually found on the back of your card. American Express cards has 4-digit code, located on the front.
+        errors:
+          card_date: Has a month on the left of a slash /, the year on the right. Month value can be from 01 to 12.
+          card_cvv: Min Length is 3 digits and max Length is 4 digits.
+          card_name: 'Should not be not empty, consist of a-z, A-Z, no special symbols, can contain spaces, must be less than 50 characters.'
+          card_number: Should not be empty, can start with, consist of 0-9 only
+      cart_summary:
+        title: Order Summary
+      address:
+        use_billing_address: Use Billing Adress
+        button_submit: Save and Continue
+        title: Address
+      delivery:
+        button_submit: Save and Continue
+        shipping_method_title: Shipping Method
+        table:
+          days: '%{from_date} to %{to_date} days'
+          radion_button_name: delivery_id
+          method_title: Method
+          days_title: Days
+          price_title: Price
+          title: Shipping
+
+
+

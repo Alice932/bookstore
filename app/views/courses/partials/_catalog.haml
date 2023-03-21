@@ -1,0 +1,25 @@
+.container
+  %h1.general-title-margin= t('courses.catalog.title')
+  .hidden-xs.clearfix
+    .dropdowns.pull-right
+      .dropdown.width-240
+        %a.dropdown-toggle.lead.small{href: "#", 'data-toggle': "dropdown", role: "button", 'aria-haspopup': "true", 'aria-expanded': "false", id: 'sort_list'}
+          = t("courses.catalog.sort.#{params[:filter] || Constants::Courses::COURSE_DEFAULT_FILTER}")
+          %i.fa.fa-angle-down.dropdown-icon.pull-right
+        %ul.dropdown-menu{id: 'sort_list'}
+          - Constants::Courses::COURSE_FILTERS.each_key do |filter|
+            %li
+              = link_to_unless params[:category_id], t("courses.catalog.sort.#{filter}"), courses_path(filter: filter) do
+                = link_to t("courses.catalog.sort.#{filter}"), category_courses_path(filter: filter)
+    %ul.list-inline.pt-10.mb-25.mr-240
+      %li.mr-35
+        = link_to courses_path, class: 'filter-link' do
+          = t('catalog.filter.all')
+          %span.badge.general-badge
+            = @courses_count
+      - @categories.each do |category|
+        %li.mr-35
+          = link_to category_courses_path(category_id: category.id), class: 'filter-link' do
+            = category.name
+            %span.badge.general-badge
+              = category.courses.count

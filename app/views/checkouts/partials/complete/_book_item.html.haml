@@ -1,0 +1,32 @@
+.hidden-xs.divider-lg.pt-20
+  - order_items.each do |item|
+    %table.table.table-hover
+      %thead
+        %tr
+          %th
+            %span.in-grey-600= t('.title_course')
+          %th.col-method
+          %th
+            %span.in-grey-600= t('.title_price')
+          %th
+            %span.in-grey-600= t('.title_quantity')
+          %th
+            %span.in-grey-600= t('.title_subtotal')
+      %tbody
+        %tr
+          %td
+            .images.clearfix
+              - if item.course.course_photos.any?
+                .mb-20
+                  = image_tag item.course.course_photos.first.image_url, size: "350x350", class: 'img-responsive', id: "photo-0"
+              - else
+                %img.img-responsive{src: "https://www.bramstein.com/static/smashing-course-5-photo-stack.9d5d114e3e.jpg"}
+          %td
+            %p.title= item.course.title
+            %p.in-grey-600.fw-300= item.course.decorate.short_description
+          %td
+            %span.font-16.in-gold-500= number_to_currency(item.course.price, unit: '€')
+          %td
+            %span.ml-30= item.quantity
+          %td
+            %span.font-16.in-gold-500= number_to_currency(item.decorate.subtotal_price, unit: '€')

@@ -1,0 +1,30 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/bundle/**/*'
+    - 'db/schema.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'config/initializers/**.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/**/*.rb'
+    - 'app/admin/**.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**.rb'
+    - 'app/controllers/users/omniauth_callbacks_controller.rb'
+Metrics/AbcSize:
+  Exclude:
+    - 'app/models/user.rb'
+    - 'db/migrate/*.rb'
+    - 'app/controllers/users/omniauth_callbacks_controller.rb'

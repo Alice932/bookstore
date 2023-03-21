@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= Rails.application.credentials.username %>
+  password: <%= Rails.application.credentials.password %>
+
+development:
+  <<: *default
+  database: Bookstore_development
+
+test:
+  <<: *default
+  database: Bookstore_test
+
+production:
+  <<: *default
+  database: Bookstore_production
+

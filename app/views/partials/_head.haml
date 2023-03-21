@@ -1,0 +1,10 @@
+%head
+   %meta{charset: "UTF-8"}
+   %meta{name: "viewport", content: "width=device-width"}
+   %title= I18n.t('head.title')
+
+   = csrf_meta_tags
+   = csp_meta_tag
+
+   = stylesheet_link_tag 'application', "data-turbo-track": "reload"
+   = javascript_include_tag 'application', "data-turbo-track": "reload", defer: true

@@ -1,0 +1,45 @@
+
+%main.container
+  = link_to request.referer, class: 'general-back-link' do
+    %i.fa.fa-long-arrow-left.mr-15
+    = t('courses.show.back_to_results')
+  .row
+    .col-sm-6
+      .product-gallery
+        .images.clearfix
+          - if @course.course_photos.any?
+            .mb-20
+              = image_tag @course.course_photos.first.image_url, size: "350x350", class: 'img-responsive', id: "photo-0"
+            - @course.course_photos.each_with_index do |photo, index|
+              - if index != 0 && index < 4
+                = image_tag photo.image_url, size: "115x115", id: "photo-#{index}"
+          - else
+            %img.img-responsive{src: "https://images.pexels.com/photos/4855367/pexels-photo-4855367.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load"}
+    .col-sm-6
+      %h1.mt-res-0= course.title
+      %p.lead.small= course.all_coaches
+      .row
+        .col-xs-12.col-md-4
+          %p.h1.in-gold-500.mt-10#course_price= number_to_currency(course.price, unit: '€')
+        .col-xs-5.col-md-3
+          .input-group.general-position
+            %a.input-link.b-n.pt-7#minus
+              %i.fa.fa-minus.line-height-40
+            = text_field_tag "courses_count", "", class: 'form-control quantity-input input-count-course', disabled: true, value: 1
+            %a.b-n.input-link#plus
+              %i.fa.fa-plus.line-height-40
+        .col-xs-7.col-md-5
+          = simple_form_for :order_item, url: order_items_path, data: { turbo: false }, method: :post do |f|
+            = f.hidden_field :quantity, class: 'input-count-course'
+            = f.hidden_field :course_id, value: course.id
+            = f.button :submit, t('courses.show.add_to_cart'), class: 'btn btn-default pull-right general-position'
+      .general-info-wrap.divider-lg
+        %p= t('courses.show.description')
+        %span.textControl
+          %span.lessText.lead.small.line-height-2= course.description
+          %a.moreContentBtn.in-gold-500.ml-10
+  .mb-80
+    - if user_signed_in?
+      = render partial: 'courses/partials/form_review'
+  .mb-80
+    = render partial: 'courses/partials/reviews'
