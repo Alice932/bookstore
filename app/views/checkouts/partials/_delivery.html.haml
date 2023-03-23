@@ -1,0 +1,7 @@
+= render partial: 'checkouts/partials/state_info', locals: { current_cart: current_cart }
+%h3.general-subtitle= t('.shipping_method_title')
+= simple_form_for(current_cart, as: :delivery, url: checkout_path, method: :put, data: { turbo: false } ) do |f|
+  = render partial: 'checkouts/partials/delivery/table', locals: { current_cart: current_cart }
+  .text-center
+    = f.button :submit, t('.button_submit')
+= render partial: 'checkouts/partials/cart_summary', locals: { current_cart: current_cart }

@@ -7,11 +7,15 @@ class OrderDecorator < Draper::Decorator
     order_items.includes([:book]).sum { |item| item.quantity * item.book.price }
   end
 
+  def delivery_price
+    delivery ? delivery.price : 0
+  end
+
   def discount
     coupon ? subtotal_price * coupon.discount / Constants::Coupon::MAX_DISCOUNT : Constants::Coupon::MIN_DISCOUNT
   end
 
   def total_price
-    subtotal_price - discount
+    subtotal_price + delivery_price - discount
   end
 end

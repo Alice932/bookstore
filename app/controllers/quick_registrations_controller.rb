@@ -16,7 +16,7 @@ class QuickRegistrationsController < ApplicationController
 
   def authenticate_user
     sign_in(@resource)
-    @resource.send_reset_password_instructions
+    # @resource.send_reset_password_instructions
     redirect_to checkout_path, notice: t('devise.quick_registration.send_password_instructions')
   end
 end

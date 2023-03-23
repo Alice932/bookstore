@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_110128) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -116,6 +116,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
     t.index ["order_id"], name: "index_coupons_on_order_id", unique: true
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "number", null: false
+    t.string "date", null: false
+    t.string "cvv", null: false
+    t.string "name", null: false
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_credit_cards_on_order_id", unique: true
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "from_date", null: false
+    t.integer "to_date", null: false
+    t.float "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity", default: 1, null: false
     t.bigint "order_id"
@@ -132,6 +152,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state", default: 0, null: false
+    t.bigint "delivery_id"
+    t.string "number"
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -177,8 +201,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_075402) do
   add_foreign_key "category_books", "books"
   add_foreign_key "category_books", "categories"
   add_foreign_key "coupons", "orders"
+  add_foreign_key "credit_cards", "orders"
   add_foreign_key "order_items", "books"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "deliveries"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"

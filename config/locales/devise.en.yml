@@ -61,3 +61,36 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  address:
+    link_to_address: Address
+    link_to_privacy: Privacy
+    settings: Settings
+    billing_address: Billing Address
+    shipping_address: Shipping Address
+    create: Nice! You create your %{address_type}
+    update: Nice! You update your %{address_type}
+    failure: Something went wrong!
+    label:
+      first_name: First Name
+      last_name: Last Name
+      address: Address
+      country: Country
+      city: City
+      zip: Zip
+      phone: Phone
+      button_submit: Save
+    placeholder:
+      first_name: First Name
+      last_name: Last Name
+      address: Address
+      city: City
+      zip: Zip
+      phone: Example +355 66 123 4567
+    validation:
+      first_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      last_name: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      address: "should not be not empty, consist of a-z, A-Z, 0-9 ',' '-' ' ' only, no special symbols, must be less than 50 characters."
+      country: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      city: "cannot be not empty, must consist of only a-z and A-Z characters without special symbols, must be less than 50 characters."
+      zip: "should not be empty, consist of 0-9 only,'-' no special symbols. Max Length should be 10 characters."
+      phone: "should not be empty, plus (+) at the beginning, after should contain country code of chosen country in Country drop down list consist of 0-9 only no special symbols. Must be 15 characters or less."

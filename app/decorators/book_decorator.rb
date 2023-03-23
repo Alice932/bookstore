@@ -8,6 +8,10 @@ class BookDecorator < ApplicationDecorator
     authors.map(&:full_name).join(Constants::Books::COMMA)
   end
 
+  def short_description
+    description.truncate(100)
+  end
+
   def truncated_all_authors
     all_authors.truncate(Constants::Books::TRUNCATED_LENGTH[:all_authors], separator: Constants::Books::SEPARATOR)
   end
