@@ -1,0 +1,57 @@
+
+%main.container
+  = link_to request.referer, class: 'general-back-link' do
+    %i.fa.fa-long-arrow-left.mr-15
+    = t('books.show.back_to_results')
+  .row
+    .col-sm-6
+      .product-gallery
+        .images.clearfix
+          - if @book.book_photos.any?
+            .mb-20
+              = image_tag @book.book_photos.first.image_url, size: "350x350", class: 'img-responsive', id: "photo-0"
+            - @book.book_photos.each_with_index do |photo, index|
+              - if index != 0 && index < 4
+                = image_tag photo.image_url, size: "115x115", id: "photo-#{index}"
+          - else
+            %img.img-responsive{src: "https://www.bramstein.com/static/smashing-book-5-photo-stack.9d5d114e3e.jpg"}
+    .col-sm-6
+      %h1.mt-res-0= book.title
+      %p.lead.small= book.all_authors
+      .row
+        .col-xs-12.col-md-4
+          %p.h1.in-gold-500.mt-10#book_price= number_to_currency(book.price, unit: '€')
+        .col-xs-5.col-md-3
+          .input-group.general-position
+            %a.input-link.b-n.pt-7#minus
+              %i.fa.fa-minus.line-height-40
+            = text_field_tag "books_count", "", class: 'form-control quantity-input input-count-book', disabled: true, value: 1
+            %a.b-n.input-link#plus
+              %i.fa.fa-plus.line-height-40
+        .col-xs-7.col-md-5
+          = simple_form_for :order_item, url: order_items_path, data: { turbo: false }, method: :post do |f|
+            = f.hidden_field :quantity, class: 'input-count-book'
+            = f.hidden_field :book_id, value: book.id
+            = f.button :submit, t('books.show.add_to_cart'), class: 'btn btn-default pull-right general-position'
+      .general-info-wrap.divider-lg
+        %p= t('books.show.description')
+        %span.textControl
+          %span.lessText.lead.small.line-height-2= book.description
+          %a.moreContentBtn.in-gold-500.ml-10
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.publication_date')
+          %p.lead.small.pull-right= book.publication_date
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.dimensions')
+          %p.lead.small.pull-right= book.dimensions
+      .general-info-wrap.divider-lg
+        .clearfix
+          %p.pull-left= t('books.show.materials')
+          %p.lead.small.pull-right= book.formated_materials
+  .mb-80
+    - if user_signed_in?
+      = render partial: 'books/partials/form_review'
+  .mb-80
+    = render partial: 'books/partials/reviews'

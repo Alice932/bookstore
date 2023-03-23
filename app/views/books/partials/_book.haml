@@ -1,0 +1,19 @@
+.col-xs-6.col-sm-3
+  .general-thumb-wrap
+    .thumbnail.general-thumbnail
+      - if book.book_photos.first
+        = image_tag book.book_photos.first.image_url, class: 'img-shadow general-thumbnail-img'
+      - else
+        %img.img-shadow.general-thumbnail-img{src: "http://jonathantweedy.com/resources/thumbs/SmashingBook5ResponsiveWebDesign.jpg", alt: "design-book"}
+      .thumb-hover
+        .general-thumb-link-wrap
+          = link_to book_path(id: book), class: 'thumb-hover-link' do
+            %i.fa.fa-eye.thumb-icon{'aria-hidden': "true"}
+          = link_to order_items_path(order_item: { quantity: Constants::Order::QUANTITY_INCREMENT, book_id: book.id }), data: {'turbo-method' => :post}, method: :post, class: 'thumb-hover-link' do
+            %i.fa.fa-shopping-cart.thumb-icon{'aria-hidden': "true"}
+  .general-thumb-info
+    %p.title=book.title
+    %p.font-16.in-gold-500=number_to_currency(book.price, unit: '€')
+    %span.divider-sm
+    %p.lead.small= book.all_authors
+
