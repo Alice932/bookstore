@@ -96,6 +96,19 @@ en:
       email_placeholder: Enter Email
       email_instructions: Email Instructions
       cancel: Cancel
+    returning_customer:
+      customer: Returning Customer
+      log_in: Log In with Password
+      submit: Log In with Password
+    quick_registration:
+      new_customer: New Customer
+      quick_register: Quik Register
+      password_later: "You’ll be able to create password later"
+      send_password_instructions: We sent you email with password instructions
+      label: Enter Email
+      placeholder: Enter Email
+      submit: Continue to Checkout
+      error: Something went wrong!
   mailer:
     confirmation:
       welcome: Welcome %{email} !
@@ -218,6 +231,24 @@ en:
     label: Enter Your Coupon Code
     placeholder: Enter Your Coupon Code
     submit: Apply Coupon
+  checkout:
+    title: Checkout
+    summary: Order Summary
+    item_total: "Item Total:"
+    order_total: "Order Total:"
+    sum: "€117.69"
+    save: Save and Continue
+    steps:
+      first: '1'
+      second: '2'
+      third: '3'
+      fourth: '4'
+      fifth: '5'
+      address: Address
+      delivery: Delivery
+      payment: Payment
+      confirm: Confirm
+      complete: Complete
 
 
 
