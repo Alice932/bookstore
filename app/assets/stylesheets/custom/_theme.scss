@@ -541,6 +541,23 @@
   }
 }
 
+input[name="delivery_id"] {
+  &:checked {
+    + {
+      .radio-icon {
+        background-color: transparent;
+        border-color: $grey-900;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  visibility: hidden;
+}
+
 .radio-input:checked+.radio-icon {
   background-color: transparent;
   border-color: $grey-900;

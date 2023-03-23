@@ -1,0 +1,20 @@
+%tr
+  %td
+    %p.font-16= t('carts.partials.cart_summary.subtotal_title')
+  %td
+    %p.font-16= number_to_currency(current_cart.subtotal_price, unit: '€')
+%tr
+  %td
+    %p.font-16= t('carts.partials.cart_summary.coupon_title')
+  %td
+    %p.font-16= number_to_currency(current_cart.discount, unit: '€')
+%tr
+  %td
+    %p.font-16= t('carts.partials.cart_summary.shipping_title')
+  %td
+    %p.font-16= number_to_currency(current_cart.delivery_price, unit: '€')
+%tr
+  %td
+    %strong.font-18= t('carts.partials.cart_summary.order_total')
+  %td
+    %strong.font-18= number_to_currency(current_cart.total_price, unit: '€')

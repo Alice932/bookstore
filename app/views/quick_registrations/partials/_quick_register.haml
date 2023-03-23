@@ -1,0 +1,12 @@
+.text-center
+  %h3.general-subtitle= t('devise.quick_registration.new_customer')
+  = link_to user_google_oauth2_omniauth_authorize_path,  method: :post, data: {turbo: "false"}, class: 'general-login-icon' do
+    %i.fa-brands.fa-google-plus-square
+  %p.general-login-text= t('devise.sessions.or')
+= simple_form_for(:user, url: quick_registration_path, data: { turbo: "false" }, method: :post, html: { class: 'general-form' }) do |f|
+  .mb-40
+    %p.mb-5= t('devise.quick_registration.quick_register')
+    %p.general-info-text.font-12.mb-20= t('devise.quick_registration.password_later')
+    .form-group.mb-30
+      = f.input :email, label: t('devise.quick_registration.label'), label_html: { class: 'control-label input-label' }, input_html: { id: 'quick_email_field', class: 'form-control' }, type: 'email', placeholder: t('devise.quick_registration.placeholder')
+  = f.button :submit, t('devise.quick_registration.submit'), class: 'button btn mb-20'

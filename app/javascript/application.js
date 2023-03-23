@@ -12,3 +12,6 @@ import "./books"
 import "./user_account"
 import "./review_rate"
 import "./book_photos"
+import "./use_billing_address"
+require("jquery-mask-plugin")
+$.jMaskGlobals.watchDataMask = true;

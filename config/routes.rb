@@ -24,10 +24,13 @@ Rails.application.routes.draw do
   resources :order_items, only: %i[create destroy update]
   resource :cart, only: %i[show]
   resource :coupon, only: %i[update]
+  resource :checkout, only: %i[show update]
 
   resources :categories, only: [] do
     resources :books, only: %i[index] do
       collection { post :index }
     end
   end
+
+  resource :quick_registration, only: %i[create show]
 end

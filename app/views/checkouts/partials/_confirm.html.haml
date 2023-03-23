@@ -1,0 +1,12 @@
+.general-main-wrap
+  = render partial: 'checkouts/partials/state_info', locals: { current_cart: current_cart }
+  .row.mb-20
+    = render partial: 'checkouts/partials/confirm/billing_address', locals: { billing_address: current_user.billing_address, link: true }
+    = render partial: 'checkouts/partials/confirm/shipping_address', locals: { shipping_address: current_user.shipping_address, link: true }
+    = render partial: 'checkouts/partials/confirm/shippment', locals: { shippment: @current_cart.delivery, link: true }
+    = render partial: 'checkouts/partials/confirm/payment_info', locals: { credit_card: current_cart.credit_card, link: true }
+  = render partial: 'checkouts/partials/confirm/book_items', locals: { order_items: current_cart.order_items.includes([:book]) }
+  .right_cart_summary
+    = render partial: 'checkouts/partials/cart_summary', locals: { current_cart: current_cart }
+.text-center
+  = link_to t('.button_submit'), checkout_path(confirm: true), class: 'btn btn-default mb-20', method: :put, data: {'turbo-method' => :put}

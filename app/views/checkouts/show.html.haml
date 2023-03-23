@@ -1,0 +1,3 @@
+%main.container
+  %h1.general-title-margin= t('.checkout_title')
+  = render partial: "checkouts/partials/#{@state}", locals: { current_cart: @current_cart, service: @service }

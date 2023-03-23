@@ -27,7 +27,7 @@ module Constants
     LAST_NAME_FORMAT = /\A[a-zA-z]+\Z/
     ADDRESS_FORMAT = /\A[a-zA-Z0-9\-,\s]+\Z/
     COUNTRY_FORMAT = /\A[a-zA-z]+\Z/
-    CITY_FORMAT = /\A[a-zA-z]+\Z/
+    CITY_FORMAT = /\A[a-zA-Z]+(?:[\s-][a-zA-Z]+)*\Z/
     ZIP_FORMAT = /\A[0-9-]+\Z/
     PHONE_FORMAT = /\A\+[0-9]+\Z/
   end

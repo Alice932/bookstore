@@ -31,7 +31,8 @@
                   %strong.font-18= t('order.order_total')
                 %td
                   %strong.font-18= number_to_currency(@current_cart.total_price, unit: '€')
-    %button.btn.btn-default.mb-20.hidden-xs.center-block= t('order.checkout')
+    .text-center
+      = link_to t('order.checkout'), @user_checkout_path, class: 'btn btn-default mb-20'
   -else
     %h1= t('order.empty_cart')
     = link_to t('order.link_to_books'), books_path
